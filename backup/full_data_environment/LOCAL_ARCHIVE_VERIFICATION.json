@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "verified_files": 64922,
+  "verification": "All transport part SHA256s, combined unchanged ZIP SHA256s, indexes, exact ZIP members, per-file contents, and full cross-group content references; no scientific recomputation",
+  "manifest_sha256": "b633ddd149660319f7a8bd00bfa3c307e27cd7754725da159e1b489618d0b2e8",
+  "restore_script_sha256": "36d71dd805612a3d9d59fb61212e0d5c9114dca57ce8bc09a5f27a4abf7d8d73",
+  "verified_utc": "2026-10-10T16:37:11.534131+00:00",
+  "elapsed_seconds": 49.11,
+  "stdout": "Manifest sidecar: verified\nVerifying raw: 2400 files, 1 parts\nPASS raw\nVerifying canonical: 619 files, 1 parts\nPASS canonical\nVerifying controlled_environment: 24568 files, 29 parts\nPASS controlled_environment\nVerifying base_environment: 37335 files, 2 parts\nPASS base_environment\nSUCCESS: 64922 files verified without extraction.\n",
+  "prior_verification_preserved": "before_net64_transport/LOCAL_ARCHIVE_VERIFICATION.json"
+}

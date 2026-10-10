@@ -1,0 +1,236 @@
+{
+  "schema": "paper3-upload-asset-plan-v1",
+  "final": true,
+  "assets": [
+    {
+      "name": "PAPER3_RAW_20261010.zip.001",
+      "bytes": 16469874,
+      "sha256": "0da714f6b46119ff62d6bbbd05106d9d9735a94159b02950eb70de46613fe7df"
+    },
+    {
+      "name": "PAPER3_RAW_20261010_FILES.json",
+      "bytes": 1449554,
+      "sha256": "b10458d89c7446eb964c64d9269dfe69b2ddeb24b9c628cdfd09512f5f85928f"
+    },
+    {
+      "name": "PAPER3_CANONICAL_20261010.zip.001",
+      "bytes": 133855589,
+      "sha256": "b2d85cc3d1562d04b00c65e718533a5d9b55b99a2f496b1bb612cbad1248fc03"
+    },
+    {
+      "name": "PAPER3_CANONICAL_20261010_FILES.json",
+      "bytes": 425707,
+      "sha256": "ca7e81d6a6ed720f5becd833cd99f9c6c0f083fa624d5d4c1750d42f77117d1c"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.001.net64.001",
+      "bytes": 67108864,
+      "sha256": "034c39eaf1f5c536274f301b17ea029703955f44a2f7f3a178e337bbe4ff78f5"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.001.net64.002",
+      "bytes": 67108864,
+      "sha256": "ab3232ff6815954d57da74806ed45cf5b40dbd2cb1a5e4fa05e56c6372667b7a"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.001.net64.003",
+      "bytes": 67108864,
+      "sha256": "1013d8720bcc3d0b33d73ef1306c1e98a0dae1a518d8122e3f7bc3e240a71ea9"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.001.net64.004",
+      "bytes": 67108864,
+      "sha256": "e4514f69bffcb395c42dc21a93fd0f9200a193fb36d3fce097b046eb0b8cd3cf"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.002",
+      "bytes": 268435456,
+      "sha256": "05e6e7438b43b7df240dfcb4b03d5e13feca67bb7bf139a752cc929c66e68a83"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.003",
+      "bytes": 268435456,
+      "sha256": "86204682c1a8456a341735d90e04beb7faa8ac2ebc6b1ddc8b3feaf65fe8e7f1"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.004.net64.001",
+      "bytes": 67108864,
+      "sha256": "738b10f96898a8c2500d90a0c8b7fda9002ccea2603fa43afd566065cec4ec1b"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.004.net64.002",
+      "bytes": 67108864,
+      "sha256": "215d058b38d3c65c3994b6a689f35d86f71cda44810f0edf4f7d542180cf0ed8"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.004.net64.003",
+      "bytes": 67108864,
+      "sha256": "72aa5a306f6b93a3a56fc9c1c417eb95d7be73249815a704b8a18b2309e3a903"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.004.net64.004",
+      "bytes": 67108864,
+      "sha256": "17f7deeac441866501df61263ec8606effd11e3da086f1b1b8a07fc48572b75c"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.005.net64.001",
+      "bytes": 67108864,
+      "sha256": "45741217c9ba3fa755a6e2b98a058635134ea1f37661ca934888bbce97744f17"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.005.net64.002",
+      "bytes": 67108864,
+      "sha256": "41d6cf629236766565b150cf428f78a515c7cdbaa13ad1548c6e90c3e35806ff"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.005.net64.003",
+      "bytes": 67108864,
+      "sha256": "e58e4f3b2c99db3ebad9b02e8033e828d5d2ad52b4725d8c7e491f5842f66f5e"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.005.net64.004",
+      "bytes": 67108864,
+      "sha256": "636ac72622dad9e7431baeee87d121a58886eb533d869e77c6fc043a9d24fdcf"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.006",
+      "bytes": 268435456,
+      "sha256": "f1104cd26503dd7dd23775f0347f95955a468bf965e0b1a5a61d6aa21470b6f4"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.007.net64.001",
+      "bytes": 67108864,
+      "sha256": "f599b67dda0dbfba0fe5293824857ae8e9e5a528a9e3b9ae34db995c0df256dd"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.007.net64.002",
+      "bytes": 67108864,
+      "sha256": "3a68c402a16ca7cfe0a91dae81e40904f1a0e2a508f9759c9be6072bfba46781"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.007.net64.003",
+      "bytes": 67108864,
+      "sha256": "d38d95b503dbc0052657b74771b26468bb33fad8226457a0c1c10744b98e79d6"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.007.net64.004",
+      "bytes": 67108864,
+      "sha256": "730b03fa749b0683d3e599b8eb665b9cbfabbaa67a37d42927896fdfa9847875"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.008",
+      "bytes": 268435456,
+      "sha256": "863a8140dc6eab68f12284d827f962cf59b372c66932242b2238c473bb608b86"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.009.net64.001",
+      "bytes": 67108864,
+      "sha256": "532f46412782113cfa2d4e312fd969efda207ab41754e12b38fbb65d2ca41338"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.009.net64.002",
+      "bytes": 67108864,
+      "sha256": "1460f995d7e2435a1bcf315075865cfe7728d992e49284b68a17bd488bfe2b62"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.009.net64.003",
+      "bytes": 67108864,
+      "sha256": "b09fa0c395869f9f30376d0489f09bd42aef27fb585d9f5cd7f8449533fe4c23"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.009.net64.004",
+      "bytes": 67108864,
+      "sha256": "c240c8f5533402a9a5a6de99b71571f73295468bf94075a2c9a37da5d539fd21"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.010.net64.001",
+      "bytes": 67108864,
+      "sha256": "624bec833355541000958117a799a605c9c91df5b4538e37394d57cec0a92ea1"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.010.net64.002",
+      "bytes": 67108864,
+      "sha256": "ea20ef916d33121b18e96f876db7178ea577d27247bf9bc88b92fce1b8d366cf"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.010.net64.003",
+      "bytes": 67108864,
+      "sha256": "0cbd8223f0b91bea4404105eb3138d250208889f221482d7edee732714ceefde"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.010.net64.004",
+      "bytes": 67108864,
+      "sha256": "ff992e70bdf2e7db5524f5fcc3be54f2c33cb91c3dc71d0b041677cb563358ea"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010.zip.011",
+      "bytes": 13802629,
+      "sha256": "f65eab43880c08332fb08bd1cf7596028b4725eb74c1a51105af5dab20d44a2a"
+    },
+    {
+      "name": "PAPER3_CONTROLLED_ENV_20261010_FILES.json",
+      "bytes": 16220387,
+      "sha256": "846d0fc0937cd8860422b42983c68c059259cef49d313e22b16d9a393b9bb505"
+    },
+    {
+      "name": "PAPER3_BASE_CONDA_ENV_20261010.zip.001",
+      "bytes": 268435456,
+      "sha256": "c0972bd7b10af9c29e7179020197ab7d3692f709708c8aea4c51f40c5ef8960d"
+    },
+    {
+      "name": "PAPER3_BASE_CONDA_ENV_20261010.zip.002",
+      "bytes": 4385901,
+      "sha256": "700037f426a7822e66a50d47e1ff88f85420037a411d2ca2f81b1ea4e5641128"
+    },
+    {
+      "name": "PAPER3_BASE_CONDA_ENV_20261010_FILES.json",
+      "bytes": 27513809,
+      "sha256": "06aa32f33457a377da1a1efb16685319d9d785788a6229d8ebfabba492b38e57"
+    },
+    {
+      "name": "FULL_BACKUP_MANIFEST.json",
+      "bytes": 11017,
+      "sha256": "b633ddd149660319f7a8bd00bfa3c307e27cd7754725da159e1b489618d0b2e8"
+    },
+    {
+      "name": "FULL_BACKUP_MANIFEST.json.sha256",
+      "bytes": 93,
+      "sha256": "7b003420913d340cadb90adf85b6d9800336956022508eb3d069e4c727bd8bff"
+    },
+    {
+      "name": "FULL_BACKUP_README.md",
+      "bytes": 2618,
+      "sha256": "7bf0d277ca07f1cdd72d6adf5020b6ffab8a78d87200f93e217224d9d3b47b3a"
+    },
+    {
+      "name": "restore_full_backup.py",
+      "bytes": 28350,
+      "sha256": "36d71dd805612a3d9d59fb61212e0d5c9114dca57ce8bc09a5f27a4abf7d8d73"
+    },
+    {
+      "name": "ENVIRONMENT_SUMMARY.json",
+      "bytes": 33989,
+      "sha256": "a933b74a3a15d4d1fa29496aed455047df9292c14455cd3564a4bc7725ea92b8"
+    },
+    {
+      "name": "ENVIRONMENT_RESTORE_NOTES.md",
+      "bytes": 3265,
+      "sha256": "357a29040baca1d49d5c751c7f6c23cea4dd87732674a31fe2ee108a85426bf4"
+    },
+    {
+      "name": "PAPER3_BACKUP_AUDIT_20261010.zip",
+      "bytes": 3706050,
+      "sha256": "aaa9a0f868bbe6d59ca34d41ca4f7e4b301ddfd57a9c6f0c14835c1254887b45"
+    },
+    {
+      "name": "PAPER3_BACKUP_AUDIT_20261010.zip.sha256",
+      "bytes": 100,
+      "sha256": "4604877ae27a9624a2374c40f3f6a67303c0d3709f70329bda4bdbf2d22810b3"
+    },
+    {
+      "name": "NET64_TRANSPORT_VERIFICATION.json",
+      "bytes": 7210,
+      "sha256": "823c5063e2bb00952050ad5ecb9ba013fcfb7768b1c0a27272f1bbcc542ad933"
+    }
+  ]
+}
