@@ -1,0 +1,103 @@
+diff --git "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\statistics.py" "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\statistics.py"
+index 089913b..cb550c0 100644
+--- "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\statistics.py"
++++ "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\statistics.py"
+@@ -23,8 +23,8 @@ from datetime import datetime, timezone
+ from pathlib import Path
+ 
+ REPOSITORY = Path(__file__).resolve().parents[3]
+-RESULTS_ROOT = REPOSITORY/"results/p7_7_integrity_replication_batch20_env_v1"
+-EXECUTOR_ROOT = REPOSITORY/"verification/paper3_canonical_inputs/replication_executor_batch20_env_v1"
++RESULTS_ROOT = REPOSITORY/"results/p7_7_integrity_replication_batch20_env_v2"
++EXECUTOR_ROOT = REPOSITORY/"verification/paper3_canonical_inputs/replication_executor_batch20_env_v2"
+ INPUT_RUN = REPOSITORY/"verification/paper3_canonical_inputs/P7_7_CANONICAL_INPUT_VERIFICATION_V1/CIV_INPUT_V1_AUTHORIZED_20261009_RUN003"
+ CENTERS = tuple(range(33000,33020))
+ SEEDS = (7311,7312,7313)
+@@ -34,8 +34,8 @@ CONFIG_IDS = ("B0_Frozen_ratio10","B1_AlwaysMaintainP50_ratio10","B2_RAVM_ratio1
+ STAGES = 24
+ BOOTSTRAP_SEED = 2904
+ BOOTSTRAP_DRAWS = 4000
+-STATISTICS_ID = "P7_7_JOINT_CENTER_STATISTICS_BATCH20_ENV_V1"
+-OUTPUT_PREFIX = "statistics_batch20_env_v1"
++STATISTICS_ID = "P7_7_JOINT_CENTER_STATISTICS_BATCH20_ENV_V2"
++OUTPUT_PREFIX = "statistics_batch20_env_v2"
+ CENTER_COLUMNS = ("lifecycle_service_loss","maintenance_count","maintenance_rate","ri_count","ri_rate",
+                   "maintenance_cost","ri_cost","total_action_cost","retain_rate","gate_open_rate")
+ ROW_FIELDS = ("method","center_id","seed","scenario","stage","service_mse","action","gate_open",
+@@ -310,7 +310,7 @@ def original_comparison_tables(new_method,new_scenario,new_contrasts,old_method,
+ 
+ def _bound_executor_modules(manifest):
+     """Import only the new frozen stdlib-only integrity reader and provenance module."""
+-    package_name = "paper3_statistics_env_v1_bound_executor"
++    package_name = "paper3_statistics_env_v2_bound_executor"
+     _assert(package_name not in sys.modules,"statistics gate loader requires fresh process")
+     package = types.ModuleType(package_name)
+     package.__path__ = [str(EXECUTOR_ROOT)]
+@@ -498,7 +498,7 @@ def validate_statistics_gate(repo,results_root, *, expected_manifest_digest):
+     _bind(bindings,INPUT_RUN/"contexts/F1.json",p)
+     _bind(bindings,Path(__file__),p)
+     for file in Path(__file__).parent.rglob("*.py"): _bind(bindings,file,p)
+-    test_path = _bind(bindings,Path(__file__).parent/"SYNTHETIC_TEST_RESULTS_ATTEMPT002.json",p)
++    test_path = _bind(bindings,Path(__file__).parent/"SYNTHETIC_TEST_RESULTS_ATTEMPT001.json",p)
+     test_receipt = p.read_json(test_path)
+     actual_statistics = {file.relative_to(Path(__file__).parent).as_posix():p.file_sha256(file)
+                          for file in Path(__file__).parent.rglob("*.py")}
+
+diff --git "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\runtime_guard.py" "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\runtime_guard.py"
+index f784ba0..bd7bf24 100644
+--- "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\runtime_guard.py"
++++ "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\runtime_guard.py"
+@@ -131,7 +131,7 @@ def install_statistics_import_guard(manifest,bindings,provenance):
+     for name,module in tuple(sys.modules.items()):
+         path = getattr(module,"__file__",None)
+         if path and not path.startswith("<"): guard.check(name,path)
+-    output = provenance.regular_path(manifest["paths"]["results_root"])/"statistics_batch20_env_v1"
++    output = provenance.regular_path(manifest["paths"]["results_root"])/"statistics_batch20_env_v2"
+     def read_hook(event,args):
+         if event!="open": return
+         path,mode,flags = args
+
+diff --git "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\run_statistics.py" "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\run_statistics.py"
+index 9e8827e..b564499 100644
+--- "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\run_statistics.py"
++++ "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\run_statistics.py"
+@@ -20,7 +20,7 @@ def main():
+     parser.add_argument("--expected-manifest-digest",required=True)
+     args = parser.parse_args()
+     folder = Path(__file__).resolve().parent
+-    package_name = "paper3_authorized_statistics_env_v1"
++    package_name = "paper3_authorized_statistics_env_v2"
+     package = types.ModuleType(package_name)
+     package.__path__ = [str(folder)]
+     sys.modules[package_name] = package
+
+diff --git "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\test_statistics.py" "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\test_statistics.py"
+index aed3f39..25cf7d3 100644
+--- "a/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v1\\test_statistics.py"
++++ "b/D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v2\\test_statistics.py"
+@@ -20,7 +20,7 @@ from datetime import datetime,timezone
+ from pathlib import Path
+ 
+ ROOT = Path(__file__).resolve().parent
+-PACKAGE = "paper3_statistics_synthetic_env_v1"
++PACKAGE = "paper3_statistics_synthetic_env_v2"
+ package = types.ModuleType(PACKAGE)
+ package.__path__ = [str(ROOT)]
+ sys.modules[PACKAGE] = package
+@@ -211,14 +211,14 @@ class GuardAndStaticTests(unittest.TestCase):
+     def contract(self,path):
+         repo = ROOT.parents[2]
+         return dict(bound={str(Path(path).resolve()).casefold():"a"*64},repo=repo,statistics_root=ROOT,
+-                    executor_root=repo/"verification/paper3_canonical_inputs/replication_executor_batch20_env_v1",
++                    executor_root=repo/"verification/paper3_canonical_inputs/replication_executor_batch20_env_v2",
+                     site_root=SELECTED_SITE,stdlib_root=Path(sys.base_prefix)/"Lib")
+     def test_statistics_source_allowed(self):
+         path = ROOT/"statistics.py"; self.assertTrue(G.allowed_module_origin("stats",path,**self.contract(path)))
+     def test_original_model_import_forbidden(self):
+         path = ROOT.parents[2]/"core/p7.py"; self.assertFalse(G.allowed_module_origin("core.p7",path,**self.contract(path)))
+     def test_executor_adapter_import_forbidden(self):
+-        path = ROOT.parent/"replication_executor_batch20_env_v1/science_adapter.py"; self.assertFalse(G.allowed_module_origin("adapter",path,**self.contract(path)))
++        path = ROOT.parent/"replication_executor_batch20_env_v2/science_adapter.py"; self.assertFalse(G.allowed_module_origin("adapter",path,**self.contract(path)))
+     def test_torch_import_forbidden(self):
+         path = SELECTED_SITE/"torch/__init__.py"; self.assertFalse(G.allowed_module_origin("torch",path,**self.contract(path)))
+     def test_pandas_import_forbidden(self):

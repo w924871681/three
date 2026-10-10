@@ -1,0 +1,114 @@
+{
+  "AI_images_or_seaborn_used": false,
+  "actual_runtime": {
+    "executable": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\python.exe",
+    "matplotlib": "3.11.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0",
+    "python": "3.11.15"
+  },
+  "created_utc": "2026-10-10T13:41:53.269045+00:00",
+  "existing_protected_files_unchanged": 46,
+  "experiments_or_training_run": false,
+  "figures": {
+    "Fig2_Paired_Service_Loss": {
+      "data_check": "PASS",
+      "height_inches": 4.5,
+      "layout_check": "PASS",
+      "minimum_font_pt": 8,
+      "pdf_vector": true,
+      "png_dpi": 600,
+      "recommended_for_main_text": true,
+      "width_inches": 7.16
+    },
+    "Fig3_Selective_Search": {
+      "data_check": "PASS",
+      "height_inches": 2.8,
+      "layout_check": "PASS",
+      "minimum_font_pt": 8,
+      "pdf_vector": true,
+      "png_dpi": 600,
+      "recommended_for_main_text": true,
+      "width_inches": 7.16
+    }
+  },
+  "files_sha256": {
+    "FIGURE_CAPTIONS.md": "4751828cbc98d05eafb2f5208b6b2a58db74e3e65b897f4940dc223493621231",
+    "FIGURE_DATA_PROVENANCE.md": "49f20800573e8ee23beea865b3ea4c523ff4828358d88b961d6354f8ec3560ef",
+    "FIGURE_SCIENTIFIC_AUDIT.md": "2291ea7283313891e7b74994a74301a5f191208571e4144387f6a6a9dac8b9b1",
+    "Fig2_Paired_Service_Loss.pdf": "88ac94d8134d563265d87d2fd82f923d68f9b02d3a9c0c38f065b388d8e25943",
+    "Fig2_Paired_Service_Loss.png": "5a999d192147b9c5055ab6a550e3a259937978bf659edab2379938b3b99a4b69",
+    "Fig3_Selective_Search.pdf": "a110b111ab9ac6086fc24f148d4adab853ce9723b09f2cf63a34fff347471ef4",
+    "Fig3_Selective_Search.png": "033060584bcf13fd4aad823091e739d25951e64e0a350af88c0cab61f3f50099",
+    "LAYOUT_CHECK.json": "18dbc2a9b6ac7b3704f29f54865ae32a90d3c471a70905de9fa91dc5381c260a",
+    "PLOT_DATA.json": "b966eb0e1b08e26c76c94726260867ea5f5080cc2fad10c5dbef5602c42f3ee0",
+    "audit/DATA_AUDIT.json": "bfb9add30bfdce5fe05cf79427e817c9e52df2d3647e5117577def382314e157",
+    "audit/DATA_PROFILE.json": "100efa85b49aa0115b6395d1f0f918d87d148cca7ee1d686d60a7500d424dcdf",
+    "audit/EXISTING_FIGURES_AND_MANUSCRIPT_BEFORE.json": "a1c1e28e0d1fe890ef7708ec6fba824b47c6be7a45a969e8351af5d332ea6caf",
+    "audit/FINAL_FILE_QA.json": "54ce9d6f76f72eecb6a361b8378d3c7a41eaab0e2e2cb0aaa7b98b654aa2760e",
+    "audit/FINAL_RENDER_REVIEW.json": "71d067b67bffe64c873190424e31342d21bf310668315de1e46ba67718cfa4e0",
+    "audit/INDEPENDENT_FIGURE_REVIEW.json": "9caab37edb2547a6c8c19c3d2ff03574dec38fcd0671cb7e5a9dd9d0d69cc9f8",
+    "audit/REPRODUCIBILITY_CHECK.json": "669b6972ee61776624fe2b2aeeb67263229c24a8cf44f4601d637d3e707ff7ee",
+    "audit/manuscript_inventory.json": "680b641abcb07be09feed0da93957ab314958e8fe949f58b4825c11326f6e188",
+    "generate_paper3_figures.py": "829c43556c23b713af02442279cafe5218d02f8403a1b54084bd7222c288198b",
+    "inputs/DELIVERY_MANIFEST.json": "2189bc4d91689717c4c87cec0e1f539f32aac7069673dff61bd626b939e7985f",
+    "inputs/FINAL_INTEGRITY_CERTIFICATE.json": "86b9c104aacf708f7f060d1f99faa0215b7b3490327c6325c4ddf49353743398",
+    "inputs/PACKAGE_MANIFEST.json": "5a30e5519ed3fde36e78e7e31e6918849fb5fd2814f635aac0a8e80fa2624fde",
+    "inputs/final_execution_cost_by_method.csv": "70226a06ae6aaeb30f0de69aad7bf7aa1f38048eec7b77814344dac7b399d404",
+    "inputs/final_execution_cost_by_trajectory.csv": "067f6d991356bba5795bff28baa34f43a9cb03915386ca7ff2b8de6d1206f62f",
+    "inputs/final_metrics_by_center.csv": "49408ac23d337e879e124cfafbd45cc1fbb7947f4f509112830ffe325b13dc78",
+    "inputs/final_metrics_by_method.csv": "9f4fc9db6d633fc8a3472c26d5ecc74791792ee4738d313b8cbbd764973f989e",
+    "inputs/final_metrics_by_trajectory.csv": "012bd7a292b571714178fe369418b7d7e693dc498b514eff6fc437c5e4ccc8bd",
+    "inputs/final_paired_contrasts.csv": "dccfb5249ac7c41ea7337e1fcd2f1f1dd4d00def630eb6b0eaa84662363c8da3",
+    "inputs/statistics_execution_receipt.json": "82585cf06c15e2bebc2d37bea90ccb9b6f24aa78745c00f6fd3378a0a0742dec",
+    "inputs/statistics_manifest.json": "a2cd080532db281ca60ae89ee9edf5e272552689f8be9220eaf7c7857b3f1468",
+    "source_evidence/FINAL_STATISTICS_VERIFICATION.md": "97e93003c7060fe85fa372b7181ffed36b1d69c30d3867face062f3270fe67d5",
+    "source_evidence/PAPER3_FINAL_VERIFIED_HANDOFF.md": "b6ab48e7a7c610fa246f059a2d61b55478573a5764a81bc189cb8ae4b7722cda",
+    "source_evidence/SCIENTIFIC_CLAIM_BOUNDARY.md": "4f3549e9a6814794bb9abe2474ac49c753dc28c5904d4fc1bb3e6a1b6a0bbcef",
+    "source_evidence/corrected_reports/CORRECTED_FINAL_STATISTICS.md": "77d58be3329be332916967bc51e779f16c1b11b22542207e2c50055b717963fc"
+  },
+  "font": {
+    "name": "DejaVu Sans",
+    "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\model_env_recovery_v1_20261009\\P7_7_REPLICATION_MODEL_ENV_V1\\Lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf",
+    "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+  },
+  "input_bundle_is_selected_subset_of_scientific_archive": true,
+  "manuscript_modified": false,
+  "optional_fig4": {
+    "generated": false,
+    "reason": "Redundant with corrected four-scenario table; complete center data available; choice independent of direction/significance"
+  },
+  "original_mixed_plot_data_used": false,
+  "protocol": {
+    "B8_CI_crosses_zero": true,
+    "bootstrap_resamples": 4000,
+    "bootstrap_seed": 2904,
+    "centers": 20,
+    "intervals_recomputed": false,
+    "point_estimates": "Original observed center-mean differences"
+  },
+  "reproducibility": {
+    "all_four_graphics_byte_identical_on_one_rerender": true
+  },
+  "schema": "paper3-corrected-batch20-figure-package-v1",
+  "scope": "Two new figures from formally verified corrective batch20 saved statistics only",
+  "self_reference_policy": "This manifest and its sidecar are outside files_sha256; the sidecar binds this manifest. External ZIP SHA sidecar and post-packaging receipt bind the exact complete ZIP.",
+  "sources": {
+    "formal_archive": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE",
+    "source_sha256": {
+      "DELIVERY_MANIFEST.json": "2189bc4d91689717c4c87cec0e1f539f32aac7069673dff61bd626b939e7985f",
+      "FINAL_INTEGRITY_CERTIFICATE.json": "86b9c104aacf708f7f060d1f99faa0215b7b3490327c6325c4ddf49353743398",
+      "PACKAGE_MANIFEST.json": "5a30e5519ed3fde36e78e7e31e6918849fb5fd2814f635aac0a8e80fa2624fde",
+      "final_execution_cost_by_method.csv": "70226a06ae6aaeb30f0de69aad7bf7aa1f38048eec7b77814344dac7b399d404",
+      "final_execution_cost_by_trajectory.csv": "067f6d991356bba5795bff28baa34f43a9cb03915386ca7ff2b8de6d1206f62f",
+      "final_metrics_by_center.csv": "49408ac23d337e879e124cfafbd45cc1fbb7947f4f509112830ffe325b13dc78",
+      "final_metrics_by_method.csv": "9f4fc9db6d633fc8a3472c26d5ecc74791792ee4738d313b8cbbd764973f989e",
+      "final_metrics_by_trajectory.csv": "012bd7a292b571714178fe369418b7d7e693dc498b514eff6fc437c5e4ccc8bd",
+      "final_paired_contrasts.csv": "dccfb5249ac7c41ea7337e1fcd2f1f1dd4d00def630eb6b0eaa84662363c8da3",
+      "statistics_execution_receipt.json": "82585cf06c15e2bebc2d37bea90ccb9b6f24aa78745c00f6fd3378a0a0742dec",
+      "statistics_manifest.json": "a2cd080532db281ca60ae89ee9edf5e272552689f8be9220eaf7c7857b3f1468"
+    },
+    "statistics_root": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3"
+  },
+  "status": "FIGURES_READY"
+}

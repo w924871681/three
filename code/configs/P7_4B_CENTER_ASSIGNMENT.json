@@ -1,0 +1,116 @@
+{
+  "schema": "dt-lifecycle-escalation-p7.4b-center-assignment-v1",
+  "declared_at": "2026-09-21T16:28:33+08:00",
+  "declared_before_any_p7_4b_outcome_materialization": true,
+  "status": "FROZEN_PENDING_HUMAN_REVIEW",
+  "candidate_reservation": {
+    "start": 32200,
+    "end_inclusive": 32247,
+    "count": 48,
+    "contiguous": true,
+    "freshness_verdict": "CLEAN_AND_UNUSED",
+    "final_heldout_range": [33000, 33019]
+  },
+  "metadata_inspection": {
+    "allowed_fields": ["center_id", "center_type", "deployment_tier"],
+    "generator_field_mapping": {"deployment_tier": "budget_tier"},
+    "data_seed": 7311,
+    "inspection_scope": "in-memory metadata fields only; no trajectory arrays, labels, oracle margins, predictions, service outcomes, or representation outcomes were inspected or persisted",
+    "outcome_dependent_assignment": false
+  },
+  "provenance_audit": {
+    "repository_csv_files_with_center_id_column": 1499,
+    "target_ids_found_in_center_id_columns": [],
+    "target_ids_found_in_filenames": [],
+    "structured_config_or_audit_references_before_this_freeze": [
+      {
+        "path": "configs/P7_4B_PROSPECTIVE_STUDY_DRAFT.json",
+        "role": "prospective reservation only",
+        "values": [32200, 32247]
+      }
+    ],
+    "historical_text_search_review": "Pure-text Git-history matches were inspected and were timestamps, row indices, numeric outcome substrings, or hash substrings; the center_id-column audit found no use of any reserved ID.",
+    "scope_verdicts": {
+      "generator_development": "CLEAN",
+      "P3_P3_1_P3_2": "CLEAN",
+      "P6": "CLEAN",
+      "P7": "CLEAN",
+      "P7_1": "CLEAN",
+      "P7_2": "CLEAN",
+      "P7_3": "CLEAN",
+      "hidden_debug_development_trajectories": "CLEAN",
+      "Alibaba_external_evaluation": "CLEAN",
+      "final_heldout_33000_33019": "DISJOINT"
+    }
+  },
+  "assignment_algorithm": {
+    "stratum_key_order": ["center_type", "deployment_tier"],
+    "tier_sort_order": ["loose", "medium", "tight"],
+    "within_stratum_sort": "ascending center_id",
+    "rule": "Process strata in center_type A,B,C order and tier loose,medium,tight order. Before each stratum, assign its first center to the pool with fewer centers, using RepresentationFit on a tie; then alternate pools within the stratum.",
+    "replacement_forbidden": true
+  },
+  "centers": [
+    {"center_id": 32200, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32201, "center_type": "B", "deployment_tier": "loose", "pool": "RepresentationValidation"},
+    {"center_id": 32202, "center_type": "A", "deployment_tier": "loose", "pool": "RepresentationFit"},
+    {"center_id": 32203, "center_type": "A", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32204, "center_type": "A", "deployment_tier": "loose", "pool": "RepresentationValidation"},
+    {"center_id": 32205, "center_type": "C", "deployment_tier": "loose", "pool": "RepresentationValidation"},
+    {"center_id": 32206, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32207, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32208, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32209, "center_type": "B", "deployment_tier": "loose", "pool": "RepresentationFit"},
+    {"center_id": 32210, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32211, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32212, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32213, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32214, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32215, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32216, "center_type": "A", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32217, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32218, "center_type": "A", "deployment_tier": "loose", "pool": "RepresentationFit"},
+    {"center_id": 32219, "center_type": "A", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32220, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32221, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32222, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32223, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32224, "center_type": "A", "deployment_tier": "loose", "pool": "RepresentationValidation"},
+    {"center_id": 32225, "center_type": "A", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32226, "center_type": "A", "deployment_tier": "loose", "pool": "RepresentationFit"},
+    {"center_id": 32227, "center_type": "B", "deployment_tier": "loose", "pool": "RepresentationValidation"},
+    {"center_id": 32228, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32229, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32230, "center_type": "A", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32231, "center_type": "A", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32232, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32233, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32234, "center_type": "A", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32235, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32236, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32237, "center_type": "C", "deployment_tier": "loose", "pool": "RepresentationFit"},
+    {"center_id": 32238, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32239, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32240, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32241, "center_type": "C", "deployment_tier": "medium", "pool": "RepresentationValidation"},
+    {"center_id": 32242, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32243, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32244, "center_type": "A", "deployment_tier": "medium", "pool": "RepresentationFit"},
+    {"center_id": 32245, "center_type": "C", "deployment_tier": "tight", "pool": "RepresentationValidation"},
+    {"center_id": 32246, "center_type": "B", "deployment_tier": "tight", "pool": "RepresentationFit"},
+    {"center_id": 32247, "center_type": "B", "deployment_tier": "medium", "pool": "RepresentationValidation"}
+  ],
+  "pools": {
+    "RepresentationFit": [32200, 32202, 32206, 32209, 32210, 32212, 32213, 32215, 32218, 32219, 32220, 32223, 32226, 32229, 32230, 32233, 32234, 32236, 32237, 32239, 32240, 32243, 32244, 32246],
+    "RepresentationValidation": [32201, 32203, 32204, 32205, 32207, 32208, 32211, 32214, 32216, 32217, 32221, 32222, 32224, 32225, 32227, 32228, 32231, 32232, 32235, 32238, 32241, 32242, 32245, 32247]
+  },
+  "fit_center_group_folds": [
+    {"fold": 0, "validation_centers": [32202, 32206, 32239, 32243, 32244, 32246]},
+    {"fold": 1, "validation_centers": [32200, 32210, 32215, 32218, 32230, 32237]},
+    {"fold": 2, "validation_centers": [32212, 32213, 32220, 32223, 32226, 32234]},
+    {"fold": 3, "validation_centers": [32209, 32219, 32229, 32233, 32236, 32240]}
+  ],
+  "fold_training_rule": "For each fold, train on the 18 RepresentationFit centers not listed as that fold's validation centers. All seeds, scenarios, identities, and stages remain grouped with their center.",
+  "random_stage_split_forbidden": true,
+  "validation_pool_use": "single prospective opening after both complete pipelines are frozen; never used for fitting, preprocessing, model selection, or threshold selection"
+}

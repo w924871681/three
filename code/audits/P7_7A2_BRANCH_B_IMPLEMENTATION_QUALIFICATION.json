@@ -1,0 +1,118 @@
+{
+  "schema": "p7.7a2-branch-b-implementation-qualification-v1",
+  "status": "PASS_DEVELOPMENT_ONLY",
+  "selected_branch": "B",
+  "integration_passed": true,
+  "method_id": "P7.7 Recoverability-Guided Lifecycle",
+  "zero_boundary": 0.0,
+  "negative_a1_opens_ri_only": true,
+  "no_refit": true,
+  "no_tuning": true,
+  "methods": [
+    "B0",
+    "B1",
+    "B2",
+    "B8",
+    "P7.7"
+  ],
+  "task_count": 8,
+  "tasks": [
+    {
+      "key": "B0_Frozen_ratio10_31000_7311_C0",
+      "sha256": "fdfcbac4ccb746d76c1af04dc1411af683b5acd68fc391dd0e7c1d28539682d2",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "B1_AlwaysMaintainP50_ratio10_31000_7311_C0",
+      "sha256": "cf2c10f06a19f46b564184bf81518942b20d728f34b51a92675a94cc75d0057f",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "B2_RAVM_ratio10_31000_7311_C0",
+      "sha256": "14ae67e84f54551267932bde874e72cb7da2ef33f1fcf7a8c029935ba3ba0ce0",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "B8_AlwaysOpen_ratio10_31000_7311_C0",
+      "sha256": "da276c5964302d286480c6397fbf102b00ec7c3b9c3b23363172c80d1134413c",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "P7_7_RECOVERABILITY_GUIDED_ratio10_grid33_31000_7311_C0",
+      "sha256": "36ba2d9a46754c13ceb1ad3a2193ee1750e08df81446fad39f164a4e67a2ab3d",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "P7_7_RECOVERABILITY_GUIDED_ratio10_grid33_31000_7311_C1",
+      "sha256": "1b2b601c2164d7b559e8fa0f78529f47e8542a944ab7043b4478310bba29fd05",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 0,
+      "identity_changes": 0,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "P7_7_RECOVERABILITY_GUIDED_ratio10_grid33_31000_7311_C3",
+      "sha256": "a498abb88dac5a25b4a09af7d9c4fbbfe28d0be70390399565729dc948bb4ad9",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 1,
+      "identity_changes": 1,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    },
+    {
+      "key": "P7_7_RECOVERABILITY_GUIDED_ratio10_grid33_31000_7311_C4",
+      "sha256": "959d838ce88cba02461d7f7ec8d41fa96bf872d9a3e13a62ec0d4ac5d7b05028",
+      "rows": 24,
+      "resumed_from_receipt": true,
+      "ri_count": 1,
+      "identity_changes": 1,
+      "future_service_used_in_decision": false,
+      "a1_reset_fields_present": true
+    }
+  ],
+  "all_methods_end_to_end": true,
+  "deterministic_replay": true,
+  "identity_transition_tested": true,
+  "ri_reset_fields_tested": true,
+  "no_future_leakage": true,
+  "receipt_resume_identity": true,
+  "method_specific_paths": true,
+  "branch_b": true,
+  "branch_coverage": {
+    "ri_gate_closed_rows": 67,
+    "ri_gate_open_not_committed_rows": 27,
+    "ri_committed_rows": 2
+  },
+  "final_heldout_accessed": false,
+  "alibaba_accessed": false,
+  "P8_executed": false,
+  "guard_sha256": "024eb629d8da21870c7d647e259b6c3d8e523396113fa63ee69880fa6e4930b5"
+}

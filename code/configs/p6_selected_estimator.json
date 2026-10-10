@@ -1,0 +1,71 @@
+{
+  "schema": "dt-lifecycle-escalation-p6-selected-estimator-v1",
+  "selection_status": "CV_PASS",
+  "selected_config_id": "mlp_ks2_kl6",
+  "selected_model_family": "MLP",
+  "K_S": 2,
+  "K_L": 6,
+  "ridge_alpha": null,
+  "best_observed_config_id": "mlp_ks2_kl18",
+  "best_observed_macro_center_mae": 0.0011474101367413,
+  "best_observed_center_mae_se": 8.118938111963842e-05,
+  "one_se_threshold": 0.0012285995178609385,
+  "selected_metrics": {
+    "macro_center_mae": 0.0011620417055285051,
+    "macro_center_rmse": 0.002083864206126354,
+    "macro_center_spearman_mean": 0.27609945136265834,
+    "macro_center_spearman_median": 0.2738437841870227,
+    "pooled_spearman": 0.41034488629408283,
+    "sign_accuracy": 0.7464120370370371,
+    "balanced_accuracy": 0.7116834993894098,
+    "center_mae_sd": 0.0005324440295580244
+  },
+  "baseline_metrics": {
+    "macro_center_mae": 0.001637497425006151,
+    "macro_center_rmse": 0.0027499432341521746,
+    "macro_center_spearman_mean": null,
+    "macro_center_spearman_median": null,
+    "pooled_spearman": -0.08972918089600872,
+    "sign_accuracy": 0.29270833333333335,
+    "balanced_accuracy": 0.5,
+    "center_mae_sd": 0.0006158559067519659
+  },
+  "pass_gate": {
+    "pass": true,
+    "checks": {
+      "selected_pooled_spearman": true,
+      "selected_macro_center_spearman_median": true,
+      "selected_balanced_accuracy": true,
+      "positive_fold_spearman_count": true,
+      "relative_macro_mae_improvement": true,
+      "non_c3_pooled_spearman": true,
+      "non_c3_balanced_accuracy": true,
+      "leave_one_center_out_positive": true,
+      "leave_one_fold_out_positive": true
+    },
+    "relative_macro_center_mae_improvement": 0.29035509443678054,
+    "non_c3_metrics": {
+      "n": 6480,
+      "mae": 0.0007673820753263583,
+      "rmse": 0.001152047552123139,
+      "spearman": 0.28061234114742556,
+      "sign_accuracy": 0.7600308641975309,
+      "balanced_accuracy": 0.6782805089082915,
+      "negative_prevalence": 0.14675925925925926
+    },
+    "center_spearman_positive_count": 28,
+    "center_spearman_negative_count": 2,
+    "leave_one_center_out_spearman_min": 0.39604021651272303,
+    "leave_one_center_out_spearman_max": 0.4371763117040643,
+    "leave_one_fold_out_spearman_min": 0.3806418533479143,
+    "leave_one_fold_out_spearman_max": 0.4306434615233721
+  },
+  "final_refit_performed": true,
+  "calibration_accessed": false,
+  "heldout_accessed": false,
+  "output_recovered_without_cv_refit": true,
+  "scaler_artifact": "artifacts/p6_recoverability_scaler.json",
+  "estimator_artifact": "artifacts/p6_recoverability_estimator.pt",
+  "scaler_sha256": "1d4cb0b91206bb7defe8389aa8f27ff4776c2acc016662e952bc5f5dc3612f3b",
+  "estimator_sha256": "2bbad97427506b0260d3ed9370bc88ed4c91a8879c34787a184e37b5185f6b9b"
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "p7-baseline-grids-v1",
+  "B3": {
+    "K": [
+      4,
+      6,
+      8,
+      12
+    ]
+  },
+  "B4": {
+    "quantile": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "persistence": [
+      1,
+      2,
+      3
+    ],
+    "numeric_threshold_source": "common calibration initial-history pre-stage-1 assessment errors"
+  },
+  "B5": {
+    "delta": [
+      0.0002,
+      0.002,
+      0.02
+    ],
+    "implementation": "River ADWIN2",
+    "version": "0.23.0",
+    "clock": 32,
+    "max_buckets": 5,
+    "min_window_length": 5,
+    "grace_period": 10,
+    "stream": "chronological incumbent assessment per-window squared error clipped [0,1]"
+  },
+  "B6": {
+    "K": [
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  "B7": {
+    "window": [
+      2,
+      4,
+      6
+    ],
+    "normalized_margin": [
+      0,
+      0.01,
+      0.05
+    ],
+    "adaptation_label": "task-matched KEEP-style; not exact DiTEC"
+  },
+  "B8": {},
+  "cost_ratios": [
+    2,
+    5,
+    10
+  ],
+  "frozen_before_calibration_outcomes": true
+}

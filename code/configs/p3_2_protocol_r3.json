@@ -1,0 +1,16 @@
+{
+  "base_config": "configs/p3_2_protocol.json",
+  "generator_revision": "p3_mismatch_v2_r3",
+  "c3_regime_b": {
+    "mechanism": "direct telemetry transfer-function and centered source-response orientation replacement",
+    "response_orientation": -1
+  },
+  "generator_only_stop_rules": {
+    "min_postshift_std_ratio_vs_C0": 0.8,
+    "min_postshift_range_ratio_vs_C0": 0.8,
+    "min_postshift_adjacent_rmse_ratio_vs_C0": 0.8,
+    "max_postshift_std_ratio_vs_C0": 1.3,
+    "max_postshift_range_ratio_vs_C0": 1.4,
+    "max_postshift_adjacent_rmse_ratio_vs_C0": 1.5
+  }
+}

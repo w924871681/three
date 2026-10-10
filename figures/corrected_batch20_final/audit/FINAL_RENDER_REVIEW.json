@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "All labels readable at native two-column width",
+    "No clipped text or overlaps",
+    "All 20 center IDs and observations retained",
+    "B8 zoom labeled, full CI and zero retained",
+    "Different powers of ten explicitly printed on each relevant axis",
+    "Fig3 axes start at zero; exact totals visible; method hatch distinct",
+    "No decorative or raster image objects in vector PDF"
+  ],
+  "font_warning_resolution": "Skill checker warning retained in FINAL_FILE_QA: its generic check inspects only the top-level FontDescriptor and misses Type0 DescendantFonts. Direct pypdf traversal confirmed every descendant has an embedded FontFile2/FontFile3 stream; there are no Type3 fonts. Final PDFs rendered successfully in Poppler. No font substitution or source changes were needed.",
+  "low_resolution_qa_previews_in_distribution": false,
+  "render_dpi_for_qa_only": 160,
+  "rendered_files_sha256": {
+    "pdf_render_Fig2.png": "e08fd6ffaf24d60613965f5543dbe8fe399b45ff86dbe36f7f38ba29900c481a",
+    "pdf_render_Fig3.png": "6db8ea253f094b351717b0623ba32472f293c4898009d583371bbc393215db9a"
+  },
+  "reviewer": "root; actual view_image inspection of Poppler-rendered final PDFs",
+  "schema": "paper3-final-pdf-render-review-v1",
+  "status": "PASS"
+}

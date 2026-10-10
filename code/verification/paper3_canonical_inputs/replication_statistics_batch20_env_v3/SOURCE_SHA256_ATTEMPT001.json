@@ -1,0 +1,22 @@
+{
+  "schema": "paper3-statistics-source-sha256-v3",
+  "status": "READY_FOR_GATED_STAGE_E_STATISTICS_IMPLEMENTATION",
+  "source_root": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v3",
+  "implementation_files_sha256": {
+    "statistics.py": "5ccda537c83bf88f7531eeee7c9b4b82a55b23f4ba81b3c031b978ac8375e33c",
+    "runtime_guard.py": "42a7fff9b32493904537e89737d5b4ed7adc2f32ab155915d3c5dfdbcc40bcb8",
+    "run_statistics.py": "0346c5cdecfc595bab20f4f98b53547d215103931fd6d4aff7eb7783296e96bc",
+    "test_statistics.py": "06ee1a6e1e15808bab2f8aa82b1b2aa0cea2bd94e318ceb1252a2d41edabdc86"
+  },
+  "synthetic_receipt_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v3\\SYNTHETIC_TEST_RESULTS_ATTEMPT001.json",
+  "synthetic_receipt_sha256": "149cf3461cf5a70bf2e26f0cfaa06f3e8944271ff91b470d62a603031cc8ee10",
+  "synthetic_tests": 58,
+  "source_adaptation_binding_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v3\\SOURCE_ADAPTATION_BINDING.json",
+  "source_adaptation_binding_sha256": "e7a49b3f5c9997217a6e45b0ed4271b997052a339db02e22f7047a1efcc7cf6a",
+  "static_review_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\replication_statistics_batch20_env_v3\\STATIC_IMPLEMENTATION_REVIEW.md",
+  "static_review_sha256": "9da67735c7cb2bb143e35d17ed554b9a3727efafa5729e5ed35bb2704b4713e9",
+  "real_statistics_or_bootstrap_executed": false,
+  "new_outcomes_read": false,
+  "actual_v3_executor_integration": "subject to separate independent read-only source assessment and parent full gates",
+  "excludes_own_hash_to_avoid_cycle": true
+}

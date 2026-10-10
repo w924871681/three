@@ -1,0 +1,1627 @@
+{
+  "schema": "paper3-corrected-batch20-figure-data-audit-v1",
+  "status": "PASS",
+  "created_utc": "2026-10-10T13:25:59.199527+00:00",
+  "scope": "Selected officially archived corrected statistics, metadata hash-chain, saved-point-estimate agreement and integer totals; no raw/environment rescan; no Bootstrap recomputation",
+  "repository": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION",
+  "archive": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE",
+  "statistics_root": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3",
+  "figure_plot_data_excludes_original_mixed_inventory": true,
+  "bootstrap_recomputed": false,
+  "raw_csv_read": false,
+  "environment_rescanned": false,
+  "model_experiments_run": false,
+  "protocol": {
+    "aggregation": "24-stage mean -> seed/scenario mean within center -> mean across 20 centers",
+    "bootstrap_resamples": 4000,
+    "bootstrap_seed": 2904,
+    "centers": [
+      33000,
+      33001,
+      33002,
+      33003,
+      33004,
+      33005,
+      33006,
+      33007,
+      33008,
+      33009,
+      33010,
+      33011,
+      33012,
+      33013,
+      33014,
+      33015,
+      33016,
+      33017,
+      33018,
+      33019
+    ],
+    "comparison_semantics": "Every original/corrected method and scenario retained; original mixed inventory remains descriptive; mean changes cannot identify causal attribution",
+    "cost_semantics": "Raw selected-action costs separately reported; no addition to primary service endpoint",
+    "diagnostics": "Same four frozen offline-label masks, potentially overlapping and nonexhaustive; denominator=5760 Proposed stages",
+    "floating_aggregation": "finite float64 values, fsum/count arithmetic means; not bit-identical historical pandas claim",
+    "historical_difference": "Original runner advanced different draws per method/contrast; independent authorized replication shares one matrix.",
+    "historical_draw_sequence_reproduced": false,
+    "interval": "percentile 95%, NumPy method=linear",
+    "models_or_generators_executed": false,
+    "new_unseen_heldout_claimed": false,
+    "no_exclusions": true,
+    "no_original_records_reused": true,
+    "no_outcome_based_selection": true,
+    "observed_point_estimates_from_original_center_means": true,
+    "one_joint_index_matrix_for_all_methods_contrasts_scenarios": true,
+    "resampling_unit": "center",
+    "runtime_cost_semantics": "Saved actual cached-call timers, standalone estimates and search counters reported separately; penalties are not measured compute costs; phase walltime is not method timer sum",
+    "statistics_id": "P7_7_JOINT_CENTER_STATISTICS_BATCH20_ENV_V3",
+    "winner_ranking": false
+  },
+  "verified_files": {
+    "DELIVERY_MANIFEST.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\DELIVERY_MANIFEST.json",
+      "sha256": "2189bc4d91689717c4c87cec0e1f539f32aac7069673dff61bd626b939e7985f"
+    },
+    "FINAL_INTEGRITY_CERTIFICATE.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\FINAL_INTEGRITY_CERTIFICATE.json",
+      "sha256": "86b9c104aacf708f7f060d1f99faa0215b7b3490327c6325c4ddf49353743398"
+    },
+    "PAPER3_FINAL_VERIFIED_HANDOFF.md": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\PAPER3_FINAL_VERIFIED_HANDOFF.md",
+      "sha256": "b6ab48e7a7c610fa246f059a2d61b55478573a5764a81bc189cb8ae4b7722cda"
+    },
+    "FINAL_STATISTICS_VERIFICATION.md": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\FINAL_STATISTICS_VERIFICATION.md",
+      "sha256": "97e93003c7060fe85fa372b7181ffed36b1d69c30d3867face062f3270fe67d5"
+    },
+    "corrected_reports/CORRECTED_FINAL_STATISTICS.md": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\corrected_reports\\CORRECTED_FINAL_STATISTICS.md",
+      "sha256": "77d58be3329be332916967bc51e779f16c1b11b22542207e2c50055b717963fc"
+    },
+    "manifests/statistics_manifest.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\manifests\\statistics_manifest.json",
+      "sha256": "a2cd080532db281ca60ae89ee9edf5e272552689f8be9220eaf7c7857b3f1468"
+    },
+    "manifests/statistics_execution_receipt.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\manifests\\statistics_execution_receipt.json",
+      "sha256": "82585cf06c15e2bebc2d37bea90ccb9b6f24aa78745c00f6fd3378a0a0742dec"
+    },
+    "verification/statistics/STATISTICS_VERIFICATION.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\verification\\statistics\\STATISTICS_VERIFICATION.json",
+      "sha256": "2542cb56c5b361c07b2b4514d0ee167ef3ff760bc316e803f9949251a0da1069"
+    },
+    "verification/statistics/STATISTICS_VERIFICATION_EXECUTION_RECEIPT.json": {
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\verification\\statistics\\STATISTICS_VERIFICATION_EXECUTION_RECEIPT.json",
+      "sha256": "10b1a9841ad0fc75b78f9cade80135e3b5d15d47b85b2e5a76d4af4f82907fa6"
+    },
+    "final_paired_contrasts.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_paired_contrasts.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_paired_contrasts.csv",
+      "sha256": "dccfb5249ac7c41ea7337e1fcd2f1f1dd4d00def630eb6b0eaa84662363c8da3",
+      "bytes": 636
+    },
+    "final_metrics_by_center.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_center.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_metrics_by_center.csv",
+      "sha256": "49408ac23d337e879e124cfafbd45cc1fbb7947f4f509112830ffe325b13dc78",
+      "bytes": 13699
+    },
+    "final_metrics_by_method.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_method.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_metrics_by_method.csv",
+      "sha256": "9f4fc9db6d633fc8a3472c26d5ecc74791792ee4738d313b8cbbd764973f989e",
+      "bytes": 1073
+    },
+    "final_metrics_by_scenario_center.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_scenario_center.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_metrics_by_scenario_center.csv",
+      "sha256": "53b847c038afe877719391863726027d2342294b23d9bb8214e46342642de316",
+      "bytes": 49275
+    },
+    "final_metrics_by_scenario.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_scenario.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_metrics_by_scenario.csv",
+      "sha256": "d550eef87b3e26f7f8ac37a4b2d92f113d937965702586bcbe996c8aea5d511a",
+      "bytes": 4751
+    },
+    "final_metrics_by_trajectory.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_trajectory.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_metrics_by_trajectory.csv",
+      "sha256": "012bd7a292b571714178fe369418b7d7e693dc498b514eff6fc437c5e4ccc8bd",
+      "bytes": 149883
+    },
+    "final_execution_cost_by_method.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_execution_cost_by_method.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_execution_cost_by_method.csv",
+      "sha256": "70226a06ae6aaeb30f0de69aad7bf7aa1f38048eec7b77814344dac7b399d404",
+      "bytes": 1307
+    },
+    "final_execution_cost_by_trajectory.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_execution_cost_by_trajectory.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_execution_cost_by_trajectory.csv",
+      "sha256": "067f6d991356bba5795bff28baa34f43a9cb03915386ca7ff2b8de6d1206f62f",
+      "bytes": 159928
+    },
+    "final_decision_diagnostics.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_decision_diagnostics.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_decision_diagnostics.csv",
+      "sha256": "351c412adbf0e7d8222f1e137547ef95c64df732ae0c7c155309caa6497cf1f1",
+      "bytes": 213
+    },
+    "joint_center_resample_indices.npy": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\joint_center_resample_indices.npy",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\joint_center_resample_indices.npy",
+      "sha256": "1d6e12e591e724b8903fb5cf04ac21c1969f38ca8ad5d810254c12866ed2476e",
+      "bytes": 640128
+    },
+    "final_paired_bootstrap.csv": {
+      "live_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_paired_bootstrap.csv",
+      "archive_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_FINAL_VERIFIED_EVIDENCE\\statistics\\final_paired_bootstrap.csv",
+      "sha256": "107d1ea0a420a70c98bf80d59a1a1190f1954e5de406412e23be444962ed6e05",
+      "bytes": 590471
+    }
+  },
+  "tables": {
+    "final_paired_contrasts.csv": {
+      "row_count": 4,
+      "columns": [
+        "comparison",
+        "mean_difference",
+        "ci_low",
+        "ci_high",
+        "n_centers",
+        "bootstrap_resamples",
+        "bootstrap_seed",
+        "point_estimate_source"
+      ],
+      "key": [
+        "comparison"
+      ],
+      "unique_rows": 4,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_metrics_by_center.csv": {
+      "row_count": 100,
+      "columns": [
+        "method",
+        "center_id",
+        "lifecycle_service_loss",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate"
+      ],
+      "key": [
+        "method",
+        "center_id"
+      ],
+      "unique_rows": 100,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_metrics_by_method.csv": {
+      "row_count": 5,
+      "columns": [
+        "method",
+        "mean_lifecycle_service_loss",
+        "ci_low",
+        "ci_high",
+        "n_centers",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate"
+      ],
+      "key": [
+        "method"
+      ],
+      "unique_rows": 5,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_metrics_by_scenario_center.csv": {
+      "row_count": 400,
+      "columns": [
+        "method",
+        "center_id",
+        "scenario",
+        "lifecycle_service_loss",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate"
+      ],
+      "key": [
+        "method",
+        "center_id",
+        "scenario"
+      ],
+      "unique_rows": 400,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_metrics_by_scenario.csv": {
+      "row_count": 20,
+      "columns": [
+        "method",
+        "scenario",
+        "n_centers",
+        "lifecycle_service_loss",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate",
+        "ci_low",
+        "ci_high",
+        "ci_scope"
+      ],
+      "key": [
+        "method",
+        "scenario"
+      ],
+      "unique_rows": 20,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_metrics_by_trajectory.csv": {
+      "row_count": 1200,
+      "columns": [
+        "method",
+        "center_id",
+        "seed",
+        "scenario",
+        "lifecycle_service_loss",
+        "stages",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "retain_count",
+        "retain_rate",
+        "gate_open_count",
+        "gate_open_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost"
+      ],
+      "key": [
+        "method",
+        "center_id",
+        "seed",
+        "scenario"
+      ],
+      "unique_rows": 1200,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_execution_cost_by_method.csv": {
+      "row_count": 5,
+      "columns": [
+        "method",
+        "n_centers",
+        "n_trajectories",
+        "n_stage_records",
+        "feasible_candidate_count_total_recorded",
+        "feasible_candidate_count_mean_trajectory_center_averaged",
+        "ri_search_updates_charged_total_recorded",
+        "ri_search_updates_charged_mean_trajectory_center_averaged",
+        "source_cache_hits_total_recorded",
+        "source_cache_hits_mean_trajectory_center_averaged",
+        "shared_parent_cache_hit_total_recorded",
+        "shared_parent_cache_hit_mean_trajectory_center_averaged",
+        "decision_runtime_actual_s_total_recorded",
+        "decision_runtime_actual_s_mean_trajectory_center_averaged",
+        "decision_runtime_standalone_estimate_s_total_recorded",
+        "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged"
+      ],
+      "key": [
+        "method"
+      ],
+      "unique_rows": 5,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_execution_cost_by_trajectory.csv": {
+      "row_count": 1200,
+      "columns": [
+        "method",
+        "center_id",
+        "seed",
+        "scenario",
+        "stages",
+        "feasible_candidate_count_stage_sum",
+        "feasible_candidate_count_stage_mean",
+        "ri_search_updates_charged_stage_sum",
+        "ri_search_updates_charged_stage_mean",
+        "source_cache_hits_stage_sum",
+        "source_cache_hits_stage_mean",
+        "shared_parent_cache_hit_stage_sum",
+        "shared_parent_cache_hit_stage_mean",
+        "decision_runtime_actual_s_stage_sum",
+        "decision_runtime_actual_s_stage_mean",
+        "decision_runtime_standalone_estimate_s_stage_sum",
+        "decision_runtime_standalone_estimate_s_stage_mean"
+      ],
+      "key": [
+        "method",
+        "center_id",
+        "seed",
+        "scenario"
+      ],
+      "unique_rows": 1200,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_decision_diagnostics.csv": {
+      "row_count": 4,
+      "columns": [
+        "metric",
+        "count",
+        "rate",
+        "denominator"
+      ],
+      "key": [
+        "metric"
+      ],
+      "unique_rows": 4,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    },
+    "final_paired_bootstrap.csv": {
+      "row_count": 16000,
+      "columns": [
+        "comparison",
+        "bootstrap_id",
+        "difference"
+      ],
+      "key": [
+        "comparison",
+        "bootstrap_id"
+      ],
+      "unique_rows": 16000,
+      "missing_cells": 0,
+      "nonfinite_numeric_cells": 0
+    }
+  },
+  "method_means": {
+    "B0": {
+      "from_centers": 0.006604798735543227,
+      "saved_method_mean": 0.006604798735543227
+    },
+    "B1": {
+      "from_centers": 0.0033419799126224664,
+      "saved_method_mean": 0.0033419799126224664
+    },
+    "B2": {
+      "from_centers": 0.004883941472543382,
+      "saved_method_mean": 0.004883941472543382
+    },
+    "B8": {
+      "from_centers": 0.0029126269437559434,
+      "saved_method_mean": 0.0029126269437559434
+    },
+    "P7.7": {
+      "from_centers": 0.002940643859084149,
+      "saved_method_mean": 0.002940643859084149
+    }
+  },
+  "fig2": {
+    "saved_contrasts": [
+      {
+        "baseline": "B0",
+        "mean_difference": -0.0036641548764590783,
+        "ci_low": -0.004573827822422219,
+        "ci_high": -0.0028134015487948244
+      },
+      {
+        "baseline": "B1",
+        "mean_difference": -0.0004013360535383174,
+        "ci_low": -0.0005435194434220294,
+        "ci_high": -0.00027324824378676267
+      },
+      {
+        "baseline": "B2",
+        "mean_difference": -0.0019432976134592331,
+        "ci_low": -0.0022800258030189167,
+        "ci_high": -0.001616486006572207
+      },
+      {
+        "baseline": "B8",
+        "mean_difference": 2.8016915328205657e-05,
+        "ci_low": -1.8594825329880642e-07,
+        "ci_high": 8.423669423791578e-05
+      }
+    ],
+    "center_pairs": [
+      {
+        "center_id": 33000,
+        "B8": 0.0035366422978566135,
+        "P7.7": 0.004098220259442719,
+        "Proposed_minus_B8": 0.0005615779615861052
+      },
+      {
+        "center_id": 33001,
+        "B8": 0.0023264465299790674,
+        "P7.7": 0.0023264465299790674,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33002,
+        "B8": 0.0018523456415601282,
+        "P7.7": 0.0018523456415601282,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33003,
+        "B8": 0.0006109724430037508,
+        "P7.7": 0.0006109724430037508,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33004,
+        "B8": 0.006235170871756661,
+        "P7.7": 0.006235170871756661,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33005,
+        "B8": 0.0011846644437254225,
+        "P7.7": 0.0011846644437254225,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33006,
+        "B8": 0.002749904917436652,
+        "P7.7": 0.002749904917436652,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33007,
+        "B8": 0.0023594551558845625,
+        "P7.7": 0.0023594551558845625,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33008,
+        "B8": 0.004152755330627163,
+        "P7.7": 0.004152755330627163,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33009,
+        "B8": 0.0022625192573792045,
+        "P7.7": 0.0022625192573792045,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33010,
+        "B8": 0.0010935040580888097,
+        "P7.7": 0.0010935040580888097,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33011,
+        "B8": 0.0011199052205483895,
+        "P7.7": 0.0011199052205483895,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33012,
+        "B8": 0.0050866876125736675,
+        "P7.7": 0.0050866876125736675,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33013,
+        "B8": 0.002075859006759452,
+        "P7.7": 0.002075859006759452,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33014,
+        "B8": 0.0026235408707483052,
+        "P7.7": 0.0026235408707483052,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33015,
+        "B8": 0.0008819978617490657,
+        "P7.7": 0.0008819978617490657,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33016,
+        "B8": 0.006634467491595488,
+        "P7.7": 0.006634467491595488,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33017,
+        "B8": 0.002906480186437774,
+        "P7.7": 0.002906480186437774,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "center_id": 33018,
+        "B8": 0.002795940403302666,
+        "P7.7": 0.0027947007482806738,
+        "Proposed_minus_B8": -1.2396550219920428e-06
+      },
+      {
+        "center_id": 33019,
+        "B8": 0.005763279274106026,
+        "P7.7": 0.005763279274106026,
+        "Proposed_minus_B8": 0.0
+      }
+    ],
+    "paired_center_difference_range": [
+      -1.2396550219920428e-06,
+      0.0005615779615861052
+    ],
+    "negative_count": 1,
+    "zero_count": 18,
+    "positive_count": 1,
+    "CI_source": "final_paired_contrasts.csv (saved marginal percentile95%, no new CI)"
+  },
+  "fig3": {
+    "B8": {
+      "trajectories": 240,
+      "stages": 5760,
+      "search_admission_count": 5760,
+      "search_admission_rate": 1.0,
+      "search_admission_percent": 100.0,
+      "feasible_candidate_count": 53280,
+      "candidate_search_optimizer_updates": 2664000,
+      "committed_RI_count": 105,
+      "committed_RI_rate": 0.018229166666666668
+    },
+    "P7.7": {
+      "trajectories": 240,
+      "stages": 5760,
+      "search_admission_count": 1918,
+      "search_admission_rate": 0.3329861111111111,
+      "search_admission_percent": 33.298611111111114,
+      "feasible_candidate_count": 17428,
+      "candidate_search_optimizer_updates": 871400,
+      "committed_RI_count": 104,
+      "committed_RI_rate": 0.018055555555555554
+    }
+  },
+  "fig4_optional": {
+    "data_complete": true,
+    "scenario_center_pair_count": 80,
+    "pairs": [
+      {
+        "scenario": "C0",
+        "center_id": 33000,
+        "B8": 0.0035444574734558244,
+        "P7.7": 0.0035444574734558244,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33001,
+        "B8": 0.0024180694211584828,
+        "P7.7": 0.0024180694211584828,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33002,
+        "B8": 0.001895495680704092,
+        "P7.7": 0.001895495680704092,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33003,
+        "B8": 0.00046757897426788177,
+        "P7.7": 0.00046757897426788177,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33004,
+        "B8": 0.0065835404287402826,
+        "P7.7": 0.0065835404287402826,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33005,
+        "B8": 0.0011125077839500995,
+        "P7.7": 0.0011125077839500995,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33006,
+        "B8": 0.0030540958460834287,
+        "P7.7": 0.0030540958460834287,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33007,
+        "B8": 0.0017436528723919764,
+        "P7.7": 0.0017436528723919764,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33008,
+        "B8": 0.003454975987551734,
+        "P7.7": 0.003454975987551734,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33009,
+        "B8": 0.0017190812682707068,
+        "P7.7": 0.0017190812682707068,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33010,
+        "B8": 0.0008469874373986386,
+        "P7.7": 0.0008469874373986386,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33011,
+        "B8": 0.0009803670303275187,
+        "P7.7": 0.0009803670303275187,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33012,
+        "B8": 0.0052992370005490045,
+        "P7.7": 0.0052992370005490045,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33013,
+        "B8": 0.0019611899171852404,
+        "P7.7": 0.0019611899171852404,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33014,
+        "B8": 0.0029533985070884228,
+        "P7.7": 0.0029533985070884228,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33015,
+        "B8": 0.000726589484353705,
+        "P7.7": 0.000726589484353705,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33016,
+        "B8": 0.00671870387547339,
+        "P7.7": 0.00671870387547339,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33017,
+        "B8": 0.0030135025380231026,
+        "P7.7": 0.0030135025380231026,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33018,
+        "B8": 0.003390831568847514,
+        "P7.7": 0.003390831568847514,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C0",
+        "center_id": 33019,
+        "B8": 0.005078877416154784,
+        "P7.7": 0.005078877416154784,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33000,
+        "B8": 0.003297537426179689,
+        "P7.7": 0.003297537426179689,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33001,
+        "B8": 0.0023006834542482263,
+        "P7.7": 0.0023006834542482263,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33002,
+        "B8": 0.0020456313407824687,
+        "P7.7": 0.0020456313407824687,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33003,
+        "B8": 0.0005453925728539211,
+        "P7.7": 0.0005453925728539211,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33004,
+        "B8": 0.0060594548704102635,
+        "P7.7": 0.0060594548704102635,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33005,
+        "B8": 0.0010423853535838942,
+        "P7.7": 0.0010423853535838942,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33006,
+        "B8": 0.002629324397680143,
+        "P7.7": 0.002629324397680143,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33007,
+        "B8": 0.0017563936659522976,
+        "P7.7": 0.0017563936659522976,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33008,
+        "B8": 0.002968412044639182,
+        "P7.7": 0.002968412044639182,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33009,
+        "B8": 0.0018260471422561547,
+        "P7.7": 0.0018260471422561547,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33010,
+        "B8": 0.0009679548270974514,
+        "P7.7": 0.0009679548270974514,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33011,
+        "B8": 0.0010134219596188308,
+        "P7.7": 0.0010134219596188308,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33012,
+        "B8": 0.0046738965643776794,
+        "P7.7": 0.0046738965643776794,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33013,
+        "B8": 0.001901258117868565,
+        "P7.7": 0.001901258117868565,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33014,
+        "B8": 0.0025951415284200465,
+        "P7.7": 0.0025951415284200465,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33015,
+        "B8": 0.0008497683682233199,
+        "P7.7": 0.0008497683682233199,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33016,
+        "B8": 0.005961385232189463,
+        "P7.7": 0.005961385232189463,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33017,
+        "B8": 0.003058703874962197,
+        "P7.7": 0.003058703874962197,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33018,
+        "B8": 0.003098818874504003,
+        "P7.7": 0.002956946561526921,
+        "Proposed_minus_B8": -0.0001418723129770821
+      },
+      {
+        "scenario": "C1",
+        "center_id": 33019,
+        "B8": 0.004929345531208026,
+        "P7.7": 0.004929345531208026,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33000,
+        "B8": 0.003981802987659143,
+        "P7.7": 0.006228114834003564,
+        "Proposed_minus_B8": 0.0022463118463444207
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33001,
+        "B8": 0.002704046534038045,
+        "P7.7": 0.002704046534038045,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33002,
+        "B8": 0.0016984689743064034,
+        "P7.7": 0.0016984689743064034,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33003,
+        "B8": 0.0006140566652498414,
+        "P7.7": 0.0006140566652498414,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33004,
+        "B8": 0.006963240914046764,
+        "P7.7": 0.006963240914046764,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33005,
+        "B8": 0.0011943461649934761,
+        "P7.7": 0.0011943461649934761,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33006,
+        "B8": 0.0025812616562082744,
+        "P7.7": 0.0025812616562082744,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33007,
+        "B8": 0.0038163669766314947,
+        "P7.7": 0.0038163669766314947,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33008,
+        "B8": 0.005060741677880287,
+        "P7.7": 0.005060741677880287,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33009,
+        "B8": 0.003311312710542956,
+        "P7.7": 0.003311312710542956,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33010,
+        "B8": 0.0014941787618833284,
+        "P7.7": 0.0014941787618833284,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33011,
+        "B8": 0.001239300865563564,
+        "P7.7": 0.001239300865563564,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33012,
+        "B8": 0.005642530876987924,
+        "P7.7": 0.005642530876987924,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33013,
+        "B8": 0.002373140743455022,
+        "P7.7": 0.002373140743455022,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33014,
+        "B8": 0.00245173283555131,
+        "P7.7": 0.00245173283555131,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33015,
+        "B8": 0.0010950075989563225,
+        "P7.7": 0.0010950075989563225,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33016,
+        "B8": 0.007334325346164405,
+        "P7.7": 0.007334325346164405,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33017,
+        "B8": 0.0031784802914545354,
+        "P7.7": 0.0031784802914545354,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33018,
+        "B8": 0.0025483508329165894,
+        "P7.7": 0.0025483508329165894,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C3",
+        "center_id": 33019,
+        "B8": 0.00693632452101964,
+        "P7.7": 0.00693632452101964,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33000,
+        "B8": 0.003322771304131796,
+        "P7.7": 0.003322771304131796,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33001,
+        "B8": 0.0018829867104715149,
+        "P7.7": 0.0018829867104715149,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33002,
+        "B8": 0.001769786570447549,
+        "P7.7": 0.001769786570447549,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33003,
+        "B8": 0.0008168615596433583,
+        "P7.7": 0.0008168615596433583,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33004,
+        "B8": 0.005334447273829331,
+        "P7.7": 0.005334447273829331,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33005,
+        "B8": 0.0013894184723742204,
+        "P7.7": 0.0013894184723742204,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33006,
+        "B8": 0.0027349377697747615,
+        "P7.7": 0.0027349377697747615,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33007,
+        "B8": 0.002121407108562481,
+        "P7.7": 0.002121407108562481,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33008,
+        "B8": 0.00512689161243745,
+        "P7.7": 0.00512689161243745,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33009,
+        "B8": 0.0021936359084469993,
+        "P7.7": 0.0021936359084469993,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33010,
+        "B8": 0.0010648952059758205,
+        "P7.7": 0.0010648952059758205,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33011,
+        "B8": 0.0012465310266836444,
+        "P7.7": 0.0012465310266836444,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33012,
+        "B8": 0.004731086008380064,
+        "P7.7": 0.004731086008380064,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33013,
+        "B8": 0.0020678472485289806,
+        "P7.7": 0.0020678472485289806,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33014,
+        "B8": 0.0024938906119334405,
+        "P7.7": 0.0024938906119334405,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33015,
+        "B8": 0.0008566259954629155,
+        "P7.7": 0.0008566259954629155,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33016,
+        "B8": 0.006523455512554695,
+        "P7.7": 0.006523455512554695,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33017,
+        "B8": 0.0023752340413112608,
+        "P7.7": 0.0023752340413112608,
+        "Proposed_minus_B8": 0.0
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33018,
+        "B8": 0.002145760336942557,
+        "P7.7": 0.0022826740298316707,
+        "Proposed_minus_B8": 0.00013691369288911393
+      },
+      {
+        "scenario": "C4",
+        "center_id": 33019,
+        "B8": 0.006108569628041651,
+        "P7.7": 0.006108569628041651,
+        "Proposed_minus_B8": 0.0
+      }
+    ],
+    "scenario_summary": {
+      "C0": {
+        "n_centers": 20,
+        "difference_min": 0.0,
+        "difference_max": 0.0,
+        "difference_mean": 0.0,
+        "zero_centers": 20
+      },
+      "C1": {
+        "n_centers": 20,
+        "difference_min": -0.0001418723129770821,
+        "difference_max": 0.0,
+        "difference_mean": -7.093615648854105e-06,
+        "zero_centers": 19
+      },
+      "C3": {
+        "n_centers": 20,
+        "difference_min": 0.0,
+        "difference_max": 0.0022463118463444207,
+        "difference_mean": 0.00011231559231722104,
+        "zero_centers": 19
+      },
+      "C4": {
+        "n_centers": 20,
+        "difference_min": 0.0,
+        "difference_max": 0.00013691369288911393,
+        "difference_mean": 6.845684644455696e-06,
+        "zero_centers": 19
+      }
+    },
+    "new_CI_calculated": false,
+    "retention_decision": "Parent assesses manuscript table duplication independently of favorable/unfavorable result."
+  },
+  "checks": [
+    {
+      "check": "PACKAGE_MANIFEST.json sidecar",
+      "pass": true
+    },
+    {
+      "check": "DELIVERY_MANIFEST.json sidecar",
+      "pass": true
+    },
+    {
+      "check": "formal archive states",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin DELIVERY_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin FINAL_INTEGRITY_CERTIFICATE.json",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin PAPER3_FINAL_VERIFIED_HANDOFF.md",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin FINAL_STATISTICS_VERIFICATION.md",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin corrected_reports/CORRECTED_FINAL_STATISTICS.md",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin manifests/statistics_manifest.json",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin manifests/statistics_execution_receipt.json",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin verification/statistics/STATISTICS_VERIFICATION.json",
+      "pass": true
+    },
+    {
+      "check": "PACKAGE pin verification/statistics/STATISTICS_VERIFICATION_EXECUTION_RECEIPT.json",
+      "pass": true
+    },
+    {
+      "check": "DELIVERY + certificate formal report PAPER3_FINAL_VERIFIED_HANDOFF.md",
+      "pass": true
+    },
+    {
+      "check": "DELIVERY + certificate formal report FINAL_STATISTICS_VERIFICATION.md",
+      "pass": true
+    },
+    {
+      "check": "DELIVERY + certificate formal report corrected_reports/CORRECTED_FINAL_STATISTICS.md",
+      "pass": true
+    },
+    {
+      "check": "DELIVERY certificate pin",
+      "pass": true
+    },
+    {
+      "check": "original live metadata statistics_manifest.json",
+      "pass": true
+    },
+    {
+      "check": "original/archive statistics_manifest.json",
+      "pass": true
+    },
+    {
+      "check": "original live metadata statistics_execution_receipt.json",
+      "pass": true
+    },
+    {
+      "check": "original/archive statistics_execution_receipt.json",
+      "pass": true
+    },
+    {
+      "check": "statistics actual saved receipt completed0",
+      "pass": true
+    },
+    {
+      "check": "receipt manifest binding",
+      "pass": true
+    },
+    {
+      "check": "prior independent arithmetic verification actual0",
+      "pass": true
+    },
+    {
+      "check": "frozen paired center bootstrap protocol",
+      "pass": true
+    },
+    {
+      "check": "canonical input and replication digest",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_paired_contrasts.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_paired_contrasts.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_paired_contrasts.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_paired_contrasts.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_metrics_by_center.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_metrics_by_center.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_metrics_by_center.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_metrics_by_center.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_metrics_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_metrics_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_metrics_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_metrics_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_metrics_by_scenario_center.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_metrics_by_scenario_center.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_metrics_by_scenario_center.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_metrics_by_scenario_center.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_metrics_by_scenario.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_metrics_by_scenario.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_metrics_by_scenario.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_metrics_by_scenario.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_metrics_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_metrics_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_metrics_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_metrics_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_execution_cost_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_execution_cost_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_execution_cost_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_execution_cost_by_method.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_execution_cost_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_execution_cost_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_execution_cost_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_execution_cost_by_trajectory.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_decision_diagnostics.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_decision_diagnostics.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_decision_diagnostics.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_decision_diagnostics.csv",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output joint_center_resample_indices.npy",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output joint_center_resample_indices.npy",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes joint_center_resample_indices.npy",
+      "pass": true
+    },
+    {
+      "check": "statistics manifest selected output final_paired_bootstrap.csv",
+      "pass": true
+    },
+    {
+      "check": "receipt+archive manifests selected output final_paired_bootstrap.csv",
+      "pass": true
+    },
+    {
+      "check": "archive/live same bytes final_paired_bootstrap.csv",
+      "pass": true
+    },
+    {
+      "check": "no missing/nonfinite/duplicate selected table final_paired_bootstrap.csv",
+      "pass": true
+    },
+    {
+      "check": "all 100 method-center means",
+      "pass": true
+    },
+    {
+      "check": "all five method means",
+      "pass": true
+    },
+    {
+      "check": "1200 selected summary trajectories",
+      "pass": true
+    },
+    {
+      "check": "complete 5x20x3x4 summary matrix",
+      "pass": true
+    },
+    {
+      "check": "all selected summary trajectories 24 stages",
+      "pass": true
+    },
+    {
+      "check": "center observed method mean B0",
+      "pass": true
+    },
+    {
+      "check": "center observed method mean B1",
+      "pass": true
+    },
+    {
+      "check": "center observed method mean B2",
+      "pass": true
+    },
+    {
+      "check": "center observed method mean B8",
+      "pass": true
+    },
+    {
+      "check": "center observed method mean P7.7",
+      "pass": true
+    },
+    {
+      "check": "observed mean contrast B0",
+      "pass": true
+    },
+    {
+      "check": "saved CI protocol B0",
+      "pass": true
+    },
+    {
+      "check": "observed mean contrast B1",
+      "pass": true
+    },
+    {
+      "check": "saved CI protocol B1",
+      "pass": true
+    },
+    {
+      "check": "observed mean contrast B2",
+      "pass": true
+    },
+    {
+      "check": "saved CI protocol B2",
+      "pass": true
+    },
+    {
+      "check": "observed mean contrast B8",
+      "pass": true
+    },
+    {
+      "check": "saved CI protocol B8",
+      "pass": true
+    },
+    {
+      "check": "B8 saved CI crosses zero",
+      "pass": true
+    },
+    {
+      "check": "integer saved candidate/update totals B8",
+      "pass": true
+    },
+    {
+      "check": "Fig3 stage/trajectory denominator B8",
+      "pass": true
+    },
+    {
+      "check": "Fig3 gate rate checked from integer sums B8",
+      "pass": true
+    },
+    {
+      "check": "Fig3 RI rate checked from integer sums B8",
+      "pass": true
+    },
+    {
+      "check": "Fig3 search totals compare trajectory and method B8",
+      "pass": true
+    },
+    {
+      "check": "Fig3 candidate-specific50updates B8",
+      "pass": true
+    },
+    {
+      "check": "integer saved candidate/update totals P7.7",
+      "pass": true
+    },
+    {
+      "check": "Fig3 stage/trajectory denominator P7.7",
+      "pass": true
+    },
+    {
+      "check": "Fig3 gate rate checked from integer sums P7.7",
+      "pass": true
+    },
+    {
+      "check": "Fig3 RI rate checked from integer sums P7.7",
+      "pass": true
+    },
+    {
+      "check": "Fig3 search totals compare trajectory and method P7.7",
+      "pass": true
+    },
+    {
+      "check": "Fig3 candidate-specific50updates P7.7",
+      "pass": true
+    },
+    {
+      "check": "user expected update counts checked against actual saved CSV sums",
+      "pass": true
+    },
+    {
+      "check": "user expected committed RI checked against actual saved CSV sums",
+      "pass": true
+    },
+    {
+      "check": "all400 scenario-center means",
+      "pass": true
+    }
+  ],
+  "passed_checks": 102,
+  "failed_checks": 0,
+  "claim_boundaries": [
+    "B8 paired CI crosses zero: no superiority, equivalence or noninferiority claim.",
+    "The displayed 20-center pairs are saved observations, not fabricated from aggregate means.",
+    "Search admission, candidate optimizer updates and committed RI are distinct.",
+    "Workload totals are not end-to-end measured computational cost.",
+    "20 centers, 4000 shared paired-center resamples, seed2904; observed point estimates are not bootstrap replicate means."
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "F1_input_bundle_digest": "ac82f95f4db3b1f624e5348cc8535d75ee3edc8d589c08e74d4aa6fa93f5e228",
+  "created_utc": "2026-10-10T12:10:49.365154+00:00",
+  "evidence_sha256": {
+    "indexes/RAW_CSV_INDEX.json": "63845629abc5c7df51e26ea1af730ebddc33f658a7e02e14062a5cfc503fd4fa",
+    "manifests/full_experiment_integrity_gate.json": "a33555e7f6083229aff520fe6e0a8f6ad11b2ef468cda3f8929be4cbe9240a97",
+    "manifests/initial_state_manifest.json": "18b329d5468d85961e28f24a1f45df9b2191530a9b26244642dbf6d2304e19dc",
+    "manifests/provenance_manifest.json": "c9277ed25b9c4e6df0b2ecfffeeefa3fdaa087ba4f326de828513402d5d20076",
+    "manifests/statistics_execution_receipt.json": "82585cf06c15e2bebc2d37bea90ccb9b6f24aa78745c00f6fd3378a0a0742dec",
+    "manifests/statistics_manifest.json": "a2cd080532db281ca60ae89ee9edf5e272552689f8be9220eaf7c7857b3f1468",
+    "verification/claim_provenance/INDEPENDENT_STATISTICS_STATIC_REVIEW.json": "ef84c932a91f29a0c7c0f4881b1f90c1254101fc9c673d9fc1a534147d4b035f",
+    "verification/prior_full_acceptance/FINAL_READONLY_ACCEPTANCE_004.json": "c4229bcd5f46612c5bb062412f1f2f308ea8ef44cda8fca9a12c5143cf003e64",
+    "verification/prior_full_acceptance/FINAL_READONLY_ACCEPTANCE_PROCESS_004.json": "f3f3a8258d0a9345f9487e9f7860e2695d72fb85db6d46bb2c927c2e993d298c",
+    "verification/statistics/STATISTICS_VERIFICATION.json": "2542cb56c5b361c07b2b4514d0ee167ef3ff760bc316e803f9949251a0da1069",
+    "verification/statistics/STATISTICS_VERIFICATION_EXECUTION_RECEIPT.json": "10b1a9841ad0fc75b78f9cade80135e3b5d15d47b85b2e5a76d4af4f82907fa6"
+  },
+  "formal_documents_sha256": {
+    "FINAL_STATISTICS_VERIFICATION.md": "97e93003c7060fe85fa372b7181ffed36b1d69c30d3867face062f3270fe67d5",
+    "PAPER3_FINAL_VERIFIED_HANDOFF.md": "b6ab48e7a7c610fa246f059a2d61b55478573a5764a81bc189cb8ae4b7722cda",
+    "SCIENTIFIC_CLAIM_BOUNDARY.md": "4f3549e9a6814794bb9abe2474ac49c753dc28c5904d4fc1bb3e6a1b6a0bbcef",
+    "SOURCE_CHANGE_DESCRIPTION.md": "cdbab85d7b0c19821c70acbf61fc9f262ed89387aed8887570c20d9b72a3f06b",
+    "SOURCE_ENVIRONMENT_PROVENANCE.md": "2b34b0044864a6e3750d08d9ecd0aa4ce08f92a53d8d313aed448db832c2c8ea",
+    "corrected_reports/CORRECTED_FINAL_STATISTICS.md": "77d58be3329be332916967bc51e779f16c1b11b22542207e2c50055b717963fc",
+    "corrected_reports/EXECUTION_SUMMARY.md": "8a26e76eeac28fc2d15265f2ae46a2f642184a4d79e30c6d99f7b8e4a1af46ea",
+    "corrected_reports/EXPERIMENT_INTEGRITY_AUDIT.md": "2b33d77d03627d6325e4fb6332e6154d03fb226df81c5a5fa718c2c2ad756695",
+    "corrected_reports/INPUT_PARITY_AUDIT.md": "46efb855c2319e1fe2923229f905dccacdeb651bcd52d07a359f2d073684a2c2",
+    "corrected_reports/ORIGINAL_VS_REPLICATION_COMPARISON.md": "ede1986259974c2c3989458ef9fc108339e13724fc74176032e7d1f47849dea5",
+    "corrected_reports/SCIENTIFIC_FREEZE_DECISION.md": "0490fb0517e8257f96e2a1c88dd9c99a39d0bdbf5d107a9666f80df0bee6b212"
+  },
+  "frozen_manifest_digest": "7eebe390398395b6ebb1247ba2722b6d5928a65b0c06d039b85eacaa39c359ea",
+  "historical_environment_numerical_equivalence": "NOT_VERIFIED",
+  "history_all_process_exits_verified": false,
+  "initial_references": {
+    "completed": 60,
+    "expected": 60,
+    "manifest": "manifests/initial_state_manifest.json"
+  },
+  "manuscript_automatically_frozen": false,
+  "metadata_original_producer_exit": "NOT_OBSERVED; ROOT_EXIT_OBSERVER_FAILED",
+  "models_or_new_experiments_run_for_archive": false,
+  "new_unseen_heldout_claimed": false,
+  "original_files_modified": false,
+  "package_integrity_binding": "This certificate is bound by DELIVERY_MANIFEST and PACKAGE_MANIFEST; ZIP verification is external to avoid self-reference.",
+  "prior_checks": {
+    "delivery": {
+      "actual_smoke_boundary_metadata": {
+        "DW0001_STOP_consumption_claimed": false,
+        "inflight_killed": false,
+        "real_STOP_and_retirement_SHA_verified": true,
+        "two_retirements_after_completed_task": true
+      },
+      "actual_smoke_worker_metadata": {
+        "DW0002_assigned_completed_zero": true,
+        "both_saved_actual_exit_codes_zero": true,
+        "started_workers": 2,
+        "trajectory_tasks": 1,
+        "trajectory_workers": 1
+      },
+      "corrected_reports": [
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\EXECUTION_SUMMARY.md",
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\INPUT_PARITY_AUDIT.md",
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\EXPERIMENT_INTEGRITY_AUDIT.md",
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\CORRECTED_FINAL_STATISTICS.md",
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\ORIGINAL_VS_REPLICATION_COMPARISON.md",
+        "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\handoffs\\PAPER3_DYNAMIC_REPLICATION_BATCH20_ENV_V3_A_DYNAMIC_0002_ERRATUM_001\\corrected_reports\\SCIENTIFIC_FREEZE_DECISION.md"
+      ],
+      "current_handoff": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\PAPER3_FINAL_REPLICATION_HANDOFF.md",
+      "current_handoff_sha256": "2a522ae64713ffc6e3cbe1389a7faac15d267dd123675590f5f813d50cf33368",
+      "erratum_package_files": 458,
+      "first_final_package_files": 189,
+      "metadata_recovery_legal_finish_verified": true,
+      "preserved_failed_control_attempt": {
+        "old_erratum_actual_exit_code": 1,
+        "old_failed_attempt_success_fabricated": false,
+        "old_failures_preserved": 6,
+        "old_supervisor_actual_exit_code": 1
+      },
+      "reviewed_package_files": 178,
+      "root_archive_chain": [
+        "f50fa7c8e6abd916124d423ad2b5950df2a7c631d02403eaf8e1cc5736f06ee8",
+        "c7b539bef23e3f43e1d663bc9240ab80cd325d2f1f7dd501e0b22cd18e3b8a3d",
+        "2a522ae64713ffc6e3cbe1389a7faac15d267dd123675590f5f813d50cf33368"
+      ],
+      "sequence_native_exit_zero_receipt_verified": true,
+      "statistics_bytes_preserved": true,
+      "statistics_process_exit_zero": true,
+      "zip_member_hashes_verified": 647
+    },
+    "frozen_bytes": {
+      "F1_files": 485,
+      "critical_files": 94,
+      "environment_files": 13192,
+      "executor_files": 18,
+      "original_python_files": 55,
+      "protected_original_files": 2535,
+      "runtime_environment_predicate_executed_by_this_auditor": false,
+      "source_inventories_exact": true
+    },
+    "frozen_v3_auditor_preservation": {
+      "current_control_chain_only_replaced_with_new_readonly_artifact_finalization": true,
+      "frozen_v3_auditor_sha256": "b0c0a2cc07a438067e8eb450ff748ca7467df2d8ffe1c299367e6acaec9ad734",
+      "full_scientific_and_published_artifact_prefix_byte_identical": true,
+      "unchanged_functions": [
+        "Auditor",
+        "read",
+        "exact",
+        "safe_relative",
+        "canonical",
+        "stem",
+        "check_raw",
+        "check_statistics",
+        "check_publication",
+        "check_erratum_proof",
+        "check_smoke_worker_metadata",
+        "metadata_contract_preflight",
+        "check_scientific_auditor_preservation",
+        "boundary_transform_from_frozen_source",
+        "check_old_failure_chain",
+        "check_recovery_plan",
+        "check_recovery_package_sources",
+        "check_smoke_boundary_recovery",
+        "check_delivery"
+      ]
+    },
+    "metadata_postpublication_finalization_process": {
+      "acceptance_scope": "scientific_artifacts_and_new_metadata_finalization",
+      "actual_exit_code": 0,
+      "all_saved_statistics_bound": true,
+      "artifact_certificate_schema": "paper3-metadata-postpublication-artifact-finalization-v1",
+      "artifact_inventory_exact": true,
+      "creation_filetime": 134361055469393115,
+      "finish_sha256": "38e9e8a08d6a2ad7f52e6a07665f67d670b3c4d7f9397b8f99310efd7396b915",
+      "history_all_process_exits_verified": false,
+      "identity_unchanged": true,
+      "independent_full_scientific_checks_not_waived": true,
+      "metadata_original_producer_exit": "NOT_OBSERVED; ROOT_EXIT_OBSERVER_FAILED",
+      "native_exit_code": 0,
+      "native_observation_sha256": "b9aa4baaa994f2e66cecefb59092a75c6f9b914ae307f8bd719df9300a04727b",
+      "old_metadata_process_exit_zero_verified": false,
+      "pid": 30796,
+      "plan_sha256": "07d20299854c910ba26cfae1977c80b04ff40cde0c0662b3596897bd558729ef",
+      "query_handle_retained": true,
+      "root_exit_sha256": "8e584d5929534d0eb299fcad65490c31f3ca8ade4fe41a1efc83dc67f4a250d8",
+      "start_receipt_sha256": "f51fb5f4577c49f75882e5c5441cef247524e701ff5caf038a30eeaeb296d46d",
+      "test_proof_sha256": "d17c3fc7a96fe4572f9442387b7752cc47756ef0dba5f04339fcb4b6fc11461d"
+    },
+    "original_metadata_exit_observer_failure": {
+      "actual_exit_zero_reconstructed": false,
+      "history_all_process_exits_verified": false,
+      "legal_publication_finish_verified": true,
+      "metadata_original_producer_exit": "NOT_OBSERVED; ROOT_EXIT_OBSERVER_FAILED",
+      "old_metadata_process_exit_zero_verified": false,
+      "original_metadata_finish_sha256": "1bc8dba3a9f06c998ab786d0a9ab5300dba93338fb8e86de6c478db970268e03",
+      "original_metadata_producer_pid": 10108,
+      "original_observer_tool_actual_exit_code": 1,
+      "root_exit_observer_failed": true,
+      "root_exit_observer_failure_sha256": "92de2eec50b9be2200eb02296b64e45ff927452d6eb4911ec577e24ebfa4f5c7"
+    },
+    "raw_matrix": {
+      "all_24_stage_input_hashes_freshly_compared": true,
+      "loss_values_not_used_for_selection_or_recomputed": true,
+      "paired_groups": 240,
+      "stages": 28800,
+      "trajectories": 1200
+    },
+    "scientific_auditor_preservation": {
+      "additional_known_H1_and_metadata_recovery_checks": true,
+      "full_scientific_prefix_byte_identical": true,
+      "original_auditor_sha256": "660c19ac4830672b9cf53b94d8b56aa6b7c214007307ea532d7ab8823d85d8b1",
+      "original_package_ZIP_and_root_checks_byte_identical": true,
+      "unchanged_functions": [
+        "Auditor",
+        "read",
+        "exact",
+        "safe_relative",
+        "canonical",
+        "stem",
+        "check_raw",
+        "check_statistics",
+        "check_publication",
+        "check_erratum_proof",
+        "check_smoke_worker_metadata",
+        "metadata_contract_preflight"
+      ]
+    },
+    "statistics": {
+      "completed": true,
+      "counts": {
+        "center_method_rows": 100,
+        "five_method_groups": 240,
+        "loo_rows": 80,
+        "method_bootstrap_rows": 20000,
+        "paired_bootstrap_rows": 16000,
+        "raw_trajectories": 1200,
+        "scenario_center_rows": 400,
+        "stages": 28800
+      },
+      "input_bindings_verified": 22773,
+      "joint_center_protocol": true,
+      "outputs_verified": 16,
+      "statistics_recomputed": false
+    }
+  },
+  "prior_complete_verification_reused": true,
+  "prior_full_acceptance_actual_exit_code": 0,
+  "prior_full_acceptance_sha256": "c4229bcd5f46612c5bb062412f1f2f308ea8ef44cda8fca9a12c5143cf003e64",
+  "prior_observed_utc": "2026-10-10T11:46:58.525929+00:00",
+  "protected_original_files": 2535,
+  "repository": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION",
+  "results": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3",
+  "schema": "paper3-final-verified-integrity-certificate-v1",
+  "scope": "saved scientific evidence and independent numerical consistency; historical uncertainties retained",
+  "statistics_independent_verification": {
+    "actual_exit_code": 0,
+    "bootstrap": {
+      "center_count": 20,
+      "draws": 4000,
+      "interval": "percentile 95%, linear quantiles",
+      "observed_point_estimate": "original center method mean subtraction",
+      "same_joint_indices_all_outputs": true,
+      "saved_indices_equal_numpy_seeded_indices": true,
+      "seed": 2904
+    },
+    "comparison_tolerance": {
+      "absolute": 1e-14,
+      "categorical": "exact",
+      "relative": 1e-12
+    },
+    "maximum_absolute_numeric_difference": 0.0,
+    "outputs": 16,
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

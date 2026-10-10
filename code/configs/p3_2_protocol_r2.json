@@ -1,0 +1,12 @@
+{
+  "base_config": "configs/p3_2_protocol.json",
+  "generator_revision": "p3_mismatch_v2_r2",
+  "c3_regime_b": {
+    "mechanism": "direct telemetry transfer-function and causal load-feedback response replacement",
+    "load_feedback": {
+      "lag": 4,
+      "strength": 0.75,
+      "slope": 4.0
+    }
+  }
+}

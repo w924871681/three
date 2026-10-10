@@ -1,0 +1,28 @@
+{
+  "page_count": 9,
+  "references_count": 24,
+  "cited_in_first_occurrence_order": true,
+  "unknown_cites": [],
+  "unused_bibliography": [],
+  "figure_count": 3,
+  "figure_paths": [
+    "figures/Fig1_Selective_Lifecycle_Escalation.pdf",
+    "figures/Fig2_Paired_Service_Loss.pdf",
+    "figures/Fig3_Selective_Search.pdf"
+  ],
+  "figures_exist": true,
+  "labels_unique": true,
+  "unresolved_refs": [],
+  "four_result_tables": true,
+  "b8_confidence_interval_in_main_tex": true,
+  "has_1918_of_5760": true,
+  "has_67_29": true,
+  "separates_theory_proxy": true,
+  "placeholder_author": true,
+  "has_p7_7_missed_escalation": true,
+  "has_f1_reuse_disclosure": true,
+  "pdf_fig1_only_raster": true,
+  "latex_has_overfull": false,
+  "latex_has_undefined": false,
+  "latex_float_only_page7": true
+}

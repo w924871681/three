@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "mode": "One independent plotting-only rerender from bundled pinned inputs without --repo; no model or Bootstrap",
+  "byte_identical_files_sha256": {
+    "Fig2_Paired_Service_Loss.pdf": "88ac94d8134d563265d87d2fd82f923d68f9b02d3a9c0c38f065b388d8e25943",
+    "Fig2_Paired_Service_Loss.png": "5a999d192147b9c5055ab6a550e3a259937978bf659edab2379938b3b99a4b69",
+    "Fig3_Selective_Search.pdf": "a110b111ab9ac6086fc24f148d4adab853ce9723b09f2cf63a34fff347471ef4",
+    "Fig3_Selective_Search.png": "033060584bcf13fd4aad823091e739d25951e64e0a350af88c0cab61f3f50099"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "p7.7-final-heldout-authorization-v1",
+  "human_authorized": true,
+  "protocol": "P7_7A2_INTEGRATION_FREEZE_PASS",
+  "selected_branch": "B",
+  "method": "P7.7 Recoverability-Guided Lifecycle",
+  "final_centers": [33000,33001,33002,33003,33004,33005,33006,33007,33008,33009,33010,33011,33012,33013,33014,33015,33016,33017,33018,33019],
+  "seeds": [7311,7312,7313],
+  "scenarios": ["C0","C1","C3","C4"],
+  "methods": ["B0","B1","B2","B8","P7.7"],
+  "expected_trajectories": 1200,
+  "a1_boundary": 0.0,
+  "bootstrap_resamples": 4000,
+  "bootstrap_seed": 2904,
+  "primary_endpoint": "mean lifecycle service loss",
+  "preconditions": {
+    "final_heldout_accessed": false,
+    "alibaba_accessed": false,
+    "p8_executed": false
+  },
+  "frozen_source_hashes": {
+    "configs/P7_7_FINAL_LIFECYCLE_PROTOCOL.json": "6339a9247b984b497d1543198b3a7b7c0cfdf9c7bcfd1c52b47b62e17d2fd0df",
+    "reports/P7_7_FINAL_LIFECYCLE_PROTOCOL.md": "3291349cd092257642d01e8edd47fe2691c7228486b3b5b1c935128871cbdc7f",
+    "scripts/run_p7_7_final.py": "ced000f213f8fc9b52a859e683fc6d27dd04a268641c3d6024500f56c1c158fe",
+    "core/p7.py": "378f2b8644f97e87fa819661da694d1bfcb163e7d183d110edf5f08c9d6dfe3d",
+    "configs/P7_6B_FROZEN_PROTOCOL.json": "86272adb9a335ff72030cc4ba5c1fbc5f52e543eacd58ba032433e590251ee23",
+    "audits/P7_6B_FINAL_SCIENTIFIC_AUDIT.json": "85caccf51c49e7046908a1550df62702c3d16f07d109d9315d6d7a98a102c674",
+    "audits/P7_7A2_BRANCH_B_IMPLEMENTATION_QUALIFICATION.json": "31105d81f3ecd41833208a011b38ed2c6fb93acde09d50ddc37b16536fd5f362",
+    "audits/P7_7A2_FINAL_HELDOUT_ACCESS_GUARD.json": "024eb629d8da21870c7d647e259b6c3d8e523396113fa63ee69880fa6e4930b5",
+    "configs/P7_7A2_INTEGRATION_DECISION.json": "6bd8403c81895f559286b93b6a9eb04fafbebb17b0782be1cbc57fb563f613e1"
+  },
+  "authorization_scope": "Exactly one frozen final-heldout lifecycle evaluation; no method development, refit, retuning, or external-pool access."
+}

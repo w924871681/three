@@ -1,0 +1,61 @@
+{
+  "schema": "p7.7a2-integration-decision-v1",
+  "status": "P7_7A2_INTEGRATION_FREEZE_PASS",
+  "selected_branch": "B",
+  "method_id": "P7.7 Recoverability-Guided Lifecycle",
+  "historical_lineage": {
+    "p7_2_behavior_path": "delta_R=-0.000272181217042075, cost_ratio=10",
+    "p7_2_formal_verdict": "P7_2_FAIL_PRESERVED",
+    "p7_6b_verdict": "P7_6B_REPLICATION_PASS",
+    "p7_6b_claim_boundary": "prospectively replicated under the evaluated synthetic protocol"
+  },
+  "a1_integration": {
+    "estimator": "artifacts/p7_6b_A1_estimator.pt",
+    "scaler": "artifacts/p7_6b_A1_scaler.json",
+    "input_history": "same-identity causal response history only",
+    "normalization": "identity-held S_m from exactly 104 finite errors in permitted 200-observation reference",
+    "boundary": 0.0,
+    "negative_evidence": "opens RI admission only",
+    "negative_evidence_forces_ri": false,
+    "p7_2_delta_reused_as_a1_threshold": false
+  },
+  "unchanged_components": [
+    "candidate bank",
+    "deployment feasibility",
+    "candidate adaptation: exactly 50 updates",
+    "D_assess evaluation",
+    "retain/local/RI comparison and tie order",
+    "RI fallback",
+    "service-loss computation",
+    "comparators",
+    "center-level 4000 bootstrap with seed 2904",
+    "leave-one-center-out sensitivity"
+  ],
+  "qualification": {
+    "audit": "audits/P7_7A2_BRANCH_B_IMPLEMENTATION_QUALIFICATION.json",
+    "status": "PASS_DEVELOPMENT_ONLY",
+    "branch_coverage": {
+      "ri_gate_closed_rows": 67,
+      "ri_gate_open_not_committed_rows": 27,
+      "ri_committed_rows": 2
+    },
+    "deterministic_replay": true,
+    "receipt_resume_identity": true,
+    "no_future_leakage": true,
+    "identity_and_a1_reset": true
+  },
+  "access_guard": {
+    "final_heldout_accessed": false,
+    "alibaba_accessed": false,
+    "p8_executed": false,
+    "final_heldout_mode": "hard_rejected"
+  },
+  "final_population": {
+    "centers": "33000-33019 metadata only",
+    "seeds": [7311, 7312, 7313],
+    "scenarios": ["C0", "C1", "C3", "C4"],
+    "methods": 5,
+    "expected_trajectories": 1200,
+    "outcomes_accessed": false
+  }
+}

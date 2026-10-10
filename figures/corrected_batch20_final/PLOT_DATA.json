@@ -1,0 +1,203 @@
+{
+  "behavior": {
+    "B8": {
+      "admission_count": 5760,
+      "admission_percent": 100.0,
+      "candidate_updates": 2664000,
+      "candidates": 53280,
+      "committed_ri": 105,
+      "stages": 5760
+    },
+    "P7.7": {
+      "admission_count": 1918,
+      "admission_percent": 33.298611111111114,
+      "candidate_updates": 871400,
+      "candidates": 17428,
+      "committed_ri": 104,
+      "stages": 5760
+    }
+  },
+  "bootstrap_recomputed": false,
+  "bootstrap_resamples": 4000,
+  "bootstrap_seed": 2904,
+  "contrasts": [
+    {
+      "bootstrap_resamples": "4000",
+      "bootstrap_seed": "2904",
+      "ci_high": "-0.0028134015487948244",
+      "ci_low": "-0.004573827822422219",
+      "comparison": "P7.7 - B0",
+      "mean_difference": "-0.0036641548764590783",
+      "n_centers": "20",
+      "point_estimate_source": "OBSERVED_METHOD_CENTER_MEAN_SUBTRACTION"
+    },
+    {
+      "bootstrap_resamples": "4000",
+      "bootstrap_seed": "2904",
+      "ci_high": "-0.00027324824378676267",
+      "ci_low": "-0.0005435194434220294",
+      "comparison": "P7.7 - B1",
+      "mean_difference": "-0.0004013360535383174",
+      "n_centers": "20",
+      "point_estimate_source": "OBSERVED_METHOD_CENTER_MEAN_SUBTRACTION"
+    },
+    {
+      "bootstrap_resamples": "4000",
+      "bootstrap_seed": "2904",
+      "ci_high": "-0.001616486006572207",
+      "ci_low": "-0.0022800258030189167",
+      "comparison": "P7.7 - B2",
+      "mean_difference": "-0.0019432976134592331",
+      "n_centers": "20",
+      "point_estimate_source": "OBSERVED_METHOD_CENTER_MEAN_SUBTRACTION"
+    },
+    {
+      "bootstrap_resamples": "4000",
+      "bootstrap_seed": "2904",
+      "ci_high": "8.423669423791578e-05",
+      "ci_low": "-1.8594825329880642e-07",
+      "comparison": "P7.7 - B8",
+      "mean_difference": "2.8016915328205657e-05",
+      "n_centers": "20",
+      "point_estimate_source": "OBSERVED_METHOD_CENTER_MEAN_SUBTRACTION"
+    }
+  ],
+  "input_sha256": {
+    "DELIVERY_MANIFEST.json": "2189bc4d91689717c4c87cec0e1f539f32aac7069673dff61bd626b939e7985f",
+    "FINAL_INTEGRITY_CERTIFICATE.json": "86b9c104aacf708f7f060d1f99faa0215b7b3490327c6325c4ddf49353743398",
+    "PACKAGE_MANIFEST.json": "5a30e5519ed3fde36e78e7e31e6918849fb5fd2814f635aac0a8e80fa2624fde",
+    "final_execution_cost_by_method.csv": "70226a06ae6aaeb30f0de69aad7bf7aa1f38048eec7b77814344dac7b399d404",
+    "final_execution_cost_by_trajectory.csv": "067f6d991356bba5795bff28baa34f43a9cb03915386ca7ff2b8de6d1206f62f",
+    "final_metrics_by_center.csv": "49408ac23d337e879e124cfafbd45cc1fbb7947f4f509112830ffe325b13dc78",
+    "final_metrics_by_method.csv": "9f4fc9db6d633fc8a3472c26d5ecc74791792ee4738d313b8cbbd764973f989e",
+    "final_metrics_by_trajectory.csv": "012bd7a292b571714178fe369418b7d7e693dc498b514eff6fc437c5e4ccc8bd",
+    "final_paired_contrasts.csv": "dccfb5249ac7c41ea7337e1fcd2f1f1dd4d00def630eb6b0eaa84662363c8da3",
+    "statistics_execution_receipt.json": "82585cf06c15e2bebc2d37bea90ccb9b6f24aa78745c00f6fd3378a0a0742dec",
+    "statistics_manifest.json": "a2cd080532db281ca60ae89ee9edf5e272552689f8be9220eaf7c7857b3f1468"
+  },
+  "n_centers": 20,
+  "original_mixed_data_used": false,
+  "paired_centers": [
+    {
+      "B8": 0.0035366422978566135,
+      "Proposed": 0.004098220259442719,
+      "center_id": 33000,
+      "difference": 0.0005615779615861052
+    },
+    {
+      "B8": 0.0023264465299790674,
+      "Proposed": 0.0023264465299790674,
+      "center_id": 33001,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0018523456415601282,
+      "Proposed": 0.0018523456415601282,
+      "center_id": 33002,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0006109724430037508,
+      "Proposed": 0.0006109724430037508,
+      "center_id": 33003,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.006235170871756661,
+      "Proposed": 0.006235170871756661,
+      "center_id": 33004,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0011846644437254225,
+      "Proposed": 0.0011846644437254225,
+      "center_id": 33005,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.002749904917436652,
+      "Proposed": 0.002749904917436652,
+      "center_id": 33006,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0023594551558845625,
+      "Proposed": 0.0023594551558845625,
+      "center_id": 33007,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.004152755330627163,
+      "Proposed": 0.004152755330627163,
+      "center_id": 33008,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0022625192573792045,
+      "Proposed": 0.0022625192573792045,
+      "center_id": 33009,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0010935040580888097,
+      "Proposed": 0.0010935040580888097,
+      "center_id": 33010,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0011199052205483895,
+      "Proposed": 0.0011199052205483895,
+      "center_id": 33011,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0050866876125736675,
+      "Proposed": 0.0050866876125736675,
+      "center_id": 33012,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.002075859006759452,
+      "Proposed": 0.002075859006759452,
+      "center_id": 33013,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0026235408707483052,
+      "Proposed": 0.0026235408707483052,
+      "center_id": 33014,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.0008819978617490657,
+      "Proposed": 0.0008819978617490657,
+      "center_id": 33015,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.006634467491595488,
+      "Proposed": 0.006634467491595488,
+      "center_id": 33016,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.002906480186437774,
+      "Proposed": 0.002906480186437774,
+      "center_id": 33017,
+      "difference": 0.0
+    },
+    {
+      "B8": 0.002795940403302666,
+      "Proposed": 0.0027947007482806738,
+      "center_id": 33018,
+      "difference": -1.2396550219920428e-06
+    },
+    {
+      "B8": 0.005763279274106026,
+      "Proposed": 0.005763279274106026,
+      "center_id": 33019,
+      "difference": 0.0
+    }
+  ],
+  "unseen_heldout_claimed": false
+}

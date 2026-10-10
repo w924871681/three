@@ -1,0 +1,93 @@
+{
+  "bank_hash": "db5101135319b1a945ee3702be8a726cd053d42afa0de655fc12884c4e085cc1",
+  "identities": [
+    {
+      "identity_id": "msa_a1_pt",
+      "architecture_index": 1,
+      "architecture": "MLP_L2_H32_D0.1",
+      "family": "MLP",
+      "source_initialization_id": "pt_seed_3006",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a1.pt",
+      "checkpoint_sha256": "0953c393d04cca7bea80b9bc3b4edfaaaeca330785c7e16a1052ad3868cb5988",
+      "parameter_count": 77921,
+      "operation_count": 155712
+    },
+    {
+      "identity_id": "msa_a6_pt",
+      "architecture_index": 6,
+      "architecture": "MLP_L3_H32_D0.0",
+      "family": "MLP",
+      "source_initialization_id": "pt_seed_3011",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a6.pt",
+      "checkpoint_sha256": "eb574956ef4f59ff82ba316ffd8dfedd580031f8d818243be77d1207608795ef",
+      "parameter_count": 78977,
+      "operation_count": 157760
+    },
+    {
+      "identity_id": "msa_a46_pt",
+      "architecture_index": 46,
+      "architecture": "TCN_B4_C16_K3_Dil1",
+      "family": "TCN",
+      "source_initialization_id": "pt_seed_3051",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a46.pt",
+      "checkpoint_sha256": "34b60214405ed2f5d945eea6a3b2121625819222f36c2dc4ecb229e7409f3f8c",
+      "parameter_count": 7137,
+      "operation_count": 1339424
+    },
+    {
+      "identity_id": "msa_a55_pt",
+      "architecture_index": 55,
+      "architecture": "GRU_L1_H16_D0.1",
+      "family": "GRU",
+      "source_initialization_id": "pt_seed_3060",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a55.pt",
+      "checkpoint_sha256": "ad00ee90288cfcaecd550d42979ae9693fa5fb94350482692755cee521449e1f",
+      "parameter_count": 2081,
+      "operation_count": 377888
+    },
+    {
+      "identity_id": "msa_a56_pt",
+      "architecture_index": 56,
+      "architecture": "GRU_L1_H32_D0.0",
+      "family": "GRU",
+      "source_initialization_id": "pt_seed_3061",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a56.pt",
+      "checkpoint_sha256": "2a4d81b8669207180e496c3a09dd7f9e6b8bc6b41016a1927099077a1749d5de",
+      "parameter_count": 5697,
+      "operation_count": 1050688
+    },
+    {
+      "identity_id": "msa_a57_pt",
+      "architecture_index": 57,
+      "architecture": "GRU_L1_H32_D0.1",
+      "family": "GRU",
+      "source_initialization_id": "pt_seed_3062",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a57.pt",
+      "checkpoint_sha256": "9faaf152f58bb1be4261369914169868b024f4b5baf7ac621b92619ff25682b5",
+      "parameter_count": 5697,
+      "operation_count": 1050688
+    },
+    {
+      "identity_id": "msa_a62_pt",
+      "architecture_index": 62,
+      "architecture": "GRU_L2_H32_D0.0",
+      "family": "GRU",
+      "source_initialization_id": "pt_seed_3067",
+      "checkpoint": "imported/msa_dti/bank/formal_h1_a62.pt",
+      "checkpoint_sha256": "3bc0540c925c310dbed91dff81d29f9900c109d690fea9a93fc06727cb969b5d",
+      "parameter_count": 12033,
+      "operation_count": 2230336
+    },
+    {
+      "identity_id": "msa_a57_medet",
+      "architecture_index": 57,
+      "architecture": "GRU_L1_H32_D0.1",
+      "family": "GRU",
+      "source_initialization_id": "medet_source_meta_init",
+      "checkpoint": "imported/msa_dti/bank/medet_style_h1_a57.pt",
+      "checkpoint_sha256": "304c1eac43f12f99ac1693eaa6a3f29238491562b21a18556a51bb27f475a59a",
+      "parameter_count": 5697,
+      "operation_count": 1050688
+    }
+  ]
+}

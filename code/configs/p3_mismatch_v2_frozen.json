@@ -1,0 +1,317 @@
+{
+  "schema": "dt-lifecycle-escalation-p3.2-v1",
+  "phase_scope": [
+    "P3.2a",
+    "P3.2b"
+  ],
+  "generator_revision": "p3_mismatch_v2_r3",
+  "frozen_label_on_pass": "p3_mismatch_v2_frozen",
+  "stages": 24,
+  "window_length": 96,
+  "prediction_horizon": 1,
+  "scenario_shift_stage": 9,
+  "scenarios": [
+    "C0",
+    "C1",
+    "C3",
+    "C4"
+  ],
+  "design_centers": [
+    31000,
+    31001,
+    31002
+  ],
+  "fresh_development_centers": [
+    31100,
+    31101,
+    31102,
+    31103,
+    31104,
+    31105
+  ],
+  "calibration_centers_forbidden": [
+    32000,
+    32001,
+    32002,
+    32003,
+    32004,
+    32005,
+    32006,
+    32007,
+    32008,
+    32009,
+    32010,
+    32011,
+    32012,
+    32013,
+    32014,
+    32015,
+    32016,
+    32017,
+    32018,
+    32019
+  ],
+  "heldout_centers_forbidden": [
+    33000,
+    33001,
+    33002,
+    33003,
+    33004,
+    33005,
+    33006,
+    33007,
+    33008,
+    33009,
+    33010,
+    33011,
+    33012,
+    33013,
+    33014,
+    33015,
+    33016,
+    33017,
+    33018,
+    33019
+  ],
+  "data_seed": 7311,
+  "model_seeds": [
+    7311,
+    7312,
+    7313
+  ],
+  "stage_raw_sizes": {
+    "update": 400,
+    "assessment": 240,
+    "service": 400
+  },
+  "local_policies": [
+    0,
+    10,
+    20,
+    50
+  ],
+  "budget_subsets": {
+    "B0": [
+      0
+    ],
+    "B10": [
+      0,
+      10
+    ],
+    "B20": [
+      0,
+      10,
+      20
+    ],
+    "B50": [
+      0,
+      10,
+      20,
+      50
+    ]
+  },
+  "recoverability_horizons": [
+    2,
+    4,
+    6
+  ],
+  "primary_recoverability_horizon": 4,
+  "eta_grid": [
+    0.1,
+    0.25,
+    0.5
+  ],
+  "primary_eta": 0.25,
+  "tau_reference": "C0 stages 1-8 sequential P50 mean service MSE per center/model-seed",
+  "target_adaptation": {
+    "optimizer": "SGD",
+    "loss": "MSE",
+    "learning_rate": 0.01,
+    "batch_size": 64,
+    "gradient_clip": 1.0,
+    "probe_updates": 50
+  },
+  "source_pair": {
+    "source_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "source_data_seed": 2904,
+    "source_n_history": 3000,
+    "train_target_end": 2500,
+    "validation_target_start": 2600,
+    "epochs": 50,
+    "optimizer": "Adam",
+    "loss": "MSE",
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "weight_decay": 0.0,
+    "assets": [
+      {
+        "identity_id": "p3v2_a57_regime_b",
+        "architecture_index": 57,
+        "regime": "C3_B",
+        "seed": 42057
+      },
+      {
+        "identity_id": "p3v2_a57_regime_c_control",
+        "architecture_index": 57,
+        "regime": "C4_C",
+        "seed": 42157
+      },
+      {
+        "identity_id": "p3v2_a46_regime_c",
+        "architecture_index": 46,
+        "regime": "C4_C",
+        "seed": 42046
+      }
+    ]
+  },
+  "c3_regime_b": {
+    "mechanism": "direct telemetry transfer-function and centered source-response orientation replacement",
+    "channel_permutation": [
+      7,
+      2,
+      10,
+      5,
+      0,
+      8,
+      3,
+      11,
+      1,
+      6,
+      9,
+      4
+    ],
+    "logit_slopes": [
+      1.15,
+      0.85,
+      1.2,
+      0.9,
+      1.1,
+      0.8,
+      1.25,
+      0.95,
+      1.05,
+      0.88,
+      1.18,
+      0.92
+    ],
+    "logit_biases": [
+      0.2,
+      -0.18,
+      0.12,
+      -0.22,
+      0.16,
+      -0.14,
+      0.24,
+      -0.1,
+      0.08,
+      -0.2,
+      0.14,
+      -0.12
+    ],
+    "response_orientation": -1
+  },
+  "c4_regime_c": {
+    "mechanism": "direct nonlinear multi-lag target dependency",
+    "lags": [
+      1,
+      5,
+      9,
+      4,
+      12
+    ],
+    "linear_weights": [
+      0.65,
+      -0.55,
+      0.75
+    ],
+    "interaction_weight": 0.45,
+    "interaction_scale": 3.0,
+    "matched_tcn_architecture_index": 46,
+    "matched_tcn_receptive_field": 17
+  },
+  "generator_only_stop_rules": {
+    "min_postshift_std_ratio_vs_C0": 0.8,
+    "min_postshift_range_ratio_vs_C0": 0.8,
+    "min_postshift_adjacent_rmse_ratio_vs_C0": 0.8,
+    "max_postshift_std_ratio_vs_C0": 1.3,
+    "max_postshift_range_ratio_vs_C0": 1.4,
+    "max_postshift_adjacent_rmse_ratio_vs_C0": 1.5
+  },
+  "deployment_limits": {
+    "tight": {
+      "operations": 1500000,
+      "parameters": 30000
+    },
+    "medium": {
+      "operations": 5000000,
+      "parameters": 100000
+    },
+    "loose": {
+      "operations": 20000000,
+      "parameters": 500000
+    }
+  },
+  "confirmatory_rules": {
+    "maintainable_negative_rate_max": 0.35,
+    "each_mismatch_negative_rate_min": 0.5,
+    "combined_mismatch_negative_rate_min": 0.5,
+    "mismatch_persistent_interval_trajectory_rate_min": 0.5,
+    "conditional_reinstantiation_benefit_rate_min": 0.5,
+    "conditional_mean_reinstantiation_gain_min": 0.0,
+    "mismatch_persistent_alternative_benefit_trajectory_rate_min": 0.5,
+    "mechanism_matched_alternative_rate_min": 0.5,
+    "separation_center_bootstrap_ci_low_min": 0.0,
+    "normalized_mismatch_negative_rate_min": 0.5,
+    "max_raw_vs_normalized_mismatch_rate_gap": 0.2,
+    "persistent_interval_min_consecutive_stages": 2
+  },
+  "bootstrap_repetitions": 4000,
+  "bootstrap_seed": 2904,
+  "estimator_fitting_forbidden": true,
+  "gate_calibration_forbidden": true,
+  "proposed_execution_forbidden": true,
+  "baseline_comparison_forbidden": true,
+  "alibaba_forbidden": true,
+  "heldout_forbidden": true,
+  "feature_components": [
+    "gain",
+    "residual"
+  ],
+  "frozen_label": "p3_mismatch_v2_frozen",
+  "frozen_at_utc": "2026-09-15T10:23:11.451556+00:00",
+  "revision_config_sha256": "56037a8ad2e6b877722bb9b8a2346a72ffc1052a5c575bf632ce841b41d7ddcf",
+  "source_training_manifest_sha256": "84ab3d962e9a566303060fa98febcadef26eb1e5d472f81d32d986c35de3b940",
+  "source_training_manifest_path": "artifacts/p3_2_source_bank/p3_mismatch_v2_r3/source_training_manifest.json",
+  "p3_2a_analysis_sha256": "cf8503285dc797e85abe2f9d52fc6105e0b5b0768753195683d38f1ac36ba540",
+  "p3_2a_scientific_audit_sha256": "d95e20ff60b53a441f0f1d991c8e76b5cf5854bf4392e87fad4679798149b0e4",
+  "fresh_development_centers_committed_before_confirmation": [
+    31100,
+    31101,
+    31102,
+    31103,
+    31104,
+    31105
+  ],
+  "generator_modification_after_confirmation_forbidden": true
+}

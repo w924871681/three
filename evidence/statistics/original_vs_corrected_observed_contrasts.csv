@@ -1,0 +1,5 @@
+comparison,original_observed_method_mean_difference,corrected_observed_method_mean_difference,corrected_minus_original_difference,corrected_ci_low,corrected_ci_high,original_paired_inference_scope,new_heldout_is_unseen,causal_attribution
+P7.7 - B0,-0.003525420642858989,-0.0036641548764590783,-0.0001387342336000891,-0.004573827822422219,-0.0028134015487948244,239 matched groups; one group mismatch; mixed canonical population,False,NOT_IDENTIFIED_FROM_CONTRAST_CHANGE
+P7.7 - B1,-0.00046081433361248696,-0.0004013360535383174,5.947828007416955e-05,-0.0005435194434220294,-0.00027324824378676267,239 matched groups; one group mismatch; mixed canonical population,False,NOT_IDENTIFIED_FROM_CONTRAST_CHANGE
+P7.7 - B2,-0.0020110948757393198,-0.0019432976134592331,6.779726228008662e-05,-0.0022800258030189167,-0.001616486006572207,239 matched groups; one group mismatch; mixed canonical population,False,NOT_IDENTIFIED_FROM_CONTRAST_CHANGE
+P7.7 - B8,3.828704968529767e-05,2.8016915328205657e-05,-1.0270134357092016e-05,-1.8594825329880642e-07,8.423669423791578e-05,239 matched groups; one group mismatch; mixed canonical population,False,NOT_IDENTIFIED_FROM_CONTRAST_CHANGE

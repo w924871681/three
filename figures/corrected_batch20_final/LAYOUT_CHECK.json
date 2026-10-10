@@ -1,0 +1,33 @@
+{
+  "Fig2_Paired_Service_Loss": {
+    "adjacent_tick_collisions": [],
+    "figure_inches": [
+      7.16,
+      4.5
+    ],
+    "manual_visual_review_required": true,
+    "minimum_text_pt": 8.0,
+    "status": "PASS",
+    "text_clipping": []
+  },
+  "Fig3_Selective_Search": {
+    "adjacent_tick_collisions": [],
+    "figure_inches": [
+      7.16,
+      2.8
+    ],
+    "manual_visual_review_required": true,
+    "minimum_text_pt": 8.0,
+    "status": "PASS",
+    "text_clipping": []
+  },
+  "missing_glyph_warnings": [],
+  "runtime": {
+    "AI_or_seaborn_used": false,
+    "font": "DejaVu Sans",
+    "font_minimum_pt": 8,
+    "matplotlib": "3.11.1",
+    "pdf_fonttype": 42,
+    "png_dpi": 600
+  }
+}

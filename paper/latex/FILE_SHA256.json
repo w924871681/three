@@ -1,0 +1,13 @@
+{
+  "main.tex": "a6a20c9d514f82aa1bdac000685c889e8cd6cb42897a1cfb89c45124307b0d94",
+  "references_ordered.tex": "89991589c5f8c9ea88c775c8e3671d2c91e4390fefa8302ad0cd6b7df4f530a9",
+  "references_verified.bib": "b815518e8a2b9ed570d2b06decbdfd1eaab5b0c42207df30e201bae7937f24c0",
+  "REFERENCE_VERIFICATION_MANIFEST.json": "3191e2491af9959558eb6e7bf86540a6377296fdb8c7a589f89ae65272699031",
+  "README_BUILD.md": "14a6bb46940429e4378f8c22aa36863fcabef69573f9f98870e9d6f79bfa2885",
+  "FINAL_SCIENTIFIC_REVIEW.md": "ba2f2f6931fce79d693ab669eff776b4546d962b366fa119804d888ad812478f",
+  "BUILD_QA.json": "ea4fb1ee4bf066a69ed4b531d8e3988a62651d7d69455eb12b4a01990482f400",
+  "main.pdf": "402fb577b78bdac06bd15efdec8cd0f921679384cf2f3d07287af30eae8e6525",
+  "figures/Fig1_Selective_Lifecycle_Escalation.pdf": "799e5691278a2c1c0eeef3d94b6e5c360e73581886566dc8f461363169c299b9",
+  "figures/Fig2_Paired_Service_Loss.pdf": "88ac94d8134d563265d87d2fd82f923d68f9b02d3a9c0c38f065b388d8e25943",
+  "figures/Fig3_Selective_Search.pdf": "a110b111ab9ac6086fc24f148d4adab853ce9723b09f2cf63a34fff347471ef4"
+}

@@ -1,0 +1,6 @@
+method,n_centers,n_trajectories,n_stage_records,feasible_candidate_count_total_recorded,feasible_candidate_count_mean_trajectory_center_averaged,ri_search_updates_charged_total_recorded,ri_search_updates_charged_mean_trajectory_center_averaged,source_cache_hits_total_recorded,source_cache_hits_mean_trajectory_center_averaged,shared_parent_cache_hit_total_recorded,shared_parent_cache_hit_mean_trajectory_center_averaged,decision_runtime_actual_s_total_recorded,decision_runtime_actual_s_mean_trajectory_center_averaged,decision_runtime_standalone_estimate_s_total_recorded,decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged
+B0,20,240,5760,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2202.5181463010667,9.177158942921112,2202.5181463010667,9.177158942921112
+B1,20,240,5760,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2296.6412864986924,9.569338693744552,2296.6412864986924,9.569338693744552
+B2,20,240,5760,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5370.878328698687,22.378659702911197,5370.878328698687,22.378659702911197
+B8,20,240,5760,53280.0,222.0,2664000.0,11100.0,0.0,0.0,0.0,0.0,34280.914582599944,142.83714409416643,34280.914582599944,142.83714409416643
+P7.7,20,240,5760,17428.0,72.61666666666666,871400.0,3630.8333333333335,0.0,0.0,0.0,0.0,15102.04218449854,62.92517576874392,15102.04218449854,62.92517576874392

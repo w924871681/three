@@ -1,0 +1,12 @@
+{
+  "python_executable": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\python.exe",
+  "python_version": "3.11.15",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "torch_version": "2.5.1+cu121",
+  "cuda_available": true,
+  "torch_cuda_version": "12.1",
+  "cudnn_version": 90100,
+  "gpu_name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "cudnn_deterministic": false,
+  "cudnn_benchmark": false
+}

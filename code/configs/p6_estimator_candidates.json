@@ -1,0 +1,141 @@
+{
+  "schema": "dt-lifecycle-escalation-p6-estimator-candidates-v1",
+  "declared_at": "2026-09-16T13:33:57+08:00",
+  "declared_before_fitting_outcome_materialization": true,
+  "p4_scope_manifest": "audits/P4_EXPERIMENT_SCOPE_FREEZE.json",
+  "p4_scope_manifest_sha256": "866ce39e5c8e92fe9feefc932c710c7993d1c1d91abf4a3dfd359daa411cb39e",
+  "generator_config": "configs/p3_mismatch_v2_frozen.json",
+  "generator_config_sha256": "529655647c1359e2a164cddc3c5c8b534f5cdbad53e2ede29ada477910975646",
+  "fitting_centers": {"start": 31200, "end_inclusive": 31229, "count": 30},
+  "forbidden_center_pools": {
+    "generator_design": [31000, 31001, 31002],
+    "fresh_development": [31100, 31101, 31102, 31103, 31104, 31105],
+    "calibration": {"start": 32000, "end_inclusive": 32019},
+    "heldout": {"start": 33000, "end_inclusive": 33019}
+  },
+  "scenarios": {
+    "C0": "stationary",
+    "C1": "gradual parameter-level drift",
+    "C3": "primary controlled model-identity mismatch",
+    "C4": "secondary Nonlinear Dependency-Shift Stress"
+  },
+  "scenario_metadata_is_not_a_feature": true,
+  "target": {
+    "name": "R_B50",
+    "type": "continuous finite-policy oracle recoverability margin",
+    "recoverability_horizon": 4,
+    "eta": 0.25,
+    "local_policy_updates": [0, 10, 20, 50],
+    "offline_future_service_target_only": true
+  },
+  "response_event": {
+    "components": ["gain", "residual"],
+    "include_current_stage": true,
+    "same_identity_only": true,
+    "reset_after_identity_change": true,
+    "effort_feature_forbidden": true,
+    "replacement_effort_proxy_forbidden": true
+  },
+  "window_grid": {
+    "K_S": [2, 4, 6],
+    "K_L": [6, 12, 18],
+    "constraint": "K_S < K_L",
+    "ordered_valid_pairs": [[2, 6], [4, 6], [2, 12], [4, 12], [6, 12], [2, 18], [4, 18], [6, 18]]
+  },
+  "feature_order": [
+    "mean_gain_short",
+    "mean_residual_short",
+    "mean_gain_long",
+    "mean_residual_long",
+    "coverage_short",
+    "coverage_long"
+  ],
+  "feature_dimension": 6,
+  "forbidden_features": [
+    "slope", "variance", "short_long_difference", "ratio", "current_raw_loss",
+    "scenario_id", "center_id", "center_type", "deployment_tier",
+    "architecture_id", "oracle_derived_feature", "future_information"
+  ],
+  "cross_validation": {
+    "strategy": "five-fold Group CV by center",
+    "fold_assignment_config": "configs/p6_group_cv_folds.json",
+    "train_centers_per_fold": 24,
+    "validation_centers_per_fold": 6,
+    "feature_scaler": "StandardScaler fit on training centers only",
+    "target_scaling": "fixed multiplication by 1000 for MLP optimization only; no outcome-fitted target transform",
+    "random_stage_split_forbidden": true
+  },
+  "estimators": {
+    "ridge": {
+      "implementation": "sklearn.linear_model.Ridge",
+      "alphas": [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0],
+      "fit_intercept": true
+    },
+    "mlp": {
+      "implementation": "torch.nn.Sequential",
+      "architecture": [6, 16, 8, 1],
+      "hidden_activation": "ReLU",
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "epoch_budget": 400,
+      "batching": "full training fold",
+      "target_multiplier": 1000.0,
+      "base_seed": 9632,
+      "early_stopping": false
+    }
+  },
+  "selection": {
+    "primary_metric": "macro-center MAE",
+    "secondary_metrics": [
+      "macro-center RMSE", "pooled Spearman", "macro-center Spearman",
+      "sign accuracy at R=0", "balanced accuracy for R<0"
+    ],
+    "one_standard_error_rule": "threshold = best configuration macro-center MAE + sample_SD(best configuration's 30 center MAEs)/sqrt(30)",
+    "simplicity_preference": "If any Ridge configuration is within threshold, choose Ridge; otherwise choose MLP.",
+    "deterministic_tie_break": [
+      "eligible configurations only (macro-center MAE <= one-SE threshold)",
+      "preferred estimator family under simplicity rule",
+      "smaller K_L",
+      "smaller K_S",
+      "for Ridge: larger alpha",
+      "lower macro-center MAE",
+      "lexicographically smaller configuration ID"
+    ],
+    "binary_metrics_are_diagnostic_only": true,
+    "gate_margin_calibration_forbidden": true
+  },
+  "stop_conditions": [
+    "Ridge and MLP both show essentially no out-of-center association",
+    "Spearman is approximately zero across unseen centers",
+    "sign discrimination is near random and unstable",
+    "apparent performance is almost entirely due to C3 versus non-C3 scale separation",
+    "one or two centers dominate the result",
+    "leakage or fold isolation fails",
+    "useful performance requires new handcrafted features",
+    "feature scaling requires validation or future-center information"
+  ],
+  "predeclared_cv_pass_gate": {
+    "all_scientific_and_leakage_audits_pass": true,
+    "selected_pooled_spearman_min": 0.20,
+    "selected_macro_center_spearman_median_min_exclusive": 0.0,
+    "selected_balanced_accuracy_min": 0.55,
+    "folds_with_positive_pooled_spearman_min": 4,
+    "relative_macro_center_mae_improvement_over_fold_training_mean_baseline_min": 0.05,
+    "non_c3_pooled_spearman_min": 0.10,
+    "non_c3_balanced_accuracy_min": 0.55,
+    "leave_one_center_out_pooled_spearman_must_remain_positive": true,
+    "leave_one_fold_out_pooled_spearman_must_remain_positive": true,
+    "interpretation": "A configuration passes only if every condition holds. Failure stops before final all-fitting-center refit and freeze; thresholds are estimator-development criteria, not gate calibration."
+  },
+  "diagnostic_figures": [
+    "scenario-faceted OOF predicted-versus-oracle scatter with identity line",
+    "scenario-specific OOF residual density",
+    "R=0 sign confusion-count heatmap",
+    "predicted-margin deciles versus oracle means with center-bootstrap 95% intervals"
+  ],
+  "post_p6_forbidden": [
+    "gate calibration", "Proposed lifecycle evaluation", "baseline comparison",
+    "robustness", "Alibaba", "final heldout evaluation", "P7"
+  ]
+}

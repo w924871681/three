@@ -1,0 +1,155 @@
+{
+  "schema": "paper3-independent-figure-review-v1",
+  "status": "PASS",
+  "created_utc": "2026-10-10T13:37:57.922094+00:00",
+  "reviewer": "independent figure_data_audit subagent",
+  "scope": "Source, preview PLOT_DATA, native-width layout checks, rendered color/grayscale previews and complete draft captions; final PDF/600dpi export remains root publication QA",
+  "original_scientific_evidence_reused": true,
+  "raw_or_environment_rescans": false,
+  "bootstrap_or_models_executed": false,
+  "reviewed_files": {
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\figures\\paper3_corrected_batch20_final\\generate_paper3_figures.py": {
+      "sha256": "829c43556c23b713af02442279cafe5218d02f8403a1b54084bd7222c288198b",
+      "size_bytes": 16437
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\DATA_AUDIT.json": {
+      "sha256": "bfb9add30bfdce5fe05cf79427e817c9e52df2d3647e5117577def382314e157",
+      "size_bytes": 48571
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\FIGURE_CAPTIONS.md": {
+      "sha256": "4751828cbc98d05eafb2f5208b6b2a58db74e3e65b897f4940dc223493621231",
+      "size_bytes": 5636
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\preview\\PLOT_DATA.json": {
+      "sha256": "b966eb0e1b08e26c76c94726260867ea5f5080cc2fad10c5dbef5602c42f3ee0",
+      "size_bytes": 6228
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\preview\\LAYOUT_CHECK.json": {
+      "sha256": "712aadf76591f4723243252a245b58c54ea27611cecd5f7921910d7e3dc0c1b0",
+      "size_bytes": 724
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\preview\\Fig2_Paired_Service_Loss_preview.png": {
+      "sha256": "97dc725b476362088d34a16ff924fb8d5794cc37d7ce723f64feee18e307fa0f",
+      "size_bytes": 89437
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\preview\\Fig3_Selective_Search_preview.png": {
+      "sha256": "ccdc4e6e22b7e20af3868a8b4b7c17239044af54d4b7214c4c92ce3f8783b3ee",
+      "size_bytes": 62331
+    },
+    "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\figure_generation_audit_v1\\preview\\Fig3_Selective_Search_grayscale.png": {
+      "sha256": "2fb2e01112a1b2485da5496683b491c1b0afff0fcf19eacf69682a37056470b1",
+      "size_bytes": 31828
+    }
+  },
+  "checks": [
+    {
+      "check": "All four prespecified baseline comparisons displayed",
+      "status": "PASS"
+    },
+    {
+      "check": "Unmodified saved observed estimate and CI B0",
+      "status": "PASS"
+    },
+    {
+      "check": "Unmodified saved observed estimate and CI B1",
+      "status": "PASS"
+    },
+    {
+      "check": "Unmodified saved observed estimate and CI B2",
+      "status": "PASS"
+    },
+    {
+      "check": "Unmodified saved observed estimate and CI B8",
+      "status": "PASS"
+    },
+    {
+      "check": "All20 centers retained in ascending center-ID order",
+      "status": "PASS"
+    },
+    {
+      "check": "All20 plotted differences exactly match independently checked saved center means",
+      "status": "PASS"
+    },
+    {
+      "check": "18 exact recorded zero differences disclosed; no exclusion/jitter/interpolation",
+      "status": "PASS"
+    },
+    {
+      "check": "Admission denominator and integer numerator B8",
+      "status": "PASS"
+    },
+    {
+      "check": "Committed RI and candidate updates from saved CSV B8",
+      "status": "PASS"
+    },
+    {
+      "check": "Admission denominator and integer numerator P7.7",
+      "status": "PASS"
+    },
+    {
+      "check": "Committed RI and candidate updates from saved CSV P7.7",
+      "status": "PASS"
+    },
+    {
+      "check": "No Bootstrap recomputation or original mixed-input plotting data",
+      "status": "PASS"
+    },
+    {
+      "check": "Independent linear B8 zoom includes zero and both endpoints; no broken axis",
+      "status": "PASS"
+    },
+    {
+      "check": "All Fig3 bar panels start at zero",
+      "status": "PASS"
+    },
+    {
+      "check": "Search workload separated from end-to-end cost and global budget",
+      "status": "PASS"
+    },
+    {
+      "check": "Caption prevents B8 superiority/equivalence/noninferiority claims",
+      "status": "PASS"
+    },
+    {
+      "check": "Caption denominator correct; RI is count, not conditional rate",
+      "status": "PASS"
+    },
+    {
+      "check": "Caption retains frozen center resampling protocol and marginal intervals",
+      "status": "PASS"
+    },
+    {
+      "check": "Fig2_Paired_Service_Loss native-width layout machine checks",
+      "status": "PASS"
+    },
+    {
+      "check": "Fig3_Selective_Search native-width layout machine checks",
+      "status": "PASS"
+    },
+    {
+      "check": "No missing glyph warnings",
+      "status": "PASS"
+    }
+  ],
+  "passed_checks": 22,
+  "blockers": [],
+  "visual_review": {
+    "Fig2": "PASS: four observed intervals with zero line, labeled linear B8 detail and numeric negative lower bound, all20 center IDs visible; zero points separately visible; no clipping, label collisions or decorative effects.",
+    "Fig3": "PASS: three aligned zero-origin panels; CSV-derived labels; denominator/workload boundary visible; grayscale method distinction through hatch.",
+    "B8_tiny_negative_endpoint": "Negative interval extent is subpixel-small at scale; exact-sign interval label and crosses-zero annotation disclose it. No broken scale.",
+    "type_size": "Minimum8pt at7.16in double-column width; captions recommend figure* and prohibit reducing Fig2 to a single column."
+  },
+  "scientific_boundaries": {
+    "marginal_CI_not_simultaneous": true,
+    "B8_no_superiority_equivalence_noninferiority": true,
+    "paired_center_observations_descriptive": true,
+    "equal_saved_values_not_equivalence": true,
+    "admission_denominator_each_method_stages": 5760,
+    "RI_figure_metric": "committed action count; descriptive RI rate elsewhere uses same5760stage denominator",
+    "search_updates_per_candidate": 50,
+    "search_updates_not_global_budget_or_end_to_end_cost": true,
+    "no_claim_selecting_favorable_scenarios": true
+  },
+  "optional_fig4": "Caption says omission is existing scenario-table redundancy; all80paired scenario-center observations available, no outcome-based omission.",
+  "final_export_condition": "Use reviewed source and captions unchanged; final vectorPDF,600dpiPNG and ZIP/member hashes must be checked by root before FIGURES_READY."
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "p7-protocol-v1",
+  "calibration_centers": [
+    32000,
+    32001,
+    32002,
+    32003,
+    32004,
+    32005,
+    32006,
+    32007,
+    32008,
+    32009,
+    32010,
+    32011,
+    32012,
+    32013,
+    32014,
+    32015,
+    32016,
+    32017,
+    32018,
+    32019
+  ],
+  "model_seeds": [
+    7311,
+    7312,
+    7313
+  ],
+  "scenarios": [
+    "C0",
+    "C1",
+    "C3",
+    "C4"
+  ],
+  "P6_manifest_sha256": "6c5286e3e470413a150b17d908bfd7c87931ce1fa55304ccf270d578fb57374f",
+  "feature_spec_sha256": "9bc53da1e8713d43fcabcb029d1d0708f25467cbc49698a7c806fc8f7d020750",
+  "window_pair": {
+    "K_S": 2,
+    "K_L": 6
+  },
+  "feature_order": [
+    "mean_gain_short",
+    "mean_residual_short",
+    "mean_gain_long",
+    "mean_residual_long",
+    "coverage_short",
+    "coverage_long"
+  ],
+  "unit": 0.0024314418915309943,
+  "unit_source": "median P6 fitting C0 L_ref",
+  "unit_source_sha256": "c6678c144540082c81c38ca1d7bbe106a2aba71b76e3123807a9b07e5964daa0",
+  "normalized_lambda_M": 0.1,
+  "primary_cost_ratio": 5,
+  "cost_ratios": [
+    2,
+    5,
+    10
+  ],
+  "primary_false_escalation_cap": 0.1,
+  "secondary_cap": 0.05,
+  "false_escalation_numerator": "actual RI and finite-policy R>=0",
+  "false_escalation_denominator": "finite-policy R>=0 stages within center",
+  "missed_escalation_denominator": "finite-policy R<0 stages within center",
+  "statistical_unit": "center",
+  "fallback": "closed_gate; mark calibration FAIL; retain/local compared; never heldout",
+  "action_tie_break": [
+    "retain",
+    "local",
+    "ri"
+  ],
+  "ri_candidate_updates": 50,
+  "source_bank_hash": "c9571436972af00eecdcbd3cf6ee80d54b92ae07ddcaf4f8ff76210ba9099b11",
+  "heldout_access_allowed": false,
+  "alibaba_access_allowed": false,
+  "no_estimator_refit": true,
+  "no_generator_modification": true,
+  "ravm": {
+    "B": 5,
+    "beta": 0.1,
+    "kappa_rec": 0.5,
+    "kappa_hist": 0.0,
+    "delta_imp": 2.8018237766243602e-05,
+    "delta_ret": 0.0
+  },
+  "bootstrap_repetitions": 4000,
+  "bootstrap_seed": 2904
+}

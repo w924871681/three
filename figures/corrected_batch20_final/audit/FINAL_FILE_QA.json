@@ -1,0 +1,136 @@
+{
+  "schema": "paper3-figure-file-qa-v1",
+  "status": "PASS",
+  "figures": {
+    "Fig2_Paired_Service_Loss": {
+      "pdf": {
+        "skill_issues": [
+          [
+            "WARN",
+            "PDF \u4e2d\u4ee5\u4e0b\u5b57\u4f53\u53ef\u80fd\u672a\u5d4c\u5165: /DGQYPN+DejaVuSans, /EEZAWI+DejaVuSans, /CJTTVH+DejaVuSans-Bold. \u5bfc\u81f4\u4ed6\u4eba\u7535\u8111\u6253\u5f00\u53d8\u6210\u66ff\u4ee3\u5b57\u4f53\u3002"
+          ]
+        ],
+        "skill_info": {
+          "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\figures\\paper3_corrected_batch20_final\\Fig2_Paired_Service_Loss.pdf",
+          "ext": "pdf",
+          "size_bytes": 25444,
+          "category": "vector"
+        },
+        "sha256": "88ac94d8134d563265d87d2fd82f923d68f9b02d3a9c0c38f065b388d8e25943",
+        "page_count": 1,
+        "dimensions_inches": [
+          7.16,
+          4.5
+        ],
+        "raster_image_count": 0,
+        "embedded_fonts": [
+          {
+            "basefont": "/CJTTVH+DejaVuSans-Bold",
+            "subtype": "/Type0",
+            "embedded_descendant_fonts": 1
+          },
+          {
+            "basefont": "/DGQYPN+DejaVuSans",
+            "subtype": "/Type0",
+            "embedded_descendant_fonts": 1
+          },
+          {
+            "basefont": "/EEZAWI+DejaVuSans",
+            "subtype": "/Type0",
+            "embedded_descendant_fonts": 1
+          }
+        ],
+        "extractable_text": true
+      },
+      "png": {
+        "skill_issues": [],
+        "skill_info": {
+          "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\figures\\paper3_corrected_batch20_final\\Fig2_Paired_Service_Loss.png",
+          "ext": "png",
+          "size_bytes": 365671,
+          "category": "raster",
+          "size_px": [
+            4296,
+            2700
+          ],
+          "dpi": [
+            599.9988,
+            599.9988
+          ]
+        },
+        "sha256": "5a999d192147b9c5055ab6a550e3a259937978bf659edab2379938b3b99a4b69"
+      }
+    },
+    "Fig3_Selective_Search": {
+      "pdf": {
+        "skill_issues": [
+          [
+            "WARN",
+            "PDF \u4e2d\u4ee5\u4e0b\u5b57\u4f53\u53ef\u80fd\u672a\u5d4c\u5165: /BKATJI+DejaVuSans, /BZWZEN+DejaVuSans-Bold. \u5bfc\u81f4\u4ed6\u4eba\u7535\u8111\u6253\u5f00\u53d8\u6210\u66ff\u4ee3\u5b57\u4f53\u3002"
+          ]
+        ],
+        "skill_info": {
+          "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\figures\\paper3_corrected_batch20_final\\Fig3_Selective_Search.pdf",
+          "ext": "pdf",
+          "size_bytes": 18499,
+          "category": "vector"
+        },
+        "sha256": "a110b111ab9ac6086fc24f148d4adab853ce9723b09f2cf63a34fff347471ef4",
+        "page_count": 1,
+        "dimensions_inches": [
+          7.16,
+          2.8
+        ],
+        "raster_image_count": 0,
+        "embedded_fonts": [
+          {
+            "basefont": "/BZWZEN+DejaVuSans-Bold",
+            "subtype": "/Type0",
+            "embedded_descendant_fonts": 1
+          },
+          {
+            "basefont": "/BKATJI+DejaVuSans",
+            "subtype": "/Type0",
+            "embedded_descendant_fonts": 1
+          }
+        ],
+        "extractable_text": true
+      },
+      "png": {
+        "skill_issues": [],
+        "skill_info": {
+          "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\figures\\paper3_corrected_batch20_final\\Fig3_Selective_Search.png",
+          "ext": "png",
+          "size_bytes": 262794,
+          "category": "raster",
+          "size_px": [
+            4296,
+            1680
+          ],
+          "dpi": [
+            599.9988,
+            599.9988
+          ]
+        },
+        "sha256": "033060584bcf13fd4aad823091e739d25951e64e0a350af88c0cab61f3f50099"
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.11.15",
+    "executable": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\python.exe",
+    "matplotlib": "3.11.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0"
+  },
+  "font": {
+    "name": "DejaVu Sans",
+    "path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\model_env_recovery_v1_20261009\\P7_7_REPLICATION_MODEL_ENV_V1\\Lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSans.ttf",
+    "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+  },
+  "protected_existing_files": {
+    "count": 46,
+    "all_bytes_unchanged": true,
+    "before_inventory_sha256": "a1c1e28e0d1fe890ef7708ec6fba824b47c6be7a45a969e8351af5d332ea6caf"
+  }
+}

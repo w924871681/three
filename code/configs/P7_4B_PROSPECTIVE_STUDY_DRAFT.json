@@ -1,0 +1,143 @@
+{
+  "schema": "p7.4b-prospective-representation-study-draft-v1",
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_EXECUTION",
+  "created_at_utc": "2026-09-21T07:55:46.8140002Z",
+  "p7_4a_verdict": "VALID_SCALE_REPRESENTATION_IDENTIFIED",
+  "scientific_question": "Does a causal fixed identity-reference representation transport continuous recoverability and its theoretical zero boundary across fresh heterogeneous centers better than the paired absolute representation?",
+  "preserved_verdicts": {
+    "P6": "PASS",
+    "P7": "PASS under original calibration semantics",
+    "P7_1": "GATE_IS_EFFECTIVELY_ALWAYS_OPEN_ON_CALIBRATION",
+    "P7_2": "FAIL under prospective fresh-pool admission validation",
+    "P7_3": "D6_MIXED_OR_INCONCLUSIVE",
+    "C1": "SUPPORTED",
+    "C2": "WEAKENED_BY_FRESH_POOL_FAILURE",
+    "C3_current_global_hard_absolute_gate": "REJECTED"
+  },
+  "authorization": {
+    "p7_4b_execution_authorized": false,
+    "new_trajectory_generation_authorized": false,
+    "model_fitting_authorized": false,
+    "validation_outcome_access_authorized": false,
+    "final_heldout_access_authorized": false,
+    "alibaba_access_authorized": false,
+    "P8_authorized": false,
+    "required_next_gate": "human scientific approval of a hash-bound P7.4B amendment before any center materialization or fitting"
+  },
+  "representations": {
+    "A0_absolute_control": {
+      "target": "R",
+      "response_event": ["gain", "post_assessment_mse"],
+      "scale": 1.0
+    },
+    "A1_fixed_deployment_reference": {
+      "reference_role": "latest 200 raw observations from causal assessment/reference data available before identity deployment",
+      "initial_reference": "raw indices [800,1000) after frozen warm-up adaptation and before stage 1",
+      "RI_reference": "last 200 raw observations of current D_assess after frozen 50-update source adaptation and before selected RI deployment",
+      "window_length": 96,
+      "reference_window_count": 104,
+      "point_error": "squared prediction error",
+      "robust_statistic": "median",
+      "epsilon_mse": 1e-12,
+      "scale_formula": "S_m=max(median(e_m_1,...,e_m_104),1e-12)",
+      "scale_dynamics": "fixed for active identity lifetime",
+      "RI_rule": "discard old scale and history; construct selected new identity scale by the identical rule",
+      "target": "R/S_m",
+      "response_event": ["gain", "post_assessment_mse/S_m"],
+      "theoretical_gate_boundary": 0.0,
+      "insufficient_reference_policy": "STOP_AND_MARK_INSUFFICIENT_REFERENCE_EVIDENCE; no center-tuned fallback"
+    }
+  },
+  "pruned_candidates": {
+    "A2_dynamic_past_only": "rejected before outcomes because the denominator can drift with degradation and lacks symmetric immediate post-RI history"
+  },
+  "fresh_center_reservation": {
+    "materialized": false,
+    "candidate_id_start": 32200,
+    "candidate_id_end_inclusive": 32247,
+    "candidate_count": 48,
+    "fit_pool_target_count": 24,
+    "validation_pool_target_count": 24,
+    "assignment_timing": "after separate authorization and before outcomes",
+    "assignment_inputs": ["center_id", "center_type", "deployment_tier"],
+    "assignment_rule": "metadata-only deterministic stratified alternating assignment by center_type and tier; no trajectory, label, prediction, service, oracle, or representation outcome may be inspected",
+    "excluded_ranges": {
+      "design_and_generator_development": [31000, 31105],
+      "P6_fitting": [31200, 31229],
+      "P7_calibration": [32000, 32019],
+      "P7_2_fresh_pools": [32100, 32123],
+      "final_heldout_reserved": [33000, 33019]
+    }
+  },
+  "frozen_common_design": {
+    "data_seed": 7311,
+    "model_seeds": [7311, 7312, 7313],
+    "scenarios": ["C0", "C1", "C3", "C4"],
+    "stages": 24,
+    "window_length": 96,
+    "stage_raw_sizes": {"update": 400, "assessment": 240, "service": 400},
+    "recoverability_horizon": 4,
+    "local_policy_budget": "B50",
+    "local_policies": [0, 10, 20, 50],
+    "K_S": 2,
+    "K_L": 6,
+    "feature_dimension": 6,
+    "estimator_architecture_class": [6, 16, 8, 1],
+    "feature_exclusions": ["center_id", "scenario", "center_type", "deployment_tier", "architecture", "identity_id"],
+    "generator": "p3_mismatch_v2_r3 frozen",
+    "bank": "existing eleven-identity frozen bank",
+    "deployment_limits_unchanged": true,
+    "tau_service_rule_unchanged": true
+  },
+  "future_fit_and_freeze_order": [
+    "hash-bind protocol, pool assignment, representation formulas, training procedure, random seeds, and stop rules",
+    "materialize paired RepresentationFit trajectories only",
+    "fit A0 and A1 separately with identical center-group splits, architecture class, optimizer, schedule, and selection rule",
+    "freeze both complete pipelines and all preprocessing",
+    "open RepresentationValidation outcomes once, without refit or reselection",
+    "apply predeclared stop logic and stop for human review"
+  ],
+  "primary_metrics": [
+    "macro_center_MAE",
+    "macro_center_Spearman",
+    "positive_Spearman_center_fraction",
+    "balanced_sign_accuracy_at_zero",
+    "prediction_bias",
+    "center_scale_sensitivity"
+  ],
+  "required_strata": [
+    "C3",
+    "non_C3",
+    "scenario",
+    "center_type",
+    "deployment_tier",
+    "history_coverage",
+    "identity_age"
+  ],
+  "paired_sensitivity": [
+    "leave_one_center_out",
+    "reference_floor_activation",
+    "reference_window_count",
+    "initial_vs_RI_scale_source",
+    "Fit_to_Validation_transport_gap"
+  ],
+  "prospective_stop_logic": {
+    "integrity_or_leakage_failure": "STOP",
+    "reference_unavailable_or_asymmetric": "STOP",
+    "A1_macro_center_Spearman_not_positive_in_either_pool": "STOP",
+    "A1_positive_Spearman_center_fraction_not_above_0_5_in_either_pool": "STOP",
+    "A1_zero_boundary_balanced_accuracy_not_above_0_5_in_either_pool": "STOP",
+    "A1_not_better_than_A0_on_validation_Spearman_and_balanced_accuracy": "STOP",
+    "A1_worse_fit_to_validation_deterioration_than_A0_on_both_primary_transport_metrics": "STOP",
+    "A1_non_C3_macro_center_Spearman_not_positive_in_either_pool": "STOP",
+    "single_center_required_for_all_proceed_conditions": "STOP",
+    "outcome_dependent_revision_needed": "STOP",
+    "all_conditions_survive": "STOP_FOR_HUMAN_SCIENTIFIC_REVIEW; no automatic heldout or P8 progression"
+  },
+  "threshold_policy": {
+    "empirical_gate_threshold_selection": "forbidden; theoretical zero only",
+    "natural_null_boundaries": {"association": 0.0, "balanced_accuracy": 0.5, "majority_fraction": 0.5},
+    "minimum_effect_size_or_transport_tolerance": "not finalized in P7.4A; any such value requires separate pre-outcome human justification and hash binding"
+  },
+  "reporting_boundary": "A P7.4B PASS would support representation transport only; it would not restore the rejected hard gate, prove lifecycle superiority, or authorize final heldout/P8 without a new human decision."
+}

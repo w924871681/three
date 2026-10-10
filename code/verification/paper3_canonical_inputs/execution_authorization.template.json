@@ -1,0 +1,44 @@
+{
+  "schema": "paper3-civ-execution-authorization-v1",
+  "status": "NOT_AUTHORIZED_TEMPLATE",
+  "human_authorized": false,
+  "human_authorization_reference": "REQUIRES_SEPARATE_EXPLICIT_HUMAN_AUTHORIZATION",
+  "scope": "INPUT_ONLY_EXECUTION",
+  "candidate_id": "P7_7_ORIGINAL_BATCH20_CANDIDATE_V1",
+  "verification_id": "P7_7_CANONICAL_INPUT_VERIFICATION_V1",
+  "run_id": "CIV_INPUT_V1_REVIEWED_RUN001",
+  "current_environment_reference_authorized": false,
+  "historical_environment_not_reproduced_acknowledged": false,
+  "models_authorized": false,
+  "warmup_authorized": false,
+  "statistics_authorized": false,
+  "historical_overwrite_authorized": false,
+  "approved_implementation_sha256": {
+    "contract.py": "4cdb2c7235f04bf09652c5e0c9478c6ab4b91b16b597a8b5ed42337009e43817",
+    "history.py": "f4f23a334fb4b1c9e14c8d81b706595f51957dd3bf7cfe56ce48234cf5372235",
+    "materialization.py": "287539fe471bffd427ef3398fdabcdd36107c9641791756271ff5b166525a4a7",
+    "preflight.py": "458796154bb19e8f9fef7c8fd9dc401732c779585b1085f4dee31fa5adad953f",
+    "records.py": "95bf7dc68e4240edb6dc0742137baa75a8e39c3f46343c3d5e4ac74597498367",
+    "safety.py": "04f355c02359e60742721791a33c2af13d7917200bd5f061b98ee6d60c9d916e",
+    "schedule.py": "29d6fb143a525e0c5d1f025e22059906f8b0449845a36006340b97bcc7b6e304",
+    "source_pins.json": "98cd0ca5371e8671ba61afc27f7920008c0819464a4e2b675f2247d6bc0033a9",
+    "tests/test_contract.py": "fa7502deb28a4e544ba22ceac627fd082a750bcea559e7e33429a867e8f9f5f9",
+    "tests/test_materialization.py": "36bb77f4a122f0b3923822829ac53b3dc53499706b542af2d4fdb21faf44dafc",
+    "tests/test_records.py": "93539dceee00db0b2a99cdef8280dcddf3102ba0295ce393d1d9d0534ec9123a",
+    "tests/test_safety_history_entry.py": "14980037137df0ec3f14f4bd6fb231c33df16c7eab6bebf8582b492cd70826c0",
+    "tests/test_schedule.py": "71bd16082aaed7510d2fce73065310c4036a40443c8f2348883bc391da72e8f2",
+    "verify_inputs.py": "0ad2c848c57217e60ef7e42bc98f50ea7315d9d2e20dab2fdecc5b7aac4d0938"
+  },
+  "approved_git_snapshot": {
+    "root": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION",
+    "head": "436ee9960a32a8e94e571ded3fc800a2fa20f3e4",
+    "branch": "main",
+    "tracked_status": " M core/p7.py\n M reports/P7_7_FINAL_LIFECYCLE_PROTOCOL.md\n M reports/P7_7_FINAL_LIFECYCLE_PROTOCOL.md.sha256\n M results/p7_6b/task_states/fit/32248_7312_C1.json\n M results/p7_6b/task_states/fit/32248_7312_C3.json"
+  },
+  "history_session": {
+    "path": "C:\\Users\\92487\\.codex\\sessions\\2026\\09\\14\\rollout-2026-09-14T21-27-11-01a0a019-a852-7350-813a-23a170fa191c.jsonl",
+    "sha256": "a8778c201e786820fac462b0f4499f400d000560d5e8f686aa02992e2b7e5366"
+  },
+  "environment_manifest_path": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\verification\\paper3_canonical_inputs\\environment.reviewed.json",
+  "environment_manifest_sha256": "UNAPPROVED_REQUIRES_EXACT_SHA256"
+}

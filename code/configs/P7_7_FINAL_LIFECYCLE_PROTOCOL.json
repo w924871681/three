@@ -1,0 +1,206 @@
+{
+  "schema": "p7.7-final-lifecycle-protocol-v1",
+  "status": "P7_7A2_INTEGRATION_FROZEN_PENDING_SEPARATE_FINAL_HELDOUT_AUTHORIZATION",
+  "purpose": "P7.7A-2 recoverability-to-escalation integration freeze; no final-heldout execution is authorized by this file.",
+  "authorization": {
+    "development_qualification": true,
+    "branch_b_integration_qualification": true,
+    "final_heldout_access": false,
+    "final_heldout_trajectory_generation": false,
+    "alibaba_access": false,
+    "p8_access": false,
+    "refit_or_recalibration": false
+  },
+  "preserved_verdicts": {
+    "P7_6B": "P7_6B_REPLICATION_PASS",
+    "P7_6B_claim_boundary": "prospectively replicated under the evaluated synthetic protocol",
+    "P7_2_formal_verdict": "P7_2_FAIL_PRESERVED",
+    "P7_4B": "P7_4B_FAIL",
+    "P7_4B_1": "F2_UNCERTAINTY_BOUNDARY_SENSITIVITY"
+  },
+  "historical_authority": {
+    "older_generic_p7": {
+      "sources": ["configs/p7_protocol.json", "docs/P7_PROTOCOL_AND_EXECUTION_LOG.md"],
+      "role": "development/calibration vocabulary and previously frozen generic lifecycle machinery",
+      "superseded_for_proposed_behavior": true,
+      "reason": "older chronology; calibration-only center guard and primary ratio 5 convention"
+    },
+    "p7_2_proposed": {
+      "sources": ["configs/p7_2_selected_action_params.json", "audits/P7_2_FINAL_CALIBRATION_FREEZE.json"],
+      "role": "historical Proposed behavior/calibration lineage and frozen data-generation path",
+      "superseded_for_proposed_behavior": false,
+      "reason": "later explicit GateCal-v2/ActionCal-v2 selection and freeze"
+    },
+    "p7_6b": {
+      "sources": ["configs/P7_6B_FROZEN_PROTOCOL.json", "audits/P7_6B_FINAL_SCIENTIFIC_AUDIT.json"],
+      "role": "frozen A1 representation evidence and immutable recoverability-inference artifact authority",
+      "superseded_for_proposed_behavior": false,
+      "reason": "later representation replication; immutable artifact now used only by the prospective P7.7 zero-boundary RI-admission rule"
+    },
+    "p7_6b_outcome": {
+      "source": "audits/P7_6B_FINAL_SCIENTIFIC_AUDIT.json",
+      "role": "outcome evidence only",
+      "superseded_for_proposed_behavior": false,
+      "reason": "establishes representation evidence but does not by itself establish lifecycle superiority or authorize final-heldout access"
+    },
+    "engineering_runtime": {
+      "source": "configs/P7_6B_EXECUTION_CONFIG.json",
+      "role": "runtime metadata only",
+      "superseded_for_proposed_behavior": true,
+      "reason": "does not define scientific parameters"
+    }
+  },
+  "common_behavior": {
+    "source": "P7.2 frozen Proposed",
+    "data_seed": 7311,
+    "method": "P7.7 Recoverability-Guided Lifecycle",
+    "delta_R": -0.000272181217042075,
+    "cost_ratio": 10,
+    "config_id": "Proposed_ratio10_grid33",
+    "gate_estimator": "immutable P7.6B A1 estimator on causal same-identity history",
+    "zero_boundary": 0.0,
+    "A1_artifact_role": "frozen operational recoverability evidence for RI admission; never forces RI",
+    "p7_2_delta_R_role": "historical lineage only; never reused as an A1 threshold",
+    "no_behavior_change_from_A1": false
+  },
+  "service_unit": 0.0024314418915309943,
+  "service_threshold": 0.003039302364413743,
+  "ravm": {
+    "B": 5,
+    "beta": 0.1,
+    "kappa_rec": 0.5,
+    "kappa_hist": 0.0,
+    "delta_imp": 0.000028018231776243602,
+    "delta_ret": 0.0
+  },
+  "lifecycle_state": {
+    "state": "Z_t=(m_t,theta_t)",
+    "fixed_identity_maintenance": "adapt current m_t for exactly 50 updates on D_upd; evaluate on D_assess; retain identity",
+    "model_level_RI": "only a selected frozen-bank identity changes m_t",
+    "maintenance_opportunity": "each stage after D_upd and D_assess are available and before D_srv is sealed",
+    "decision_order": ["observe", "probe", "infer", "gate", "generate_candidates", "filter", "evaluate", "accept_or_fallback", "seal_decision", "service"],
+    "identity_reset": ["commit selected identity", "discard old response history", "construct new identity S_m from last 200 D_assess raw observations with 104 exact errors", "hold S_m fixed for the new identity lifetime"]
+  },
+  "recoverability": {
+    "formal_quantity": "R_t^M(H,B_M)",
+    "recoverable_rule": "R_t^M(H,B_M) >= 0",
+    "unrecoverable_rule": "R_t^M(H,B_M) < 0",
+    "online_evidence": "immutable P7.6B A1 prediction from same-identity causal response history normalized by identity-held S_m",
+    "zero_boundary": 0.0,
+    "new_margin": false,
+    "oracle_recoverability": "offline diagnostic only; never an online feature or action input"
+  },
+  "ri_admission": {
+    "rule": "negative operational recoverability evidence makes RI admissible; it never forces RI",
+    "candidate_source": "existing frozen eleven-identity bank plus bound P3.2 source-bank identities",
+    "candidate_adaptation": "exactly 50 frozen updates per feasible candidate using existing seed+center+stage*1000+500+bank_index rule",
+    "feasibility": "unchanged frozen deployment parameter and operation limits for the center budget tier",
+    "evaluation": "same D_assess, same loss, same candidate budget and bank filter",
+    "comparison": "pre_loss vs local_loss+0.1*unit vs candidate_loss+10*0.1*unit; exact tie order retain > local > bank order",
+    "acceptance": "commit only the minimum feasible action under the frozen comparison",
+    "fallback": "if no acceptable candidate exists, retain or accept fixed-identity local maintenance according to the same comparison; never force identity change"
+  },
+  "a1_reset": {
+    "artifact": "artifacts/p7_6b_A1_estimator.pt",
+    "scaler": "artifacts/p7_6b_A1_scaler.json",
+    "features": ["mean_gain_short", "mean_residual_short", "mean_gain_long", "mean_residual_long", "coverage_short", "coverage_long"],
+    "residual": "post_assessment_mse/S_m",
+    "S_m": "max(median(exactly 104 pointwise squared errors from the frozen 200-observation deployment reference),1e-12)",
+    "initial_reference": "raw indices [800,1000) after warm-up",
+    "ri_reference": "last 200 raw observations of current D_assess after candidate adaptation and before identity commit",
+    "history": "same-identity causal response history; reset after RI",
+    "use_in_final_action": true,
+    "reason": "P7.7A-2 Branch B uses the already frozen A1 zero-boundary evidence only to open RI admission; it does not force RI or alter candidate search, costs, feasibility, adaptation or fallback"
+  },
+  "comparators": [
+    {"method": "B0", "config_id": "B0_Frozen_ratio10", "semantics": "no adaptation", "cost_ratio": 10},
+    {"method": "B1", "config_id": "B1_AlwaysMaintainP50_ratio10", "semantics": "unconditional fixed-identity P50 maintenance", "cost_ratio": 10},
+    {"method": "B2", "config_id": "B2_RAVM_ratio10", "semantics": "verification-guided local maintenance", "cost_ratio": 10},
+    {"method": "B8", "config_id": "B8_AlwaysOpen_ratio10", "semantics": "aggressive always-open model-level search", "cost_ratio": 10},
+    {"method": "P7.7", "config_id": "P7_7_RECOVERABILITY_GUIDED_ratio10_grid33", "delta_R": -0.000272181217042075, "gate_boundary": 0.0, "gate_estimator": "A1", "semantics": "P7.7 Recoverability-Guided Lifecycle; P7.2 delta retained as historical lineage", "cost_ratio": 10}
+  ],
+  "excluded_named_methods": {
+    "Always-FT": "NOT_RECOVERABLE_EXACTLY",
+    "ER": "NOT_RECOVERABLE_EXACTLY",
+    "EWC": "NOT_RECOVERABLE_EXACTLY",
+    "SI": "NOT_RECOVERABLE_EXACTLY",
+    "Huber-FT": "NOT_RECOVERABLE_EXACTLY",
+    "SinglePath": "NOT_RECOVERABLE_EXACTLY",
+    "LegacyFull": "NOT_RECOVERABLE_EXACTLY"
+  },
+  "final_population": {
+    "centers": [33000,33001,33002,33003,33004,33005,33006,33007,33008,33009,33010,33011,33012,33013,33014,33015,33016,33017,33018,33019],
+    "seeds": [7311,7312,7313],
+    "scenarios": ["C0","C1","C3","C4"],
+    "method_count": 5,
+    "total_expected_trajectories": 1200,
+    "outcomes_accessed": false
+  },
+  "development_qualification": {
+    "centers": [31000,31001,31002],
+    "seeds": [7311],
+    "scenarios": ["C0","C1","C3","C4"],
+    "tuning": false,
+    "performance_optimization": false
+  },
+  "counterfactual_paths": {
+    "common_randomness": "only exogenous generator and fixed per-operation seeds before method-specific state divergence",
+    "method_specific_state": "parent model, identity, response history, S_m, evidence and subsequent service path after action divergence",
+    "paired_analysis": "paired center-level analysis with method-specific causal trajectories"
+  },
+  "endpoints": {
+    "primary": "mean lifecycle service loss = mean over center, seed, scenario of stage-mean service MSE",
+    "secondary": ["maintenance action count", "RI count", "maintenance cost", "RI cost", "total action cost", "retain rate", "gate-open rate", "RI rate"],
+    "diagnostic": ["correct retain", "unnecessary RI", "correct escalation", "missed escalation"],
+    "cost_semantics": "service performance and action costs are reported separately; ratio 10 remains the historical behavior-path parameter, not a new primary objective weight",
+    "oracle_labels": "offline only after sealed decisions; never online"
+  },
+  "statistical_plan": {
+    "unit": "center",
+    "aggregation": "stage then seed/scenario within center, then arithmetic mean across centers",
+    "paired_rule": "paired center-level Proposed-versus-baseline comparisons where valid",
+    "bootstrap_resamples": 4000,
+    "bootstrap_seed": 2904,
+    "interval": "percentile 95% interval using NumPy linear quantiles",
+    "scenario_stratified_reporting": true,
+    "leave_one_center_out": true,
+    "winner_ranking": false,
+    "freeze_before_final_heldout": true
+  },
+  "runner": {
+    "path": "scripts/run_p7_7_final.py",
+    "qualification_command": "python scripts/run_p7_7_final.py --qualification",
+    "final_heldout_mode": "hard_rejected",
+    "atomic_receipts": true,
+    "resume": true,
+    "integrity_hashes": true,
+    "access_guard": "audits/P7_7A2_FINAL_HELDOUT_ACCESS_GUARD.json",
+    "runner_sha256": "ced000f213f8fc9b52a859e683fc6d27dd04a268641c3d6024500f56c1c158fe"
+  },
+  "source_bindings_sha256": {
+    "configs/p7_2_selected_action_params.json": "b400931644cd212e0f8dbb684c516d62618791ee4fc6d1e392ae7a235ecf4cb2",
+    "audits/P7_2_FINAL_CALIBRATION_FREEZE.json": "1973c25adab030d24555e384a8d2f740a193d9debbe0a88c81aac1045da3033f",
+    "configs/P7_6B_FROZEN_PROTOCOL.json": "86272adb9a335ff72030cc4ba5c1fbc5f52e543eacd58ba032433e590251ee23",
+    "audits/P7_6B_FINAL_SCIENTIFIC_AUDIT.json": "85caccf51c49e7046908a1550df62702c3d16f07d109d9315d6d7a98a102c674",
+    "artifacts/p7_6b_A1_estimator.pt": "e8d047bda5a1e1d62cd9f089db1ade79c0c08750f9dfc878d6e71cc06d8c47cb",
+    "artifacts/p7_6b_A1_scaler.json": "2c9da0a29b469b8bb92bdbbcb893769a8baa39a57b3dbd26247ba9b1c8564c38",
+    "configs/p3_mismatch_v2_frozen.json": "529655647c1359e2a164cddc3c5c8b534f5cdbad53e2ede29ada477910975646",
+    "configs/center_splits.json": "a3fac8b47e78f5a7de9b4bddb425aca8bff517005751ced09ff1590ea8c5ebe4",
+    "scripts/run_p7_7_final.py": "ced000f213f8fc9b52a859e683fc6d27dd04a268641c3d6024500f56c1c158fe",
+    "core/p7.py": "378f2b8644f97e87fa819661da694d1bfcb163e7d183d110edf5f08c9d6dfe3d",
+    "reports/P7_7A2_RECOVERABILITY_ESCALATION_INTEGRATION_AUDIT.md": "b258990789b2e6cf06fbe48bc10c5a83db1f5134cd5ffb771776a2eb601a9606",
+    "reports/P7_7A2_BRANCH_B_INTEGRATION_SPEC.md": "cb6953b0c8a00684fcf90be13282a1799a540d7b59fe285a8c584d83e16818e3",
+    "audits/P7_7A2_BRANCH_B_IMPLEMENTATION_QUALIFICATION.json": "31105d81f3ecd41833208a011b38ed2c6fb93acde09d50ddc37b16536fd5f362",
+    "audits/P7_7A2_FINAL_HELDOUT_ACCESS_GUARD.json": "024eb629d8da21870c7d647e259b6c3d8e523396113fa63ee69880fa6e4930b5",
+    "configs/P7_7A2_INTEGRATION_DECISION.json": "6bd8403c81895f559286b93b6a9eb04fafbebb17b0782be1cbc57fb563f613e1"
+    ,"reports/P7_7_FINAL_LIFECYCLE_PROTOCOL.md": "3291349cd092257642d01e8edd47fe2691c7228486b3b5b1c935128871cbdc7f"
+  },
+  "scientific_guards": {
+    "final_heldout_accessed": false,
+    "alibaba_accessed": false,
+    "p8_executed": false,
+    "no_refit": true,
+    "no_threshold_tuning": true,
+    "no_outcome_dependent_revision": true
+  }
+}

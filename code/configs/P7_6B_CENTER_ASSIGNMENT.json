@@ -1,0 +1,797 @@
+{
+  "schema": "p7.6b-design-based-center-assignment-v1",
+  "status": "FROZEN_PRE_OUTCOME_NOT_AUTHORIZED_FOR_EXECUTION",
+  "scientific_design": "R-A_REPRESENTATION_PRINCIPLE",
+  "center_count_basis": "DESIGN_BASED_NOT_POWER_OR_ASSURANCE_DERIVED",
+  "candidate_stream": {
+    "start": 32248,
+    "end_inclusive": 32631,
+    "count": 384,
+    "data_seed": 7311,
+    "seed_offset_rule": "start_center_id*17",
+    "generator_batch_length_must_remain": 384,
+    "prospective_rule_commit": "0975a14f56260fdc2ed28f631831ebbb1339c086"
+  },
+  "provenance": {
+    "audit_scope": "repository-wide current worktree text and filenames; center identity only; no outcome values inspected",
+    "candidate_identity_collisions": [],
+    "excluded_prior_p7_4b_range": [
+      32200,
+      32247
+    ],
+    "permanently_excluded_final_heldout_range": [
+      33000,
+      33019
+    ],
+    "text_match_exceptions": [
+      "prospective P7.6A-1 stream rule",
+      "P7.4B range(32200,32248) exclusive upper bound",
+      "historical process PID 32552"
+    ],
+    "forbidden_heldout_alibaba_p8_content_not_opened": true
+  },
+  "selection_rule": "In ascending candidate stream order, take first eight unused IDs per center_type/deployment_tier stratum; odd ascending positions to Fit, even positions to Validation",
+  "fold_rule": "Within each stratum, ascending Fit positions 1,2,3,4 go to folds 0,1,2,3; each held-out fold has exactly nine centers",
+  "metadata_replay_verified_against_48_frozen_p7_4b_centers": true,
+  "center_ids": [
+    32248,
+    32249,
+    32250,
+    32251,
+    32252,
+    32253,
+    32254,
+    32255,
+    32256,
+    32257,
+    32258,
+    32259,
+    32260,
+    32261,
+    32262,
+    32263,
+    32264,
+    32265,
+    32266,
+    32267,
+    32268,
+    32269,
+    32270,
+    32271,
+    32272,
+    32273,
+    32274,
+    32275,
+    32276,
+    32277,
+    32278,
+    32279,
+    32280,
+    32281,
+    32282,
+    32283,
+    32285,
+    32286,
+    32287,
+    32289,
+    32290,
+    32291,
+    32293,
+    32295,
+    32296,
+    32299,
+    32300,
+    32303,
+    32304,
+    32306,
+    32307,
+    32310,
+    32311,
+    32313,
+    32315,
+    32318,
+    32319,
+    32322,
+    32323,
+    32327,
+    32328,
+    32329,
+    32336,
+    32343,
+    32344,
+    32352,
+    32353,
+    32362,
+    32365,
+    32381,
+    32407,
+    32448
+  ],
+  "centers": [
+    {
+      "center_id": 32248,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32249,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32250,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32251,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32252,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32253,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32254,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32255,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32256,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32257,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32258,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32259,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32260,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32261,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 0
+    },
+    {
+      "center_id": 32262,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32263,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32264,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32265,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32266,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32267,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32268,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32269,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32270,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32271,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32272,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32273,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32274,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32275,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32276,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32277,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32278,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32279,
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32280,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32281,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32282,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32283,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32285,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32286,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32287,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32289,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32290,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32291,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32293,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32295,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32296,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32299,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32300,
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32303,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32304,
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32306,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 1
+    },
+    {
+      "center_id": 32307,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32310,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32311,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32313,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32315,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32318,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32319,
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32322,
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32323,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32327,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32328,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32329,
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32336,
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32343,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32344,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32352,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32353,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32362,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 2
+    },
+    {
+      "center_id": 32365,
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32381,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    },
+    {
+      "center_id": 32407,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationFit",
+      "fit_oof_fold": 3
+    },
+    {
+      "center_id": 32448,
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "pool": "ReplicationValidation"
+    }
+  ],
+  "pools": {
+    "ReplicationFit": [
+      32248,
+      32249,
+      32250,
+      32251,
+      32252,
+      32253,
+      32255,
+      32258,
+      32260,
+      32261,
+      32262,
+      32263,
+      32267,
+      32271,
+      32272,
+      32273,
+      32274,
+      32275,
+      32277,
+      32278,
+      32287,
+      32289,
+      32293,
+      32296,
+      32299,
+      32303,
+      32306,
+      32310,
+      32313,
+      32318,
+      32327,
+      32328,
+      32344,
+      32353,
+      32362,
+      32407
+    ],
+    "ReplicationValidation": [
+      32254,
+      32256,
+      32257,
+      32259,
+      32264,
+      32265,
+      32266,
+      32268,
+      32269,
+      32270,
+      32276,
+      32279,
+      32280,
+      32281,
+      32282,
+      32283,
+      32285,
+      32286,
+      32290,
+      32291,
+      32295,
+      32300,
+      32304,
+      32307,
+      32311,
+      32315,
+      32319,
+      32322,
+      32323,
+      32329,
+      32336,
+      32343,
+      32352,
+      32365,
+      32381,
+      32448
+    ]
+  },
+  "fit_center_group_folds": [
+    {
+      "fold": 0,
+      "validation_centers": [
+        32248,
+        32249,
+        32250,
+        32251,
+        32252,
+        32253,
+        32258,
+        32260,
+        32261
+      ],
+      "training_center_count": 27
+    },
+    {
+      "fold": 1,
+      "validation_centers": [
+        32255,
+        32262,
+        32263,
+        32267,
+        32271,
+        32273,
+        32275,
+        32277,
+        32306
+      ],
+      "training_center_count": 27
+    },
+    {
+      "fold": 2,
+      "validation_centers": [
+        32272,
+        32274,
+        32287,
+        32289,
+        32293,
+        32303,
+        32310,
+        32344,
+        32362
+      ],
+      "training_center_count": 27
+    },
+    {
+      "fold": 3,
+      "validation_centers": [
+        32278,
+        32296,
+        32299,
+        32313,
+        32318,
+        32327,
+        32328,
+        32353,
+        32407
+      ],
+      "training_center_count": 27
+    }
+  ],
+  "metadata_strata": [
+    {
+      "center_type": "A",
+      "deployment_tier": "loose",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 34
+    },
+    {
+      "center_type": "A",
+      "deployment_tier": "medium",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 50
+    },
+    {
+      "center_type": "A",
+      "deployment_tier": "tight",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 31
+    },
+    {
+      "center_type": "B",
+      "deployment_tier": "loose",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 26
+    },
+    {
+      "center_type": "B",
+      "deployment_tier": "medium",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 84
+    },
+    {
+      "center_type": "B",
+      "deployment_tier": "tight",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 43
+    },
+    {
+      "center_type": "C",
+      "deployment_tier": "loose",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 13
+    },
+    {
+      "center_type": "C",
+      "deployment_tier": "medium",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 49
+    },
+    {
+      "center_type": "C",
+      "deployment_tier": "tight",
+      "fit_count": 4,
+      "validation_count": 4,
+      "selected_count": 8,
+      "candidate_stream_count": 54
+    }
+  ],
+  "random_stage_split_forbidden": true,
+  "outcome_dependent_assignment": false,
+  "new_replication_outcomes_generated": false
+}

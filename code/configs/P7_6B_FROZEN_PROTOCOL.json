@@ -1,0 +1,276 @@
+{
+  "schema": "p7.6b-design-based-representation-replication-protocol-v1",
+  "phase": "P7.6A-1_PRE_OUTCOME_FREEZE",
+  "status": "FROZEN_PENDING_SEPARATE_HUMAN_EXECUTION_AUTHORIZATION",
+  "authorization": {
+    "p7_6b_execution": false,
+    "replication_fit_trajectory_generation": false,
+    "replication_validation_opening": false,
+    "final_heldout_access": false,
+    "alibaba_access": false,
+    "p8_access": false
+  },
+  "preserved_status": {
+    "p7_6a": "STOP_COMPLETE_RULE_NOT_IDENTIFIABLE",
+    "p7_4b": "P7_4B_FAIL",
+    "p7_4b_1": "F2_UNCERTAINTY_BOUNDARY_SENSITIVITY",
+    "contribution_level": "LEVEL_C_RECOMMENDED"
+  },
+  "replication_target": {
+    "code": "R-A",
+    "meaning": "representation principle; independently refit frozen A0 and A1 procedures on fresh ReplicationFit, evaluate once on disjoint fresh ReplicationValidation",
+    "not_R_B": "not transport of old P7.4B fitted estimator weights"
+  },
+  "center_design": {
+    "basis": "DESIGN_BASED_NOT_POWER_OR_ASSURANCE_DERIVED",
+    "total": 72,
+    "fit": 36,
+    "validation": 36,
+    "metadata_strata": 9,
+    "centers_per_stratum_per_pool": 4,
+    "center_assignment_path": "configs/P7_6B_CENTER_ASSIGNMENT.json",
+    "center_assignment_sha256": "172c694057fea9926fecabe800538a5f8ff5bddf8880c078dd457b705b53fb95",
+    "candidate_stream_start": 32248,
+    "candidate_stream_end_inclusive": 32631,
+    "candidate_stream_batch_length": 384,
+    "fit_oof_folds": 4,
+    "fit_training_centers_per_fold": 27,
+    "fit_heldout_centers_per_fold": 9,
+    "random_stage_split": false,
+    "old_centers_in_primary_verdict": false,
+    "no_sample_size_peeking": true
+  },
+  "common_behavior": {
+    "source": "P7.2 frozen Proposed",
+    "method": "Proposed",
+    "delta_R": -0.000272181217042075,
+    "cost_ratio": 10,
+    "config_id": "Proposed_ratio10_grid33",
+    "A0_A1_observational_only": true,
+    "mandatory_stagewise_pair_equality": [
+      "parent_identity",
+      "parent_state_hash",
+      "selected_action",
+      "post_action_identity",
+      "behavior_path_hash"
+    ],
+    "any_mismatch": "STOP",
+    "p7_2_formal_fail_unchanged": true
+  },
+  "common_design": {
+    "data_seed": 7311,
+    "model_seeds": [
+      7311,
+      7312,
+      7313
+    ],
+    "scenarios": [
+      "C0",
+      "C1",
+      "C3",
+      "C4"
+    ],
+    "stages": 24,
+    "window_length": 96,
+    "D_upd": 400,
+    "D_assess": 240,
+    "D_srv": 400,
+    "H_R": 4,
+    "eta": 0.25,
+    "maintenance_budget": "B50",
+    "local_policies": [
+      "P0",
+      "P10",
+      "P20",
+      "P50"
+    ],
+    "tau_service_rule": "unchanged frozen P7.4B",
+    "generator": "unchanged p3_mismatch_v2_r3 frozen generator",
+    "generator_config": "configs/p3_mismatch_v2_frozen.json",
+    "identity_bank": "unchanged frozen eleven-identity bank",
+    "deployment_limits": "unchanged",
+    "K_S": 2,
+    "K_L": 6,
+    "feature_dimension": 6
+  },
+  "representations": {
+    "A0": {
+      "scientific_target": "R_B50",
+      "response": [
+        "gain",
+        "post_assessment_mse"
+      ],
+      "target_optimization_multiplier": 1000,
+      "prediction_divisor": 1000,
+      "zero_boundary": 0
+    },
+    "A1": {
+      "scientific_target": "R_B50/S_m",
+      "response": [
+        "gain",
+        "post_assessment_mse/S_m"
+      ],
+      "target_optimization_multiplier": 1,
+      "prediction_divisor": 1,
+      "S_m": "max(median(exactly 104 pointwise squared prediction errors from frozen causal 200-observation deployment reference),1e-12)",
+      "point_error": "(y_i-yhat_i)^2",
+      "reference_observations": 200,
+      "valid_point_errors": 104,
+      "floor": 1e-12,
+      "initial_source": "raw indices [800,1000) after frozen warm-up before stage 1",
+      "RI_source": "last 200 raw observations of current D_assess after candidate frozen adaptation before selected RI identity commit",
+      "identity_lifetime_fixed": true,
+      "RI_reset_old_scale_and_response_history": true,
+      "zero_boundary": 0
+    }
+  },
+  "feature_preprocessing": {
+    "class": "StandardScaler",
+    "fit_statistic": "per-feature arithmetic mean and population standard deviation ddof=0",
+    "zero_std_rule": "replace with 1",
+    "per_representation_per_fold": true,
+    "OOF_fit_scope": "only 27 training Fit centers; never 9 held-out OOF centers",
+    "final_fit_scope": "all 36 Fit centers only",
+    "validation_never_used": true
+  },
+  "estimator": {
+    "architecture": [
+      6,
+      16,
+      8,
+      1
+    ],
+    "hidden_activation": "ReLU",
+    "output_activation": "identity",
+    "dtype": "float32",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "loss": "MSE in fixed converted target units",
+    "batch": "full training fold",
+    "shuffle": false,
+    "epochs": 400,
+    "early_stopping": false,
+    "checkpoint_selection": "none",
+    "terminal_model": "epoch 400",
+    "paired_initialization": true,
+    "fold_initialization_seeds": [
+      9632,
+      9633,
+      9634,
+      9635
+    ],
+    "final_all_fit_initialization_seed": 19631,
+    "numpy_and_torch_seeded_identically": true
+  },
+  "scale_audit": {
+    "every_identity_birth_fields": [
+      "S_m",
+      "reference_source",
+      "reference_window_count",
+      "birth_initial_or_RI",
+      "center_id",
+      "center_type",
+      "deployment_tier",
+      "floor_activation",
+      "nonfinite"
+    ],
+    "required_valid_errors": 104,
+    "nonfinite": "STOP",
+    "incorrect_count": "STOP",
+    "floor_activation_rate_stop_if_gt": 0.01,
+    "rate_scope": "separately within Fit and Validation"
+  },
+  "metrics": {
+    "unit": "center",
+    "macro_spearman": "mean of within-center Spearman across all pool centers; undefined center value fails corresponding absolute condition",
+    "positive_spearman_center_fraction": "positive finite center Spearman count divided by all pool centers",
+    "non_C3_macro_spearman": "same center calculation after excluding C3 records",
+    "positive_admission_class": "negative recoverability",
+    "macro_TPR": "mean over centers with defined TPR",
+    "macro_TNR": "mean over centers with defined TNR",
+    "balanced_admission_accuracy": "0.5*(macro_TPR+macro_TNR)",
+    "undefined_macro_component": "STOP",
+    "zero_boundary": 0
+  },
+  "bootstrap": {
+    "scope": "ReplicationValidation and each LOO subset",
+    "unit": "center",
+    "resamples": 4000,
+    "seed": 7601,
+    "paired_identical_resamples_A0_A1": true,
+    "confidence_level": 0.95,
+    "interval": "percentile 0.025 and 0.975 via NumPy linear quantiles",
+    "undefined_or_fewer_than_4000": "STOP",
+    "effect_statistics": [
+      "Delta_macro_Spearman",
+      "Delta_balanced_admission_accuracy"
+    ]
+  },
+  "complete_decision_rule": {
+    "Fit_OOF_A1_absolute": [
+      "macro_center_Spearman>0",
+      "positive_Spearman_center_fraction>0.5",
+      "balanced_admission_accuracy>0.5",
+      "non_C3_macro_center_Spearman>0"
+    ],
+    "Validation_A1_absolute": [
+      "macro_center_Spearman>0",
+      "positive_Spearman_center_fraction>0.5",
+      "balanced_admission_accuracy>0.5",
+      "non_C3_macro_center_Spearman>0"
+    ],
+    "Validation_paired_points": [
+      "Delta_macro_Spearman>0",
+      "Delta_balanced_admission_accuracy>0"
+    ],
+    "Validation_paired_uncertainty": "at least one paired 95% CI lower bound >0 and other CI upper bound not <0",
+    "deterioration_definition": "Fit_OOF metric minus Validation metric",
+    "deterioration_metrics": [
+      "macro_center_Spearman",
+      "balanced_admission_accuracy"
+    ],
+    "deterioration_fail_if": "A1 strictly more deterioration than A0 on both metrics",
+    "leave_one_center_out": "for each of 36 Validation centers, omit without refit and recompute all Validation absolute, paired point, and paired 4000-resample uncertainty conditions; one failure means FAIL",
+    "integrity_leakage_pairing_scale_or_path_failure": "STOP_AND_FAIL",
+    "pass_label": "P7_6B_REPLICATION_PASS",
+    "fail_label": "P7_6B_REPLICATION_FAIL",
+    "all_conditions_required": true,
+    "no_near_zero_tolerance": true
+  },
+  "execution_order_after_separate_authorization": [
+    "Generate ReplicationFit only on frozen 36 IDs and audit paired paths/scales",
+    "Produce paired A0/A1 Fit records",
+    "Four center-group OOF fits and frozen Fit absolute checks",
+    "Final A0/A1 scaler and estimator fitting on all 36 Fit centers",
+    "Hash/Git freeze scalers, estimators, formulas, scales, code, configuration and Fit OOF metrics",
+    "Create and commit machine-readable one-time Validation-opening manifest",
+    "Only then materialize/open frozen 36 ReplicationValidation centers",
+    "Apply frozen pipelines once without refit/reselection",
+    "Apply complete frozen decision and STOP for human scientific review"
+  ],
+  "stop_loss": {
+    "on_pass": "freeze A1 as supported bounded mechanism; proceed only by separate authorization",
+    "on_fail": "preserve negative result; do not redesign A1/A2/A3; retain C1 core and reduce C2 claim"
+  },
+  "claim_boundary": {
+    "pass_may_support_only": "The fixed deployment-reference representation showed reproducible cross-center improvement over the paired absolute representation under the evaluated synthetic lifecycle protocol.",
+    "does_not_establish": [
+      "universal DT generalization",
+      "universal recoverability estimation",
+      "lifecycle superiority",
+      "C3 novelty",
+      "final heldout success",
+      "Alibaba generality"
+    ]
+  },
+  "source_bindings_sha256": {
+    "configs/P7_4B_FROZEN_PROTOCOL.json": "c482cb02a6961473f102651e4a5de7f6be907085a48815af682054f4c518ad9b",
+    "docs/P7_4B_PROTOCOL_FREEZE.md": "92272730775031a7ea23b050e073b5b0973f163a4f5cf73a4b1bfa0c49c2176b",
+    "configs/p3_mismatch_v2_frozen.json": "529655647c1359e2a164cddc3c5c8b534f5cdbad53e2ede29ada477910975646",
+    "configs/p7_2_selected_action_params.json": "b400931644cd212e0f8dbb684c516d62618791ee4fc6d1e392ae7a235ecf4cb2",
+    "audits/P7_4B_BEHAVIOR_PATH_SUPPLEMENT.json": "69bd9b87e9d39d4283d0fba05ab7eef994313ecb7cd6989862bcff1b574e57ef",
+    "docs/P7_6A_1_METADATA_STREAM_RULE.md": "f3551c79e486d0fab00d738d634d1785ce439c43ad67f725aa71b349bcab2381",
+    "scripts/p7_6a_1_metadata_replay.py": "11fd6c997c5789a0fffba6f4899665c90e8ae184640aa8debcf941d8ad5bb39c"
+  }
+}

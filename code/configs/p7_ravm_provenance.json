@@ -1,0 +1,20 @@
+{
+  "read_only_repository": "D:/dt-trustworthy-maintenance",
+  "implementation_commit": "7ae7fabd9a4e335e774fbcba2f38dfa8827bb8f3",
+  "decision_config_path": "D:/dt-trustworthy-maintenance/configs/frozen_commit_config.yaml",
+  "decision_config_sha256": "1da5f249d1a8c41afcc7d49f2bd30d288e2cdabd220b7840cfc0a3903bc9bf3a",
+  "decision_config_git_binding_at_source_commit": false,
+  "copied_frozen_values": {
+    "B": 5,
+    "beta": 0.1,
+    "kappa_rec": 0.5,
+    "kappa_hist": 0.0,
+    "delta_imp": 2.8018237766243602e-05,
+    "delta_ret": 0.0
+  },
+  "source_code_hashes": {
+    "core/engine.py": "b143046aac84e62ab098c5cb5f1666dafe4fe24419ea8b164acdf2c8cbee23a6",
+    "core/models.py": "b38b29b74ff4191add5e8c48e9d916529afb67f801830c68e290f07deacfa656",
+    "configs/frozen_candidate_config.yaml": "4a9655cf427f41bb321dc5237008fa795f1fb3437c979206fd4784810bca74ea"
+  }
+}

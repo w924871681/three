@@ -1,0 +1,32 @@
+{
+  "schema": "dt-lifecycle-escalation-p3-v1",
+  "phase_scope": ["P0", "P1", "P2", "P3"],
+  "stages": 24,
+  "window_length": 96,
+  "prediction_horizon": 1,
+  "model_seeds": [7311, 7312, 7313],
+  "stage_raw_sizes": {"update": 400, "assessment": 240, "service": 400},
+  "local_policies": [0, 10, 20, 50],
+  "recoverability_horizons": [2, 4, 6],
+  "target_adaptation": {"optimizer": "SGD", "loss": "MSE", "learning_rate": 0.01, "batch_size": 64, "gradient_clip": 1.0},
+  "probe_updates": 50,
+  "tau_rule": {"eta_grid": [0.10, 0.25, 0.50], "primary_eta": 0.25, "reference": "C0 stages 1-8 Always-Maintain P50 mean service MSE per center/model-seed"},
+  "scenario_version": "p3_prespecified_v1_no_outcome_retuning",
+  "scenario_shift_stage": 9,
+  "scenarios": ["C0", "C1", "C2", "C3", "C4", "C6", "C7", "C8"],
+  "primary_deployment_tier": "center_assigned",
+  "deployment_limits": {
+    "tight": {"operations": 1500000, "parameters": 30000},
+    "medium": {"operations": 5000000, "parameters": 100000},
+    "loose": {"operations": 20000000, "parameters": 500000}
+  },
+  "bootstrap_repetitions": 4000,
+  "bootstrap_seed": 2904,
+  "p3_pass_rules": {
+    "maintainable_negative_rate_max": 0.35,
+    "mismatch_postshift_negative_rate_min": 0.50,
+    "mismatch_negative_stage_ri_benefit_rate_min": 0.50,
+    "mismatch_negative_stage_mean_ri_gain_min": 0.0
+  },
+  "heldout_forbidden": true
+}

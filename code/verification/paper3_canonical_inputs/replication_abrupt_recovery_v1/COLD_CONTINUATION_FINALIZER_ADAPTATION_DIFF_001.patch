@@ -1,0 +1,662 @@
+--- continuation.py.reviewed.before
++++ continuation.py
+@@ -1,6 +1,6 @@
+-"""Controlled post-transition continuation only; never stops existing processes.
++"""Cold continuation after independently observed abrupt process disappearance; never stops processes.
+ 
+-Requires a separate certified native transition gate. Runs only the unchanged
++Requires an independently certified abrupt-recovery gate. Runs only the unchanged
+ phase launcher: full attempt002/two workers, then authorized statistics attempt1.
+ No frozen algorithm/source/configuration is edited and no performance is used
+ to choose the transition, continuation, task population or statistical rules.
+@@ -13,7 +13,7 @@
+ import sys
+ 
+ HERE=Path(__file__).resolve().parent
+-spec=importlib.util.spec_from_file_location('paper3_transition_finalizer_common',HERE/'finalizer_continuation.py')
++spec=importlib.util.spec_from_file_location('paper3_transition_finalizer_common',HERE/'finalizer.py')
+ f=importlib.util.module_from_spec(spec);spec.loader.exec_module(f)
+ 
+ def phase_command(repo,phase):
+@@ -44,7 +44,7 @@
+         f.emit(record/(phase+'_start.json'),{'started_utc':f.utc(),'command':command,'outcome_based_continuation':False})
+         print(__import__('json').dumps({'phase':phase,'status':'STARTED','workers':2 if phase=='full' else 0}),flush=True)
+         code=call(command,cwd=repo)
+-        f.require(code==0,f'controlled continuation phase failed: {phase}, {code}')
++        f.require(code==0,f'cold recovery continuation phase failed: {phase}, {code}')
+         f.phase_terminal(repo,phase,attempt)
+         actual=phase_gate(repo,phase)
+         f.recheck(pins)
+@@ -54,13 +54,13 @@
+ 
+ def main():
+     parser=argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument('--repo',required=True);parser.add_argument('--transition-gate',required=True)
++    parser.add_argument('--repo',required=True);parser.add_argument('--cold-gate',required=True)
+     args=parser.parse_args()
+     f.require(sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode,'requires -I -S -B')
+     repo=Path(args.repo);f.require(repo==Path(r'D:\dt-talk\DT_LIFECYCLE_ESCALATION'),'wrong authorized repository')
+     f.require(HERE==f.safe(repo,f.SELF_REL),'wrong continuation source directory')
+     f.verify_test_proof(HERE,HERE/f.HELPER_PROOF,True)
+-    gate_path=Path(args.transition_gate)
++    gate_path=Path(args.cold_gate)
+     transition=f.verify_transition_gate(repo,gate_path,check_resource=True,admission=True)
+     record=f.safe(repo,f.CONTINUATION_REL);f.require(not record.exists(),'continuation record already exists');record.mkdir()
+     current='preflight'
+@@ -74,7 +74,7 @@
+         f.exclusive(record/'sequence_source_snapshot.py',Path(__file__).read_bytes())
+         f.emit(record/'start.json',{'started_utc':f.utc(),'implementation_sha256':f.sha(__file__),'transition_gate_path':str(gate_path),'transition_gate_sha256':transition['gate_sha256'],'manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'workers':2,'outcome_based_continuation':False,'same_V3_manifest_successful_records_retained':True,'no_original_experiment_records_reused':True})
+         current=run_phases(repo,record,gate_path,pins)
+-        f.emit(record/'finish.json',{'schema':'paper3-worker-transition-continuation-completed-v1','status':'AUTHORIZED_CONTINUATION_COMPLETED','manifest_digest':f.MANIFEST,'finished_utc':f.utc(),'workers':2,'not_a_whole_manuscript_freeze':True,'saved_results_delivery_pending':True})
++        f.emit(record/'finish.json',{'schema':'paper3-abrupt-recovery-continuation-completed-v1','status':'AUTHORIZED_CONTINUATION_COMPLETED','manifest_digest':f.MANIFEST,'finished_utc':f.utc(),'workers':2,'not_a_whole_manuscript_freeze':True,'saved_results_delivery_pending':True})
+     except BaseException as error:
+         if (record/'statistics_start.json').exists():current='statistics'
+         elif (record/'full_start.json').exists():current='full'
+--- finalizer_continuation.py.reviewed.before
++++ finalizer.py
+@@ -24,13 +24,11 @@
+ SEQUENCE_REL = PREFIX+'autonomous_replication_execution_20261009_v3'
+ RESULT_REL = 'results/p7_7_integrity_replication_batch20_env_v3'
+ DELIVERY_REL = PREFIX+'replication_delivery_env_v3'
+-SELF_REL = PREFIX+'replication_worker_transition_v1'
++SELF_REL = PREFIX+'replication_abrupt_recovery_v1'
+ CONTINUATION_REL = SELF_REL+'/continuation_001'
+ HELPER_PROOF = 'SYNTHETIC_CONTINUATION_TEST_RESULTS_ATTEMPT001.json'
+-CONTROLLER_PROOF = 'CONTROLLER_SYNTHETIC_TEST_RESULTS_002.json'
+-REVIEW_PROOF = 'REVIEW_TRANSITION_SYNTHETIC_TEST_RESULTS_002.json'
+-PREFLIGHT_PROOF_REL = SELF_REL+'/root_checks/READONLY_PREFLIGHT_002.json'
+-OWN_SOURCE_NAMES = ('continuation.py','finalizer_continuation.py','test_continuation.py','run_continuation_tests.py')
++COLD_PROOF = 'COLD_RECOVERY_SYNTHETIC_TEST_RESULTS_ATTEMPT001.json'
++OWN_SOURCE_NAMES = ('continuation.py','finalizer.py','test_continuation.py','run_continuation_tests.py')
+ FIXED_ROOT_SHA = 'f50fa7c8e6abd916124d423ad2b5950df2a7c631d02403eaf8e1cc5736f06ee8'
+ ENV_REL = PREFIX+'model_env_recovery_v1_20261009/P7_7_REPLICATION_MODEL_ENV_V1/Scripts/python.exe'
+ PACKAGE_REL = 'handoffs/PAPER3_FINAL_REPLICATION_HANDOFF_BATCH20_ENV_V3_COMPLETED_001'
+@@ -147,7 +145,14 @@
+         creation,exit_time,kernel_time,user_time=(wintypes.FILETIME() for _ in range(4))
+         require(kernel.GetProcessTimes(handle,creation,exit_time,kernel_time,user_time),'GetProcessTimes failed')
+         actual=(creation.dwHighDateTime<<32)|creation.dwLowDateTime
+-        if actual!=int(item['creation_filetime']):return True  # PID reused; old instance is absent.
++        expected=item.get('creation_filetime',item.get('expected_creation_filetime'))
++        if expected is None:
++            # The cold snapshot actually observed this numeric PID absent.
++            # A later process born strictly after that observation is a new instance.
++            observed=datetime.fromisoformat(item['observed_utc']);require(observed.tzinfo is not None,'absence timestamp lacks offset')
++            observed_filetime=int(observed.timestamp()*10000000)+116444736000000000
++            return actual>observed_filetime
++        if actual!=int(expected):return True  # PID reused; old instance is absent.
+         code=wintypes.DWORD();require(kernel.GetExitCodeProcess(handle,ctypes.byref(code)),'GetExitCodeProcess failed')
+         return code.value!=259
+     finally:kernel.CloseHandle(handle)
+@@ -166,98 +171,106 @@
+     return int(value.ullAvailPageFile)
+ 
+ def verify_transition_gate(repo,gate_path, *, check_resource=False, admission=False):
++    """Read-only cold admission; absence is not a kernel termination journal."""
+     repo=Path(repo);gate_path=Path(gate_path)
+-    require(gate_path.is_absolute() and gate_path.is_relative_to(safe(repo,SELF_REL)),'transition gate outside independent transition directory')
+-    gate_payload=gate_path.read_bytes();gate=parse_payload(gate_payload);gate_sha256=bytes_sha(gate_payload)
+-    require(gate.get('schema')=='paper3-worker-transition-gate-v1' and gate.get('status')=='PASS','transition is not certified PASS')
+-    require(gate.get('manifest_digest')==MANIFEST and gate.get('input_bundle_digest')==F1,'transition scientific identity differs')
++    require(gate_path.is_absolute() and gate_path.is_relative_to(safe(repo,SELF_REL)), 'cold gate outside independent recovery directory')
++    payload=gate_path.read_bytes();gate=parse_payload(payload);gate_sha256=bytes_sha(payload)
++    require(gate.get('schema')=='paper3-abrupt-recovery-gate-v1' and gate.get('status')=='PASS','cold recovery is not certified PASS')
++    body=dict(gate);body.pop('gate_digest',None)
++    require(gate.get('gate_digest')==canonical(body),'cold gate canonical digest differs')
++    require(gate.get('manifest_digest')==MANIFEST and gate.get('input_bundle_digest')==F1,'cold recovery scientific identity differs')
++    require(Path(gate.get('repository',''))==repo and Path(gate.get('results_root',''))==safe(repo,RESULT_REL),'cold recovery repository/results identity differs')
+     require(gate.get('root_handoff_sha256')==FIXED_ROOT_SHA and sha(safe(repo,ROOT_NAME))==FIXED_ROOT_SHA,'root handoff differs')
+-    require(gate.get('worker_count')==2 and gate.get('performance_used_for_transition') is False,'worker/resource decision contract differs')
+-    for name in ('resource_gate_pass','old_sequence_stopped','old_finalizer_stopped','old_full_attempt_failed','all_existing_records_verified','original_files_unchanged','frozen_sources_unchanged'):
+-        require(gate.get(name) is True,'transition prerequisite absent: '+name)
+-    for name in ('pending_partial_publications','pending_unreceipted_rng'):require(type(gate.get(name)) is int and gate[name]==0,'transition incomplete publication/RNG evidence')
+-    require(gate.get('old_full_attempt_id')=='A_FULL_0001' and gate.get('new_full_attempt_id')=='A_FULL_0002','transition attempt identities differ')
+-    execution=Path(gate.get('execution_dir',''));require(execution.is_absolute() and execution.is_relative_to(safe(repo,SELF_REL)) and execution.is_dir(),'controller execution path differs')
+-    source_pins=gate.get('source_sha256',{});evidence=gate.get('evidence_sha256',{})
+-    require(source_pins and evidence,'transition source/evidence bindings absent')
+-    for mapping in (source_pins,evidence):
++    require(gate.get('worker_count')==2 and gate.get('performance_used_for_recovery') is False and gate.get('model_output_worker_invariance_claimed') is False,'cold scheduling/scientific limitation differs')
++    for name in ('resource_gate_pass','process_absence_checked','all_old_processes_absent'):
++        require(gate.get(name) is True,'cold recovery prerequisite absent: '+name)
++    require(gate.get('completed_trajectories')==123 and gate.get('complete_paired_groups')==24,'cold snapshot verified record counts differ')
++    require(type(gate.get('unknown_or_partial_artifacts')) is int and gate['unknown_or_partial_artifacts']==0,'unknown or partial publication blocks recovery')
++    require(gate.get('old_attempt_id')=='A_FULL_0001' and gate.get('new_attempt_id')=='A_FULL_0002','cold attempt identities differ')
++    old_terminal=gate.get('old_terminal_records',{})
++    require(old_terminal=={'sequence_stopped':False,'finalizer_stopped':False,'phase_launcher_finished':False},'old terminal absence must remain explicit; never fabricate normal exit')
++    require(gate.get('human_Codex_close_report')=='VERIFIED_USER_REPORT' and gate.get('causal_exit_actor')=='NOT_VERIFIED','human report must not be promoted to directly verified causal mechanism')
++    sources=gate.get('source_bindings_sha256',{});evidence=gate.get('evidence_sha256',{})
++    require(sources and evidence,'cold source/evidence SHA bindings absent')
++    frozen_manifest=load(safe(repo,RESULT_REL+'/provenance_manifest.json'))
++    unsigned=dict(frozen_manifest);unsigned.pop('manifest_digest',None)
++    require(frozen_manifest.get('manifest_digest')==MANIFEST and canonical(unsigned)==MANIFEST,'frozen manifest authority differs')
++    # Only already-frozen environment bytes may be read outside this repository.
++    # This is an exact hash allowlist, never an arbitrary external path allowance.
++    environment=frozen_manifest.get('environment',{})
++    external_allowlist=dict(environment.get('bound_files_sha256',{}))
++    if environment.get('python_executable'):external_allowlist[environment['python_executable']]=environment.get('python_executable_sha256')
++    for mapping in (sources,evidence):
+         for name,digest in mapping.items():
+-            path=Path(name);require(path.is_absolute() and path.is_relative_to(repo),'transition bound path outside repository')
+-            bound(safe(repo,path.relative_to(repo)),digest)
+-    required_sources=(SELF_REL+'/migration_controller.py',SELF_REL+'/review_transition.py',SELF_REL+'/root_readonly_preflight.py',
+-                      SELF_REL+'/continuation.py',SELF_REL+'/finalizer_continuation.py',SEQUENCE_REL+'/authorized_sequence.py',
+-                      SEQUENCE_REL+'/phase_launcher.py',PREFIX+'replication_finalizer_env_v3/finalizer.py')
+-    for relative in required_sources:require(str(safe(repo,relative)) in source_pins,'mandatory reviewed source pin absent: '+relative)
+-    for filename,source_name,schema in ((CONTROLLER_PROOF,'migration_controller.py','paper3-worker-transition-controller-synthetic-tests-v1'),
+-                                      (REVIEW_PROOF,'review_transition.py','paper3-worker-transition-review-synthetic-tests-v1')):
+-        path=safe(repo,SELF_REL+'/'+filename);require(str(path) in evidence,'actual synthetic proof not gate-bound: '+filename)
+-        proof=load(path)
+-        require(proof.get('schema')==schema and proof.get('status')=='PASS' and proof.get('all_pass') is True and proof.get('tests_run',0)>0,'actual controller/review tests not PASS')
+-        require(all(proof.get(field)==0 for field in ('failures','errors','skipped')),'controller/review tests incomplete or failed')
+-        source=safe(repo,SELF_REL+'/'+source_name)
+-        require(proof.get('implementation_sha256',{}).get(str(source))==source_pins[str(source)],'controller/review source differs from actual tested source')
+-        for name,digest in proof['implementation_sha256'].items():
+-            item=Path(name);require(item.is_relative_to(safe(repo,SELF_REL)),'unexpected synthetic proof source path');bound(item,digest)
+-        if filename==CONTROLLER_PROOF:require(proof.get('native_owned_child_lifecycle_passed') is True,'native controller child lifecycle not actually tested')
+-    preflight_path=safe(repo,PREFLIGHT_PROOF_REL);require(str(preflight_path) in evidence,'actual root preflight not gate-bound')
+-    preflight=load(preflight_path);preflight_source=safe(repo,SELF_REL+'/root_readonly_preflight.py')
+-    require(preflight.get('schema')=='paper3-worker-transition-root-readonly-preflight-v1' and preflight.get('status')=='PASS' and preflight.get('mismatches')==[],'actual root byte preflight did not pass')
+-    require(preflight.get('manifest_digest')==MANIFEST and preflight.get('input_bundle_digest')==F1 and preflight.get('root_handoff_sha256')==FIXED_ROOT_SHA and preflight.get('implementation_sha256')==source_pins[str(preflight_source)],'root preflight identity/source differs')
+-    require(preflight.get('models_generators_or_statistics_executed') is False and preflight.get('processes_modified') is False and preflight.get('group_file_counts',{}).get('original_protected')==2535,'preflight scope/original preservation differs')
+-    mandatory=(SEQUENCE_REL+'/authorized_sequence_003/stopped.json',PREFIX+'replication_finalizer_env_v3/attempt001/stopped.json',
+-               RESULT_REL+'/execution/full/A_FULL_0001/failure.json',SEQUENCE_REL+'/phase_launches/full_001/finish.json',RESULT_REL+'/provenance_manifest.json')
+-    for relative in mandatory:require(str(safe(repo,relative)) in evidence,'required real prior stop evidence absent: '+relative)
+-    for relative in (SEQUENCE_REL+'/authorized_sequence_003/finish.json',RESULT_REL+'/execution/full/A_FULL_0001/completion.json'):
+-        require(not safe(repo,relative).exists(),'old interrupted phase/sequence must not claim completed success')
+-    for relative in mandatory[:2]:require(load(safe(repo,relative)).get('status')=='STOPPED_FOR_DIAGNOSIS','old helper did not actually stop')
+-    journal=execution/'external_termination_journal.json';external_review=execution/'external_interruption_review.json'
+-    for item in (journal,external_review):require(str(item) in evidence,'independent external interruption evidence not bound')
+-    reviewed=load(external_review)
+-    require(reviewed.get('status')=='EXTERNAL_INTERRUPTION_EVIDENCE_CONSISTENT' and reviewed.get('journal_file_sha256')==sha(journal),'actual external interruption review did not pass or journal differs')
+-    require(reviewed.get('worker_caught_exception_claimed') is False and reviewed.get('actual_runtime_authenticity_independently_certified') is False,'external interruption review overclaims runtime authenticity')
+-    failure=load(safe(repo,mandatory[2]));require(failure.get('phase')=='full' and failure.get('attempt_id')=='A_FULL_0001' and failure.get('manifest_digest')==MANIFEST,'old full failure identity differs')
+-    old_finish=load(safe(repo,mandatory[3]));require(type(old_finish.get('exit_code')) is int and old_finish['exit_code']!=0 and type(old_finish.get('child_exit_code')) is int and old_finish['child_exit_code']!=0,'old full1 must have actual unsuccessful exit')
+-    processes=gate.get('stopped_processes',[]);require(len(processes)>=2 and len({(x.get('pid'),x.get('creation_filetime')) for x in processes})==len(processes),'native old-process termination proof absent/duplicate')
++            item=Path(name);require(item.is_absolute(),'cold bound file path is not absolute')
++            if item.is_relative_to(repo):bound(safe(repo,item.relative_to(repo)),digest)
++            else:
++                require(external_allowlist.get(str(item))==digest,'external byte pin is not in frozen environment allowlist')
++                for parent in (item,*item.parents):reject_reparse(parent)
++                bound(item,digest)
++    required_sources=(SELF_REL+'/cold_audit.py',SELF_REL+'/recover.py',SELF_REL+'/continuation.py',SELF_REL+'/finalizer.py',SEQUENCE_REL+'/authorized_sequence.py',SEQUENCE_REL+'/phase_launcher.py',PREFIX+'replication_finalizer_env_v3/finalizer.py')
++    for relative in required_sources:require(str(safe(repo,relative)) in sources,'mandatory cold/retained source pin absent: '+relative)
++    for name in ('observer_snapshot','cold_audit','task_failure_receipt','phase_failure_receipt'):
++        item=gate.get(name,{})
++        file=Path(item.get('path',''));require(file.is_absolute() and file.is_relative_to(repo) and evidence.get(str(file))==item.get('sha256'),'cold mandatory evidence missing/unbound: '+name)
++        bound(file,item['sha256'])
++    snapshot=load(gate['observer_snapshot']['path']);audit=load(gate['cold_audit']['path'])
++    require(audit.get('status')=='COLD_SNAPSHOT_CONSISTENT' and audit.get('all_checks_pass') is True,'actual independent cold audit did not pass')
++    require(audit.get('completed_trajectories')==123 and audit.get('complete_paired_groups')==24 and audit.get('initial_cases')==60,'cold saved trajectory/initial certification incomplete')
++    require(audit.get('original_files_unchanged') is True and audit.get('frozen_sources_unchanged') is True and audit.get('all_existing_records_verified') is True,'cold original/source/record audit incomplete')
++    require(audit.get('models_generators_or_statistics_executed') is False and audit.get('processes_modified') is False,'cold audit exceeded read-only scope')
++    require(audit.get('snapshot_digest')==canonical(snapshot),'cold audit did not bind exact observer snapshot')
++    audit_body=dict(audit);audit_body.pop('audit_digest',None)
++    require(audit.get('audit_digest')==canonical(audit_body),'cold audit canonical digest differs')
++    proof_path=safe(repo,SELF_REL+'/'+COLD_PROOF)
++    require(str(proof_path) in evidence,'cold synthetic proof not evidence-bound')
++    proof=load(proof_path)
++    require(proof.get('all_pass') is True and proof.get('status')=='PASS' and proof.get('tests_run',0)>0 and all(proof.get(key)==0 for key in ('failures','errors','skipped')),'actual cold synthetic proof not complete PASS')
++    for name,digest in proof.get('implementation_sha256',{}).items():
++        file=Path(name);require(file.is_absolute() and file.is_relative_to(safe(repo,SELF_REL)) and sources.get(str(file))==digest,'cold tested-source pin differs');bound(file,digest)
++    require(set(proof.get('implementation_sha256',{}))>=set(str(safe(repo,SELF_REL+'/'+x)) for x in ('recover.py','cold_audit.py')),'cold test proof lacks both actual sources')
++    for relative in (SEQUENCE_REL+'/authorized_sequence_003/stopped.json',PREFIX+'replication_finalizer_env_v3/attempt001/stopped.json',SEQUENCE_REL+'/phase_launches/full_001/finish.json',SEQUENCE_REL+'/authorized_sequence_003/finish.json',RESULT_REL+'/execution/full/A_FULL_0001/completion.json'):
++        require(not safe(repo,relative).exists(),'old missing terminal must not be invented or old phase claimed success: '+relative)
++    phase_failure=load(gate['phase_failure_receipt']['path'])
++    require(Path(gate['phase_failure_receipt']['path'])==safe(repo,RESULT_REL+'/execution/full/A_FULL_0001/failure.json'),'cold phase observer failure path differs')
++    require(phase_failure.get('phase')=='full' and phase_failure.get('attempt_id')=='A_FULL_0001' and phase_failure.get('manifest_digest')==MANIFEST,'cold failed phase identity differs')
++    for value in (phase_failure,load(gate['task_failure_receipt']['path'])):
++        require(value.get('producer')=='external-cold-recovery-observer' and value.get('worker_exception_observed') is False and value.get('exit_code') is None and value.get('child_exit_code') is None and 'traceback' not in value,'cold evidence fabricates worker exception/exit status')
++    processes=gate.get('old_processes',[])
++    require(len(processes)==7 and len({x.get('pid') for x in processes})==7,'seven old process identities/absence evidence required')
+     for item in processes:
+-        require(type(item.get('pid')) is int and item['pid']>0 and int(item.get('creation_filetime',0))>0 and item.get('observed_terminated') is True,'invalid stopped-process identity')
+-        require(native_process_dead(item),'same prior process remains alive')
++        require(type(item.get('pid')) is int and item['pid']>0 and (item.get('expected_creation_filetime') is None or type(item['expected_creation_filetime']) is int and item['expected_creation_filetime']>0) and item.get('original_identity_absent') is True and item.get('old_exit_code') is None,'invalid cold process absence identity')
++        require(native_process_dead(item),'same old process instance remains alive')
+     manifest=load(safe(repo,RESULT_REL+'/provenance_manifest.json'));unsigned=dict(manifest);unsigned.pop('manifest_digest',None)
+-    require(manifest.get('manifest_digest')==MANIFEST and canonical(unsigned)==MANIFEST and manifest.get('input_bundle_digest')==F1,'actual preserved manifest/F1 differs')
+-    for relative,digest in manifest.get('critical_files_sha256',{}).items():require(source_pins.get(str(safe(repo,relative)))==digest,'critical frozen source/model pin differs')
+-    for relative,digest in manifest.get('executor_sha256',{}).items():require(source_pins.get(str(safe(repo,PREFIX+'replication_executor_batch20_env_v3/'+relative)))==digest,'frozen executor closure pin differs')
+-    interrupted=gate.get('interrupted_tasks',[]);require(len(interrupted)==1,'reviewed one-worker transition requires one exact interrupted-task RNG bridge')
+-    for item in interrupted:
+-        task=item['task'];require(item.get('stem')==f"{task['config_id']}_{task['center_id']}_{task['seed']}_{task['scenario']}",'interrupted task stem differs')
+-        failed=Path(item['failure_receipt_path']);require(str(failed) in evidence,'interrupted task failure not evidence-bound');bound(failed,item['failure_receipt_sha256'])
+-        value=load(failed)
+-        require(value.get('status')=='INTERRUPTED' and value.get('completed_valid') is False and value.get('task')==item['task'] and value.get('manifest_digest')==MANIFEST and value.get('input_bundle_digest')==F1,'external interruption task identity differs')
+-        require(value.get('producer')=='external-migration-controller' and value.get('error_type')=='ExternalControlledInterruption' and value.get('worker_exception_observed') is False and 'traceback' not in value and value.get('external_termination_journal_sha256')==sha(journal),'external interruption receipt invents worker exception or lacks journal binding')
+-        require(value.get('environment_binding')==canonical(manifest['environment']),'interruption environment differs')
+-        rng=item.get('rng_path')
+-        if rng is None:require(value.get('rng_relative') is None and value.get('failed_before_rng_capture') is True,'missing exact interrupted-task RNG')
+-        else:
+-            rng=Path(rng);require(str(rng) in evidence,'interrupted RNG not evidence-bound');bound(rng,item['rng_file_sha256'])
+-            require(value.get('rng_file_sha256')==item['rng_file_sha256'] and safe(repo,RESULT_REL)/value['rng_relative']==rng,'failure RNG reference differs')
+-            state=load(rng);body=dict(state);body.pop('state_digest',None)
+-            require(state.get('state_digest')==canonical(body) and state.get('bindings',{}).get('task')==item['task'],'captured RNG same-task/canonical binding differs')
++    require(manifest.get('manifest_digest')==MANIFEST and canonical(unsigned)==MANIFEST and manifest.get('input_bundle_digest')==F1,'preserved manifest/F1 differs')
++    for relative,digest in manifest.get('critical_files_sha256',{}).items():require(sources.get(str(safe(repo,relative)))==digest,'frozen scientific source/model pin differs')
++    for relative,digest in manifest.get('executor_sha256',{}).items():require(sources.get(str(safe(repo,PREFIX+'replication_executor_batch20_env_v3/'+relative)))==digest,'unchanged executor closure pin differs')
++    initial=safe(repo,RESULT_REL+'/initial_state_manifest.json');require(evidence.get(str(initial))==gate.get('initial_state_manifest_sha256')==sha(initial),'initial60 manifest not bound')
++    states=load(initial);expected={(c,s) for c in range(33000,33020) for s in (7311,7312,7313)}
++    require(states.get('completed_cases')==60 and states.get('manifest_digest')==MANIFEST and states.get('input_bundle_digest')==F1 and len(states.get('states',[]))==60 and {(x['center_id'],x['seed']) for x in states['states']}==expected,'preserved initial60 certification differs')
++    task=gate.get('pending_task',{});require(task=={'center_id':33002,'seed':7311,'scenario':'C0','method':'B8','config_id':'B8_AlwaysOpen_ratio10'},'unexpected pending task; require exact observed source-defined task')
++    failure=load(gate['task_failure_receipt']['path'])
++    require(failure.get('status')=='INTERRUPTED' and failure.get('completed_valid') is False and failure.get('task')==task and failure.get('manifest_digest')==MANIFEST and failure.get('input_bundle_digest')==F1,'cold task failure binding differs')
++    require(failure.get('environment_binding')==canonical(manifest['environment']) and failure.get('failed_before_rng_capture') is False,'same-task environment/RNG boundary differs')
++    rng=safe(repo,RESULT_REL)/gate.get('pending_rng_relative','');require(rng.is_relative_to(safe(repo,RESULT_REL)) and evidence.get(str(rng))==gate.get('pending_rng_file_sha256'),'same-task RNG evidence absent')
++    bound(rng,gate['pending_rng_file_sha256']);state=load(rng);rng_body=dict(state);rng_body.pop('state_digest',None)
++    require(state.get('state_digest')==gate.get('pending_rng_state_digest')==canonical(rng_body) and state.get('bindings',{}).get('task')==task and state.get('bindings',{}).get('input_bundle_digest')==F1 and state.get('bindings',{}).get('environment_binding')==canonical(manifest['environment']),'same-task RNG canonical/scientific bindings differ')
++    require(failure.get('rng_relative')==gate['pending_rng_relative'] and failure.get('rng_file_sha256')==gate['pending_rng_file_sha256'],'cold retry failure refers to another RNG')
+     old_attempts=safe(repo,RESULT_REL+'/attempts')
+     if old_attempts.exists():
+         for directory in old_attempts.glob('*/A_FULL_0001/*'):
+-            if (directory/'rng_before.json').exists():require((directory/'failure.json').is_file() or (directory/'receipt.json').is_file(),'old pending RNG lacks receipt')
++            if (directory/'rng_before.json').exists():require((directory/'failure.json').is_file() or (directory/'receipt.json').is_file(),'old pending RNG lacks explicit receipt')
+             if (directory/'receipt.json').exists():
+-                stem=directory.parent.parent.name;require(safe(repo,RESULT_REL+f'/raw/{stem}.integrity.json').is_file(),'old completed attempt is unpublished')
++                stem=directory.parent.parent.name;require(safe(repo,RESULT_REL+f'/raw/{stem}.integrity.json').is_file(),'old completed attempt unpublished')
+     if admission:
+         raw=safe(repo,RESULT_REL+'/raw')
+         if raw.exists():
+-            for path in raw.glob('*.csv'):require(path.with_suffix('.integrity.json').is_file(),'partial raw CSV publication blocks admission')
+-    private=gate.get('old_worker_private_bytes');minimum=gate.get('resource_minimum_free_commit_bytes');pre_stop=gate.get('pre_stop_minimum_free_commit_bytes')
+-    require(all(type(x) is int and x>0 for x in (private,minimum,pre_stop)),'resource budget numeric evidence absent')
+-    require(minimum>=max(7*1024**3,2*private+1024**3) and pre_stop>=max(int(4.5*1024**3),private+1024**3),'resource budget below approved conservative threshold')
++            for file in raw.glob('*.csv'):require(file.with_suffix('.integrity.json').is_file(),'partial raw CSV publication blocks admission')
++    resource=gate.get('actual_prelaunch_resource_sample',{});private=resource.get('historical_worker_private_bytes');minimum=gate.get('minimum_free_commit_bytes')
++    require(resource.get('private_bytes_source')=='CONSERVATIVE_BOUND_NOT_CURRENT_MEASUREMENT' and resource.get('requested_worker_count')==2 and resource.get('minimum_free_commit_bytes')==minimum and type(resource.get('free_commit_bytes')) is int and resource['free_commit_bytes']>=minimum and type(private) is int and private>0 and type(minimum) is int and minimum>=max(8*1024**3,2*private+1024**3),'two-worker resource budget below reviewed conservative threshold')
+     if check_resource:require(native_free_commit_bytes()>=minimum,'current free commit below two-worker launch threshold; no launch')
+     bound(gate_path,gate_sha256)
+-    immutable={**source_pins,**evidence,str(gate_path):gate_sha256}
+-    # The sole authorized mutable root file is enforced before publication and
+-    # separately archived. It cannot be a post-publication unchanged-file pin.
++    immutable={**sources,**evidence,str(gate_path):gate_sha256}
+     immutable.pop(str(safe(repo,ROOT_NAME)),None)
+     return {'gate':gate,'gate_sha256':gate_sha256,'evidence_sha256':immutable}
+ 
+@@ -377,7 +390,7 @@
+     repo=Path(repo);base=safe(repo,PREFIX.rstrip('/'));roots=[]
+     for name in ('autonomous_replication_execution_20261009','autonomous_replication_execution_20261009_v2','autonomous_replication_execution_20261009_v3'):
+         roots.append(base/name)
+-    roots.extend((base/'replication_finalizer_env_v3/attempt001',base/'replication_worker_transition_v1'))
++    roots.extend((base/'replication_finalizer_env_v3/attempt001',base/'replication_worker_transition_v1',base/'replication_abrupt_recovery_v1'))
+     roots.extend((base/'execution_20261009',base/'replication_executor_batch20_env_v2/TOY_READ_SCOPE_CLARIFICATION.json'))
+     for name in ('p7_7_integrity_replication_batch20_v1','p7_7_integrity_replication_environment_review_20261009_v2','p7_7_integrity_replication_batch20_env_v1','p7_7_integrity_replication_batch20_env_v2','p7_7_integrity_replication_batch20_env_v3'):
+         root=safe(repo,'results/'+name)
+@@ -472,7 +485,7 @@
+ 
+ The independent Python3.11 runtime retains scientific Torch/NumPy versions and the authorized River0.23.0/pandas2.x compatibility adjustment. Historical psutil version and exact historical environment remain NOT_VERIFIED. Approved dependency choices were fixed before observing replication performance. New-vs-old changes cannot be uniquely attributed to inputs, runtime or stochastic paths. This is a post-observation integrity-correction evaluation, not a never-seen heldout evaluation. No whole-manuscript freeze or submission is authorized by completion alone.
+ 
+-The separately authorized one-to-two-worker transition retains successful V3 trajectories under the same manifest and original F1, with actual old process termination, interrupted-task RNG bridges and old failed phase evidence bound in ACTUAL_FINAL_GATES.json. The old finalizer/sequence remain preserved as genuinely stopped attempts. Scheduling is changed for resource/runtime reasons without consulting model losses. Unstarted tasks retain the original implementation's unspecified global Torch dropout stream; identical numerical paths across schedules are not claimed. Conservative free-commit admission is a resource budget, not proof that an out-of-memory failure cannot occur.
++The separately authorized one-to-two-worker cold recovery retains successful V3 trajectories under the same manifest and original F1. The seven earlier Python processes were independently observed absent after an abrupt interruption; no native termination action or original exit code was captured. The researcher reports closing Codex. That report is VERIFIED as a human report; whether Codex closure caused each process exit remains NOT_VERIFIED. Missing old sequence/finalizer/launcher terminal records remain missing. Newly written failure records are explicitly external cold-observer evidence, never original worker exceptions or orderly shutdown. Exact saved pre-task RNG is replayed only for the one observed interrupted task. Scheduling changes for resource/runtime reasons without consulting model losses. Unstarted tasks retain the original implementation's unspecified global Torch dropout stream; identical numerical paths across schedules are not claimed. Conservative free-commit admission is a resource budget, not proof that an out-of-memory failure cannot occur.
+ 
+ No independent human scientific review is claimed by these software gates. Root publication uses a Windows deny-write/delete handle and a prior fsynced byte archive, but the in-place root update is not transactional or atomic against power/process failure. A failure preserves the archive, partial package and permanent finalizer lock for independent diagnosis; the tool never retries publication automatically.
+ 
+@@ -499,7 +512,7 @@
+ def main():
+     parser=argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--repo',required=True);parser.add_argument('--attempt',type=int,required=True)
+-    parser.add_argument('--transition-gate',required=True)
++    parser.add_argument('--cold-gate',required=True)
+     parser.add_argument('--poll-seconds',type=int,default=30)
+     args=parser.parse_args()
+     require(sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode,'requires -I -S -B')
+@@ -507,7 +520,7 @@
+     repo=Path(args.repo);require(repo.is_absolute() and repo==Path(r'D:\dt-talk\DT_LIFECYCLE_ESCALATION'),'only the explicitly authorized repository is allowed')
+     source=safe(repo,SELF_REL);require(Path(__file__).resolve().parent==source.resolve(),'unexpected finalizer source root')
+     verify_test_proof(source,source/HELPER_PROOF,True)
+-    transition=verify_transition_gate(repo,Path(args.transition_gate))
++    transition=verify_transition_gate(repo,Path(args.cold_gate))
+     delivery_root=safe(repo,DELIVERY_REL);proof=delivery_root/'SYNTHETIC_TEST_RESULTS_ATTEMPT003.json'
+     verify_test_proof(delivery_root,proof)
+     record=safe(source,f'attempt{args.attempt:03d}');require(not record.exists(),'finalizer attempt exists');record.mkdir()
+@@ -528,7 +541,7 @@
+         require(not safe(repo,'handoffs/PAPER3_FINAL_REPLICATION_HANDOFF_BATCH20_ENV_V3_FINAL_PACKAGE_001').exists(),'final package already exists')
+         require(not safe(repo,'handoffs/PAPER3_FINAL_REPLICATION_HANDOFF_BATCH20_ENV_V3_FINAL_PACKAGE_001.zip').exists(),'final ZIP already exists')
+         current='waiting_for_actual_sequence';wait_terminal(repo,args.poll_seconds)
+-        current='verifying_actual_gates';recheck(pins);evidence=verify_completed(repo,Path(args.transition_gate))
++        current='verifying_actual_gates';recheck(pins);evidence=verify_completed(repo,Path(args.cold_gate))
+         emit(record/'ACTUAL_GATE_VERIFICATION.json',{'status':'PASS','evidence_sha256':evidence,'verified_utc':utc()})
+         recheck(pins);verify_test_proof(delivery_root,proof)
+         require(sha(safe(repo,ROOT_NAME))==old_sha,'root handoff changed while waiting; no delivery/publication')
+--- test_continuation.py.reviewed.before
++++ test_continuation.py
+@@ -11,7 +11,7 @@
+ import zipfile
+ 
+ HERE=Path(__file__).resolve().parent
+-spec=importlib.util.spec_from_file_location('standalone_finalizer',HERE/'finalizer_continuation.py')
++spec=importlib.util.spec_from_file_location('standalone_finalizer',HERE/'finalizer.py')
+ f=importlib.util.module_from_spec(spec);spec.loader.exec_module(f)
+ cspec=importlib.util.spec_from_file_location('standalone_continuation',HERE/'continuation.py')
+ c=importlib.util.module_from_spec(cspec);cspec.loader.exec_module(c);c.f=f
+@@ -22,7 +22,12 @@
+     path.parent.mkdir(parents=True,exist_ok=True)
+     path.write_text(json.dumps(value),encoding='utf-8')
+ def alter(path,edit):
+-    value=f.load(path);edit(value);put(path,value)
++    value=f.load(path);edit(value)
++    if value.get('schema')=='paper3-abrupt-recovery-pure-audit-v1':
++        body=dict(value);body.pop('audit_digest',None);value['audit_digest']=f.canonical(body)
++    if value.get('schema')=='paper3-abrupt-recovery-gate-v1':
++        body=dict(value);body.pop('gate_digest',None);value['gate_digest']=f.canonical(body)
++    put(path,value)
+ 
+ class FinalizerTests(unittest.TestCase):
+     def setUp(self):
+@@ -55,37 +60,32 @@
+         stats=self.results/'statistics_batch20_env_v3';stats.mkdir();(stats/'output.csv').write_text('synthetic,value\nonly,1\n')
+         put(stats/'statistics_manifest.json',{'fixture':True})
+         put(stats/'statistics_execution_receipt.json',{'schema':'paper3-statistics-execution-receipt-v1','status':'COMPLETED','exit_code':0,'replication_manifest_digest':f.MANIFEST,'originals_unchanged':True,'joint_resampling_verified':True,'models_or_generators_executed':False,'statistics_manifest_sha256':f.sha(stats/'statistics_manifest.json'),'outputs_sha256':{'output.csv':f.sha(stats/'output.csv')}})
+-        self.phase('full',1)
+-        oldfinish=self.repo/f.SEQUENCE_REL/'phase_launches/full_001/finish.json'
+-        alter(oldfinish,lambda x:x.update(exit_code=1,child_exit_code=1))
+-        put(self.prior/'stopped.json',{'status':'STOPPED_FOR_DIAGNOSIS'})
+-        oldfinal=self.repo/f.PREFIX/'replication_finalizer_env_v3/attempt001/stopped.json';put(oldfinal,{'status':'STOPPED_FOR_DIAGNOSIS'})
+-        failed=self.results/'execution/full/A_FULL_0001/failure.json';put(failed,{'phase':'full','attempt_id':'A_FULL_0001','manifest_digest':f.MANIFEST})
++        failed=self.results/'execution/full/A_FULL_0001/failure.json'
+         root=self.repo/f.ROOT_NAME;root.write_bytes(b'synthetic original handoff');f.FIXED_ROOT_SHA=f.sha(root)
+-        controller=self.repo/f.SELF_REL/'migration_controller.py';controller.write_text('# synthetic controller')
+-        source_relatives=(f.SELF_REL+'/migration_controller.py',f.SELF_REL+'/review_transition.py',f.SELF_REL+'/root_readonly_preflight.py',f.SELF_REL+'/continuation.py',f.SELF_REL+'/finalizer_continuation.py',f.SEQUENCE_REL+'/authorized_sequence.py',f.SEQUENCE_REL+'/phase_launcher.py',f.PREFIX+'replication_finalizer_env_v3/finalizer.py')
++        source_relatives=(f.SELF_REL+'/cold_audit.py',f.SELF_REL+'/recover.py',f.SELF_REL+'/continuation.py',f.SELF_REL+'/finalizer.py',f.SEQUENCE_REL+'/authorized_sequence.py',f.SEQUENCE_REL+'/phase_launcher.py',f.PREFIX+'replication_finalizer_env_v3/finalizer.py')
+         for relative in source_relatives:
+             path=self.repo/relative;path.parent.mkdir(parents=True,exist_ok=True)
+             if not path.exists():path.write_text('# synthetic source fixture')
+         pins={str(self.repo/relative):f.sha(self.repo/relative) for relative in source_relatives}
+-        proof_paths=[]
+-        for filename,source_name,schema in ((f.CONTROLLER_PROOF,'migration_controller.py','paper3-worker-transition-controller-synthetic-tests-v1'),(f.REVIEW_PROOF,'review_transition.py','paper3-worker-transition-review-synthetic-tests-v1')):
+-            path=self.repo/f.SELF_REL/filename;put(path,{'schema':schema,'status':'PASS','all_pass':True,'tests_run':3,'failures':0,'errors':0,'skipped':0,'native_owned_child_lifecycle_passed':True,'implementation_sha256':{str(self.repo/f.SELF_REL/source_name):f.sha(self.repo/f.SELF_REL/source_name)}});proof_paths.append(path)
+-        preflight=self.repo/f.PREFLIGHT_PROOF_REL;put(preflight,{'schema':'paper3-worker-transition-root-readonly-preflight-v1','status':'PASS','mismatches':[],'manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'root_handoff_sha256':f.FIXED_ROOT_SHA,'implementation_sha256':pins[str(self.repo/f.SELF_REL/'root_readonly_preflight.py')],'models_generators_or_statistics_executed':False,'processes_modified':False,'group_file_counts':{'original_protected':2535}});proof_paths.append(preflight)
+-        execution=self.repo/f.SELF_REL/'transition_001';execution.mkdir()
+-        journal=execution/'external_termination_journal.json';put(journal,{'schema':'paper3-external-worker-termination-journal-v1','synthetic_only':True})
+-        external_review=execution/'external_interruption_review.json';put(external_review,{'status':'EXTERNAL_INTERRUPTION_EVIDENCE_CONSISTENT','journal_file_sha256':f.sha(journal),'worker_caught_exception_claimed':False,'actual_runtime_authenticity_independently_certified':False})
+-        task={'center_id':33000,'seed':7311,'scenario':'C1','method':'B0','config_id':'B0_Frozen_ratio10'};stem='B0_Frozen_ratio10_33000_7311_C1'
++        proof=self.repo/f.SELF_REL/f.COLD_PROOF
++        put(proof,{'status':'PASS','all_pass':True,'tests_run':42,'failures':0,'errors':0,'skipped':0,'implementation_sha256':{str(self.repo/f.SELF_REL/name):f.sha(self.repo/f.SELF_REL/name) for name in ('recover.py','cold_audit.py')}})
++        execution=self.repo/f.SELF_REL/'cold_recovery_001';execution.mkdir()
++        snapshot=execution/'observer_snapshot.json';put(snapshot,{'schema':'synthetic-cold-observer','synthetic_only':True})
++        audit=execution/'cold_audit.json';put(audit,{'schema':'paper3-abrupt-recovery-pure-audit-v1','status':'COLD_SNAPSHOT_CONSISTENT','all_checks_pass':True,'completed_trajectories':123,'complete_paired_groups':24,'initial_cases':60,'original_files_unchanged':True,'frozen_sources_unchanged':True,'all_existing_records_verified':True,'models_generators_or_statistics_executed':False,'processes_modified':False,'snapshot_digest':f.canonical(f.load(snapshot))})
++        alter(audit,lambda x:None)
++        task={'center_id':33002,'seed':7311,'scenario':'C0','method':'B8','config_id':'B8_AlwaysOpen_ratio10'};stem='B8_AlwaysOpen_ratio10_33002_7311_C0'
+         pending=self.results/'attempts'/stem/'A_FULL_0001/W1';pending.mkdir(parents=True)
+-        rng=pending/'rng_before.json';rng_body={'bindings':{'task':task},'synthetic_only':True};put(rng,{**rng_body,'state_digest':f.canonical(rng_body)})
+-        interruption=pending/'failure.json';put(interruption,{'status':'INTERRUPTED','completed_valid':False,'task':task,'manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'environment_binding':f.canonical({}),'producer':'external-migration-controller','error_type':'ExternalControlledInterruption','worker_exception_observed':False,'external_termination_journal_sha256':f.sha(journal),'rng_relative':rng.relative_to(self.results).as_posix(),'rng_file_sha256':f.sha(rng),'failed_before_rng_capture':False})
+-        evidence={str(path):f.sha(path) for path in (self.prior/'stopped.json',oldfinal,failed,oldfinish,self.results/'provenance_manifest.json')}
+-        evidence.update({str(path):f.sha(path) for path in proof_paths})
+-        evidence.update({str(path):f.sha(path) for path in (journal,external_review,rng,interruption)})
+-        self.gate_path=execution/'transition_gate.json'
+-        gate={'schema':'paper3-worker-transition-gate-v1','status':'PASS','manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'root_handoff_sha256':f.FIXED_ROOT_SHA,'worker_count':2,'performance_used_for_transition':False,'resource_gate_pass':True,'old_sequence_stopped':True,'old_finalizer_stopped':True,'old_full_attempt_failed':True,'pending_partial_publications':0,'pending_unreceipted_rng':0,'all_existing_records_verified':True,'original_files_unchanged':True,'frozen_sources_unchanged':True,'old_full_attempt_id':'A_FULL_0001','new_full_attempt_id':'A_FULL_0002','execution_dir':str(execution),'source_sha256':pins,'evidence_sha256':evidence,'stopped_processes':[{'pid':123,'creation_filetime':456,'observed_terminated':True},{'pid':124,'creation_filetime':457,'observed_terminated':True}],'interrupted_tasks':[],'old_worker_private_bytes':3*1024**3,'resource_minimum_free_commit_bytes':7*1024**3,'pre_stop_minimum_free_commit_bytes':int(4.5*1024**3)}
+-        put(self.gate_path,gate)
+-        alter(self.gate_path,lambda x:x.update(interrupted_tasks=[{'stem':stem,'task':task,'failure_receipt_path':str(interruption),'failure_receipt_sha256':f.sha(interruption),'rng_path':str(rng),'rng_file_sha256':f.sha(rng)}]))
++        bindings={'task':task,'input_bundle_digest':f.F1,'environment_binding':f.canonical({})}
++        rng=pending/'rng_before.json';rng_body={'bindings':bindings,'synthetic_only':True};put(rng,{**rng_body,'state_digest':f.canonical(rng_body)})
++        shared={'producer':'external-cold-recovery-observer','worker_exception_observed':False,'exit_code':None,'child_exit_code':None}
++        put(failed,{**shared,'phase':'full','attempt_id':'A_FULL_0001','manifest_digest':f.MANIFEST})
++        interruption=pending/'failure.json';put(interruption,{**shared,'status':'INTERRUPTED','completed_valid':False,'task':task,'manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'environment_binding':f.canonical({}),'rng_relative':rng.relative_to(self.results).as_posix(),'rng_file_sha256':f.sha(rng),'failed_before_rng_capture':False})
++        files=(proof,snapshot,audit,failed,interruption,rng,self.results/'provenance_manifest.json',self.results/'initial_state_manifest.json')
++        evidence={str(path):f.sha(path) for path in files}
++        self.gate_path=execution/'cold_gate.json'
++        def rec(path):return {'path':str(path),'sha256':f.sha(path)}
++        gate={'schema':'paper3-abrupt-recovery-gate-v1','status':'PASS','repository':str(self.repo),'results_root':str(self.results),'manifest_digest':f.MANIFEST,'input_bundle_digest':f.F1,'root_handoff_sha256':f.FIXED_ROOT_SHA,'worker_count':2,'performance_used_for_recovery':False,'model_output_worker_invariance_claimed':False,'resource_gate_pass':True,'process_absence_checked':True,'all_old_processes_absent':True,'completed_trajectories':123,'complete_paired_groups':24,'unknown_or_partial_artifacts':0,'old_attempt_id':'A_FULL_0001','new_attempt_id':'A_FULL_0002','source_bindings_sha256':pins,'evidence_sha256':evidence,'old_processes':[{'pid':123+i,'expected_creation_filetime':456+i,'original_identity_absent':True,'old_exit_code':None,'observed_utc':'2026-10-09T12:00:00+00:00'} for i in range(7)],'old_terminal_records':{'sequence_stopped':False,'finalizer_stopped':False,'phase_launcher_finished':False},'human_Codex_close_report':'VERIFIED_USER_REPORT','causal_exit_actor':'NOT_VERIFIED','observer_snapshot':rec(snapshot),'cold_audit':rec(audit),'task_failure_receipt':rec(interruption),'phase_failure_receipt':rec(failed),'initial_state_manifest_sha256':f.sha(self.results/'initial_state_manifest.json'),'pending_task':task,'pending_rng_relative':rng.relative_to(self.results).as_posix(),'pending_rng_file_sha256':f.sha(rng),'pending_rng_state_digest':f.load(rng)['state_digest'],'actual_prelaunch_resource_sample':{'historical_worker_private_bytes':int(3.5*1024**3),'private_bytes_source':'CONSERVATIVE_BOUND_NOT_CURRENT_MEASUREMENT','minimum_free_commit_bytes':8*1024**3,'free_commit_bytes':10*1024**3,'requested_worker_count':2},'minimum_free_commit_bytes':8*1024**3}
++        gate['gate_digest']=f.canonical(gate);put(self.gate_path,gate)
+         alter(self.seq/'start.json',lambda x:x.update(transition_gate_sha256=f.sha(self.gate_path)))
+         alter(self.seq/'finish.json',lambda x:x.update(manifest_digest=f.MANIFEST))
+     def tearDown(self): f.MANIFEST=self.saved_manifest;f.FIXED_ROOT_SHA=self.saved_root;self.process_patch.stop();self.resource_patch.stop();self.temp.cleanup()
+@@ -253,7 +253,7 @@
+         f.verify_test_proof(root,proof);(root/'one.py').write_text('# changed')
+         with self.assertRaises(f.FinalizerError):f.verify_test_proof(root,proof)
+     def test_no_science_imports(self):
+-        tree=ast.parse((HERE/'finalizer_continuation.py').read_text())
++        tree=ast.parse((HERE/'finalizer.py').read_text())
+         forbidden={'numpy','pandas','torch','river','scipy','sklearn','core','science_adapter','statistics'}
+         for node in ast.walk(tree):
+             if isinstance(node,ast.Import):self.assertTrue(all(x.name.split('.')[0] not in forbidden for x in node.names))
+@@ -264,7 +264,7 @@
+         index=f.history_index(self.repo);self.assertIn(str(scope/'stopped.json'),index);self.assertIn(str(scope/'finish.json'),index);self.assertNotIn(str(raw/'large.csv'),index)
+     def test_transition_valid_fixture(self):self.assertEqual(f.verify_transition_gate(self.repo,self.gate_path)['gate']['worker_count'],2)
+     def test_transition_root_not_postpublication_immutable_pin(self):
+-        root=self.repo/f.ROOT_NAME;alter(self.gate_path,lambda x:x['source_sha256'].update({str(root):f.sha(root)}))
++        root=self.repo/f.ROOT_NAME;alter(self.gate_path,lambda x:x['source_bindings_sha256'].update({str(root):f.sha(root)}))
+         admitted=f.verify_transition_gate(self.repo,self.gate_path)
+         self.assertNotIn(str(root),admitted['evidence_sha256'])
+         root.write_bytes(b'authorized later saved-draft publication')
+@@ -282,39 +282,41 @@
+             with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def recert_evidence(self,path):
+         alter(self.gate_path,lambda x:x['evidence_sha256'].update({str(path):f.sha(path)}))
++        for field in ('observer_snapshot','cold_audit','task_failure_receipt','phase_failure_receipt'):
++            if f.load(self.gate_path).get(field,{}).get('path')==str(path):alter(self.gate_path,lambda x:x[field].update(sha256=f.sha(path)))
+     def test_transition_missing_mandatory_controller_source(self):
+-        alter(self.gate_path,lambda x:x['source_sha256'].pop(str(self.repo/f.SELF_REL/'migration_controller.py')))
++        alter(self.gate_path,lambda x:x['source_bindings_sha256'].pop(str(self.repo/f.SELF_REL/'recover.py')))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_controller_proof_not_bound(self):
+-        alter(self.gate_path,lambda x:x['evidence_sha256'].pop(str(self.repo/f.SELF_REL/f.CONTROLLER_PROOF)))
++        alter(self.gate_path,lambda x:x['evidence_sha256'].pop(str(self.repo/f.SELF_REL/f.COLD_PROOF)))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_controller_test_fail_rejected(self):
+-        path=self.repo/f.SELF_REL/f.CONTROLLER_PROOF;alter(path,lambda x:x.update(all_pass=False,failures=1));self.recert_evidence(path)
+-        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+-    def test_transition_controller_native_test_not_executed(self):
+-        path=self.repo/f.SELF_REL/f.CONTROLLER_PROOF;alter(path,lambda x:x.update(native_owned_child_lifecycle_passed=False));self.recert_evidence(path)
++        path=self.repo/f.SELF_REL/f.COLD_PROOF;alter(path,lambda x:x.update(all_pass=False,failures=1));self.recert_evidence(path)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_proof_declared_skipped_rejected(self):
++        path=self.repo/f.SELF_REL/f.COLD_PROOF;alter(path,lambda x:x.update(skipped=1));self.recert_evidence(path)
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_review_test_source_mismatch(self):
+-        path=self.repo/f.SELF_REL/f.REVIEW_PROOF;alter(path,lambda x:x['implementation_sha256'].update({str(self.repo/f.SELF_REL/'review_transition.py'):'wrong'}));self.recert_evidence(path)
++        path=self.repo/f.SELF_REL/f.COLD_PROOF;alter(path,lambda x:x['implementation_sha256'].update({str(self.repo/f.SELF_REL/'cold_audit.py'):'wrong'}));self.recert_evidence(path)
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_root_preflight_fail_rejected(self):
+-        path=self.repo/f.PREFLIGHT_PROOF_REL;alter(path,lambda x:x.update(status='FAIL',mismatches=[{'fixture':'bad'}]));self.recert_evidence(path)
++        path=self.gate_path.parent/'cold_audit.json';alter(path,lambda x:x.update(status='FAIL',mismatches=[{'fixture':'bad'}]));self.recert_evidence(path)
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_root_preflight_wrong_implementation(self):
+-        path=self.repo/f.PREFLIGHT_PROOF_REL;alter(path,lambda x:x.update(implementation_sha256='wrong'));self.recert_evidence(path)
++        path=self.gate_path.parent/'cold_audit.json';alter(path,lambda x:x.update(snapshot_digest='wrong'));self.recert_evidence(path)
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_one_process_not_enough(self):
+-        alter(self.gate_path,lambda x:x.update(stopped_processes=x['stopped_processes'][:1]))
++        alter(self.gate_path,lambda x:x.update(old_processes=x['old_processes'][:1]))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_missing_external_review(self):
+-        alter(self.gate_path,lambda x:x['evidence_sha256'].pop(str(self.gate_path.parent/'external_interruption_review.json')))
++        alter(self.gate_path,lambda x:x['evidence_sha256'].pop(str(self.gate_path.parent/'cold_audit.json')))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_fabricated_worker_traceback_rejected(self):
+-        bridge=Path(f.load(self.gate_path)['interrupted_tasks'][0]['failure_receipt_path']);alter(bridge,lambda x:x.update(traceback='invented worker exception'));self.recert_evidence(bridge)
+-        alter(self.gate_path,lambda x:x['interrupted_tasks'][0].update(failure_receipt_sha256=f.sha(bridge)))
++        bridge=Path(f.load(self.gate_path)['task_failure_receipt']['path']);alter(bridge,lambda x:x.update(traceback='invented worker exception'));self.recert_evidence(bridge)
++        alter(self.gate_path,lambda x:x['task_failure_receipt'].update(sha256=f.sha(bridge)))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_missing_interrupted_task_bridge(self):
+-        alter(self.gate_path,lambda x:x.update(interrupted_tasks=[]))
++        alter(self.gate_path,lambda x:x.update(pending_rng_relative=''))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def actual_self_creation(self):
+         import ctypes
+@@ -338,13 +340,13 @@
+         (self.repo/f.ROOT_NAME).write_bytes(b'other update')
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_source_mismatch(self):
+-        (self.repo/f.SELF_REL/'migration_controller.py').write_text('changed')
+-        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+-    def test_transition_old_sequence_stop_missing(self):
+-        (self.prior/'stopped.json').unlink()
+-        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+-    def test_transition_old_finalizer_stop_missing(self):
+-        (self.repo/f.PREFIX/'replication_finalizer_env_v3/attempt001/stopped.json').unlink()
++        (self.repo/f.SELF_REL/'recover.py').write_text('changed')
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_fabricated_old_sequence_terminal_rejected(self):
++        put(self.prior/'stopped.json',{'status':'STOPPED_FOR_DIAGNOSIS','fabricated':True})
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_fabricated_old_finalizer_terminal_rejected(self):
++        put(self.repo/f.PREFIX/'replication_finalizer_env_v3/attempt001/stopped.json',{'status':'STOPPED_FOR_DIAGNOSIS','fabricated':True})
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_old_phase_failure_missing(self):
+         (self.results/'execution/full/A_FULL_0001/failure.json').unlink()
+@@ -368,10 +370,10 @@
+         with patch.object(f,'native_free_commit_bytes',return_value=6*1024**3):
+             with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path,check_resource=True)
+     def test_transition_underbudget_sevenGiB(self):
+-        alter(self.gate_path,lambda x:x.update(resource_minimum_free_commit_bytes=6*1024**3))
++        alter(self.gate_path,lambda x:x.update(minimum_free_commit_bytes=6*1024**3))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_performance_based(self):
+-        alter(self.gate_path,lambda x:x.update(performance_used_for_transition=True))
++        alter(self.gate_path,lambda x:x.update(performance_used_for_recovery=True))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_wrong_F1(self):
+         alter(self.gate_path,lambda x:x.update(input_bundle_digest='wrong'))
+@@ -380,7 +382,7 @@
+         alter(self.gate_path,lambda x:x.update(worker_count=3))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_transition_requires_zero_pending(self):
+-        alter(self.gate_path,lambda x:x.update(pending_partial_publications=1))
++        alter(self.gate_path,lambda x:x.update(unknown_or_partial_artifacts=1))
+         with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
+     def test_continuation_exact_launcher_commands(self):
+         full=c.phase_command(self.repo,'full');stats=c.phase_command(self.repo,'statistics')
+@@ -402,6 +404,120 @@
+         for node in ast.walk(tree):
+             if isinstance(node,ast.Import):self.assertTrue(all(x.name.split('.')[0] not in forbidden for x in node.names))
+             if isinstance(node,ast.ImportFrom):self.assertNotIn((node.module or '').split('.')[0],forbidden)
++
++    def test_cold_exact_ratio10_config_admitted(self):
++        self.assertEqual(f.verify_transition_gate(self.repo,self.gate_path)['gate']['pending_task']['config_id'],'B8_AlwaysOpen_ratio10')
++    def test_cold_config_alias_rejected(self):
++        for alias in ('B8_AlwaysOpen','B8_AlwaysOpen_RI','B8'):
++            alter(self.gate_path,lambda x:x['pending_task'].update(config_id=alias))
++            with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_absent_old_terminals_are_valid(self):
++        self.assertFalse((self.prior/'stopped.json').exists())
++        self.assertFalse((self.repo/f.SEQUENCE_REL/'phase_launches/full_001/finish.json').exists())
++        self.assertTrue(f.verify_transition_gate(self.repo,self.gate_path))
++    def test_cold_fabricated_old_launcher_exit_rejected(self):
++        put(self.repo/f.SEQUENCE_REL/'phase_launches/full_001/finish.json',{'exit_code':1,'child_exit_code':1})
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_unknown_old_exit_cannot_be_zero(self):
++        path=Path(f.load(self.gate_path)['phase_failure_receipt']['path']);alter(path,lambda x:x.update(exit_code=0));self.recert_evidence(path)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_task_unknown_exit_cannot_be_invented(self):
++        path=Path(f.load(self.gate_path)['task_failure_receipt']['path']);alter(path,lambda x:x.update(child_exit_code=1));self.recert_evidence(path)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_human_report_does_not_verify_cause(self):
++        alter(self.gate_path,lambda x:x.update(causal_exit_actor='VERIFIED_CODEX'))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_unknown_creation_ticks_are_not_fabricated(self):
++        alter(self.gate_path,lambda x:x['old_processes'][0].update(expected_creation_filetime=None))
++        self.assertTrue(f.verify_transition_gate(self.repo,self.gate_path))
++    def test_cold_numeric_pid_not_seven_distinct_instances(self):
++        alter(self.gate_path,lambda x:x['old_processes'].__setitem__(1,dict(x['old_processes'][0])))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_missing_initial60_evidence_rejected(self):
++        alter(self.gate_path,lambda x:x['evidence_sha256'].pop(str(self.results/'initial_state_manifest.json')))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_122_completed_not_original123(self):
++        alter(self.gate_path,lambda x:x.update(completed_trajectories=122))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_audit_cannot_only_claim_pass_without_count_proof(self):
++        path=Path(f.load(self.gate_path)['cold_audit']['path']);alter(path,lambda x:x.pop('all_existing_records_verified'));self.recert_evidence(path)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_missing_initial60_audit_proof(self):
++        path=Path(f.load(self.gate_path)['cold_audit']['path']);alter(path,lambda x:x.update(initial_cases=59));self.recert_evidence(path)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_unapproved_external_pin_rejected(self):
++        external=self.repo.parent/(self.repo.name+'_external_pin');external.write_bytes(b'unapproved synthetic bytes')
++        try:
++            alter(self.gate_path,lambda x:x['source_bindings_sha256'].update({str(external):f.sha(external)}))
++            with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++        finally:external.unlink()
++    def test_cold_frozen_external_environment_pin_accepted(self):
++        external=self.repo.parent/(self.repo.name+'_external_pin');external.write_bytes(b'allowlisted synthetic runtime bytes')
++        try:
++            manifest=self.results/'provenance_manifest.json';value=f.load(manifest);value['environment']['bound_files_sha256']={str(external):f.sha(external)}
++            unsigned=dict(value);unsigned.pop('manifest_digest');f.MANIFEST=f.canonical(unsigned);value['manifest_digest']=f.MANIFEST;put(manifest,value)
++            # This isolated admission fixture updates its synthetic frozen identity,
++            # never any real protocol/model/input file.
++            self.recert_evidence(manifest)
++            alter(self.gate_path,lambda x:x.update(manifest_digest=f.MANIFEST))
++            for name in ('task_failure_receipt','phase_failure_receipt'):
++                file=Path(f.load(self.gate_path)[name]['path']);alter(file,lambda x:x.update(manifest_digest=f.MANIFEST,environment_binding=f.canonical(value['environment'])));self.recert_evidence(file)
++            initial=self.results/'initial_state_manifest.json';alter(initial,lambda x:x.update(manifest_digest=f.MANIFEST));self.recert_evidence(initial)
++            alter(self.gate_path,lambda x:x.update(initial_state_manifest_sha256=f.sha(initial)))
++            rng=self.results/f.load(self.gate_path)['pending_rng_relative'];state=f.load(rng);state['bindings']['environment_binding']=f.canonical(value['environment']);body=dict(state);body.pop('state_digest');state['state_digest']=f.canonical(body);put(rng,state);self.recert_evidence(rng)
++            failure=Path(f.load(self.gate_path)['task_failure_receipt']['path']);alter(failure,lambda x:x.update(rng_file_sha256=f.sha(rng)));self.recert_evidence(failure)
++            alter(self.gate_path,lambda x:x.update(pending_rng_file_sha256=f.sha(rng),pending_rng_state_digest=state['state_digest']))
++            alter(self.gate_path,lambda x:x['source_bindings_sha256'].update({str(external):f.sha(external)}))
++            self.assertTrue(f.verify_transition_gate(self.repo,self.gate_path))
++        finally:external.unlink()
++    def test_cold_rng_state_digest_invented_rejected(self):
++        alter(self.gate_path,lambda x:x.update(pending_rng_state_digest='f'*64))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_resource_budget_below8GiB_rejected(self):
++        alter(self.gate_path,lambda x:x.update(minimum_free_commit_bytes=7*1024**3))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_resource_planning_bound_not_measurement(self):
++        alter(self.gate_path,lambda x:x['actual_prelaunch_resource_sample'].update(private_bytes_source='CURRENT_MEASUREMENT'))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_global_dropout_invariance_not_claimed(self):
++        alter(self.gate_path,lambda x:x.update(model_output_worker_invariance_claimed=True))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_gate_canonical_digest_wrong_rejected(self):
++        value=f.load(self.gate_path);value['gate_digest']='0'*64;put(self.gate_path,value)
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++    def test_cold_actual_source_pin_not_bound_proof_rejected(self):
++        alter(self.gate_path,lambda x:x['source_bindings_sha256'].pop(str(self.repo/f.SELF_REL/'cold_audit.py')))
++        with self.assertRaises(f.FinalizerError):f.verify_transition_gate(self.repo,self.gate_path)
++
++    def test_cold_actual_gate_producer_consumer_contract(self):
++        # Exercise the actual new producer with isolated synthetic files and fake
++        # observer/driver/auditor interfaces; no real scientific modules execute.
++        import sys
++        import types
++        spec=importlib.util.spec_from_file_location('cold_producer_contract_fixture',HERE/'recover.py')
++        producer=importlib.util.module_from_spec(spec);sys.modules[spec.name]=producer;spec.loader.exec_module(producer)
++        old=f.load(self.gate_path);execution=self.gate_path.parent
++        pending=self.results/old['pending_rng_relative'];failure_path=Path(old['task_failure_receipt']['path']);phase_path=Path(old['phase_failure_receipt']['path'])
++        failure=f.load(failure_path);phase=f.load(phase_path);failure_path.unlink();phase_path.unlink()
++        evidence={name:digest for name,digest in old['evidence_sha256'].items() if name not in {str(failure_path),str(phase_path)}}
++        snapshot={'process_absence':old['old_processes'],'evidence_bindings':{'expected':evidence},'old_terminal_records':old['old_terminal_records'],'context':{'manifest':f.load(self.results/'provenance_manifest.json')},'source_bindings':{'expected':old['source_bindings_sha256']}}
++        audit=f.load(old['cold_audit']['path'])
++        def audit_snapshot(value):
++            result=dict(audit);result.update(snapshot_digest=f.canonical(value),pending_task=old['pending_task'],pending_rng_relative=old['pending_rng_relative'],pending_rng_file_sha256=old['pending_rng_file_sha256'],pending_rng_state_digest=old['pending_rng_state_digest'],initial_state_manifest_sha256=old['initial_state_manifest_sha256']);body=dict(result);body.pop('audit_digest',None);result['audit_digest']=f.canonical(body);return result
++        def failure_receipts(*args):return failure,phase
++        auditor=types.SimpleNamespace(audit_snapshot=audit_snapshot,failure_receipts=failure_receipts)
++        records={str(i):None for i in range(123)}
++        def stem(task):return f"{task['config_id']}_{task['center_id']}_{task['seed']}_{task['scenario']}"
++        def retries(*args):return {stem(old['pending_task']):{'failed_receipt_relative':failure_path.relative_to(self.results).as_posix(),'failed_receipt_sha256':f.sha(failure_path)}}
++        driver=types.SimpleNamespace(accepted_records=lambda m:records,paired_groups=lambda e:list(range(24)),tasks=lambda:[old['pending_task']],stem=stem,_retry_descriptors=retries)
++        observer=types.SimpleNamespace(absence=lambda:old['old_processes'],target_processes=lambda:[],resources=lambda:old['actual_prelaunch_resource_sample'])
++        context={'snapshot':snapshot,'audit':audit,'execution_dir':execution,'source_pins':old['source_bindings_sha256'],'driver':driver,'auditor':auditor,'snapshot_ref':old['observer_snapshot'],'audit_ref':old['cold_audit']}
++        changes={'REPO':self.repo,'RESULTS':self.results,'MANIFEST_DIGEST':f.MANIFEST,'INPUT_DIGEST':f.F1,'ROOT_SHA':f.FIXED_ROOT_SHA}
++        with patch.multiple(producer,**changes),patch.object(producer,'terminal_observations',return_value=old['old_terminal_records']):
++            emitted=producer.run_recovery(context,observer)
++        generated=execution/'cold_recovery_gate.json'
++        self.assertEqual(emitted['schema'],'paper3-abrupt-recovery-gate-v1')
++        self.assertTrue(f.verify_transition_gate(self.repo,generated,check_resource=True,admission=True))
+ 
+ def mutation_test(name,path,edit):
+     def method(self):
+--- run_continuation_tests.py.reviewed.before
++++ run_continuation_tests.py
+@@ -8,7 +8,7 @@
+ from datetime import datetime,timezone
+ 
+ HERE=Path(__file__).resolve().parent
+-OWN=('continuation.py','finalizer_continuation.py','test_continuation.py','run_continuation_tests.py')
++OWN=('continuation.py','finalizer.py','test_continuation.py','run_continuation_tests.py')
+ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+ def main():
+     assert sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode
+@@ -21,7 +21,9 @@
+         with (HERE/name).open('xb') as out:out.write(data)
+     summary=result.stderr.decode('utf-8',errors='replace');count=re.search(r'Ran (\d+) tests',summary);skipped=re.search(r'skipped=(\d+)',summary)
+     tests_run=int(count.group(1)) if count else 0;tests_skipped=int(skipped.group(1)) if skipped else 0
+-    proof={'all_pass':result.returncode==0 and tests_run>0 and tests_skipped==0,'exit_code':result.returncode,'tests_run':tests_run,'tests_skipped':tests_skipped,'started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':command,'implementation_sha256':after,'real_outcomes_read':False,'real_delivery_published':False,'models_generators_or_statistics_executed':False,'real_processes_stopped_or_started':False,'stdout_sha256':hashlib.sha256(result.stdout).hexdigest(),'stderr_sha256':hashlib.sha256(result.stderr).hexdigest()}
++    failures_match=re.search(r'failures=(\d+)',summary);errors_match=re.search(r'errors=(\d+)',summary)
++    failures=int(failures_match.group(1)) if failures_match else 0;errors=int(errors_match.group(1)) if errors_match else 0
++    proof={'schema':'paper3-abrupt-recovery-continuation-synthetic-tests-v1','status':'PASS' if result.returncode==0 and tests_run>=102 and tests_skipped==0 else 'FAIL','failures':failures,'errors':errors,'skipped':tests_skipped,'all_pass':result.returncode==0 and tests_run>0 and tests_skipped==0,'exit_code':result.returncode,'tests_run':tests_run,'tests_skipped':tests_skipped,'started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'command':command,'implementation_sha256':after,'real_outcomes_read':False,'real_delivery_published':False,'models_generators_or_statistics_executed':False,'real_processes_stopped_or_started':False,'stdout_sha256':hashlib.sha256(result.stdout).hexdigest(),'stderr_sha256':hashlib.sha256(result.stderr).hexdigest()}
+     with target.open('x',encoding='utf-8') as out:json.dump(proof,out,indent=2);out.write('\n')
+     sys.stdout.buffer.write(result.stdout);sys.stderr.buffer.write(result.stderr);raise SystemExit(result.returncode)
+ if __name__=='__main__':main()

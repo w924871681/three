@@ -1,0 +1,42 @@
+{
+  "schema": "p7.7a2-final-heldout-access-guard-v1",
+  "status": "BRANCH_B_QUALIFIED_DEVELOPMENT_ONLY",
+  "final_heldout_accessed": false,
+  "final_heldout_scientific_data_read": false,
+  "final_heldout_centers": [
+    33000,
+    33001,
+    33002,
+    33003,
+    33004,
+    33005,
+    33006,
+    33007,
+    33008,
+    33009,
+    33010,
+    33011,
+    33012,
+    33013,
+    33014,
+    33015,
+    33016,
+    33017,
+    33018,
+    33019
+  ],
+  "development_centers_used": [
+    31000,
+    31001,
+    31002
+  ],
+  "alibaba_accessed": false,
+  "p8_executed": false,
+  "trajectory_materialized": false,
+  "fit_or_refit_run": false,
+  "validation_run": false,
+  "bootstrap_recomputed": false,
+  "scientific_results_modified": false,
+  "runner_mode": "development_qualification_only",
+  "final_mode": "hard_rejected"
+}

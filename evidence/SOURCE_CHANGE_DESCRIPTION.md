@@ -1,0 +1,11 @@
+# Source Change Description — Final Evidence Archive
+
+This delivery adds an independent saved-number verifier, review boundary documents, a formal archive index, a certificate and package manifests. It does not edit frozen experiment code, methods, A1, thresholds, candidate budget, costs, seeds, model bank, centers, historical environment, raw results, existing numerical statistics, reports, root handoff or earlier ZIPs.
+
+The completed v4 full audit is reused. It had already read and hashed 40,156 unique files, including 2535 protected originals and 13,192 bound runtime files. Repeating that environment/raw integrity pass was unnecessary. This archive adds only the previously absent independent arithmetic comparison of the existing 1200 CSVs and all sixteen saved outputs. Re-evaluating the saved statistical formulas and verifying the saved seeded bootstrap indices produces a verification report, not new model outcomes or a changed inference protocol. All comparisons passed; no unfavorable result was excluded.
+
+The historical corrective executor loaded canonical F1 batch20 arrays and common initial references, isolated tasks and recorded provenance/RNG/causal evidence. Its scientific method remained frozen. Dynamic scheduling subsequently changed resource ownership; the metadata erratum corrected smoke counts to two started workers, one trajectory worker and one idle worker. These earlier changes and their actual failed attempts are preserved byte for byte in history/erratum_001, including the original SOURCE_CHANGE_DESCRIPTION and original final ZIP.
+
+The existing root still says Draft. The new PAPER3_FINAL_VERIFIED_HANDOFF.md is the formal evidence index for this archive; it does not overwrite that root. The original DELIVERY_MANIFEST binds its original reports, ERRATUM_MANIFEST binds the six corrected reports, and this archive's new COMPLETED DELIVERY_MANIFEST binds the exact copied six corrected reports and the new formal documents. This is explicit publication succession, not rewriting historical hashes.
+
+All copied source paths and hashes are in indexes/ARCHIVE_SOURCE_MAP.json. Verification implementations and receipts are included under verification/. Historical unknown process exits remain unknown, historical numerical environment equivalence remains NOT_VERIFIED, and no manuscript section is automatically frozen.

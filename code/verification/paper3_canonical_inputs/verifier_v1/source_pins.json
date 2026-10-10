@@ -1,0 +1,36 @@
+{
+  "sources": {
+    "configs/P7_7_FINAL_LIFECYCLE_PROTOCOL.json": "6339a9247b984b497d1543198b3a7b7c0cfdf9c7bcfd1c52b47b62e17d2fd0df",
+    "configs/p3_mismatch_v2_frozen.json": "529655647c1359e2a164cddc3c5c8b534f5cdbad53e2ede29ada477910975646",
+    "scripts/run_p7_7_final.py": "ced000f213f8fc9b52a859e683fc6d27dd04a268641c3d6024500f56c1c158fe",
+    "core/data.py": "6cd7e375d40c8ecf390fe37dee270d93890b3981f666e521e17441612f304d5e",
+    "core/p3_2_data.py": "0f5a5bff889a0ac866793dc49b21680f927af13c9e6fc3d5c3d75bbf4d9d5b27",
+    "core/protocol.py": "8468b32f245e91c9bcbbb95d93b2dea07b75087d951184fb429cc1f7201cc367",
+    "core/common.py": "10c8dcf936e60e6b9b992778310648e258ed5a105d290d09434ba0c968183aaa",
+    "core/p6.py": "7597861c7bddd8e32080a3f83eff0ab0bc0f55db6c6b11aec773794f33cc2b07",
+    "core/p7.py": "378f2b8644f97e87fa819661da694d1bfcb163e7d183d110edf5f08c9d6dfe3d",
+    "core/models.py": "55028939faab38ea23736d191647f33f08ad48f14f204bbecf55bb3d76642e7e",
+    "core/p3_2_models.py": "05aef843c99e3e4054c6b99a47063e85e6138c50bbb829c39183221a08765982",
+    "imported/ravm_dt/main_cfg.py": "fea128a2649301017a2a8ad6cab3db30392e180c2f3aa1216e9a83fefcd5d005",
+    "imported/ravm_dt/sim.py": "930fa8ebe34a442d53af16a054955580f2d0c41ef2514a3cfd125b0e6905883d",
+    "artifacts/p3_model_bank_manifest.json": "e607a65adfb05b91bf8d9ebac77052d6e13223dfd54e47e655167e20c92342c8",
+    "artifacts/p3_2_source_bank/p3_mismatch_v2_r3/source_training_manifest.json": "84ab3d962e9a566303060fa98febcadef26eb1e5d472f81d32d986c35de3b940",
+    "audits/environment.json": "62032b84e25bd8284352a3db87091c54b8209232092f1fc212f9af782d5de015",
+    "configs/requirements_frozen.txt": "aa7f267400111ffcd3a2b4d501557150a8130abe61c83a36ffc6ccdff96a37f4",
+    "results/p7_7/execution_status.json": "9595a844666a4956bd8f2c235809e0f4965805578697bf6e9b24a5eeb13fbd75",
+    "audits/P7_7_FINAL_HELDOUT_SCIENTIFIC_AUDIT.json": "c25c01b2b89b43e01d22c157a3bbb39d5321d43fe3cefbeb8dfb9500f175b8dd",
+    "audits/P7_7_FINAL_HELDOUT_AUTHORIZATION.json": "8f142dccb24a5260f46f4498ac9aa2869db814ceed9c6fafca47f3fbd9fb83da",
+    "core/__init__.py": "2eb599b6fa82980c2876a578e58c1bc3e42023720056766f60bcf298416e5a59",
+    "imported/__init__.py": "5ddf6f7296705aadfcbcd3bab925e03addf0c11a71e212511664dba3657ed0cf",
+    "imported/ravm_dt/__init__.py": "0114da6465e378037d9c01edffe201729334b4e1cae45e6b174488debf76f5f8",
+    "PAPER3_SINGLE_GROUP_INTEGRITY_FORENSIC_REPORT.md": "08cd3143813819a5d8cb4aae35c9a3cfcbe90a418a9f15a89a65e65a97e2d09a",
+    "PAPER3_CANONICAL_INPUT_VERIFICATION_PLAN.md": "ee9d379b2d5cd851b370dc657da8f7c431d5c1231f23e1ecccb252358e5acb9c",
+    "docs/P7_7_FINAL_HELDOUT_PARALLEL_RESOURCE_ADJUSTMENT_20261003.md": "c76579e557ec825eda4be1d636a245a366589e1d0b000808e34f47293638cbe5"
+  },
+  "history_session": {
+    "path": "C:\\Users\\92487\\.codex\\sessions\\2026\\09\\14\\rollout-2026-09-14T21-27-11-01a0a019-a852-7350-813a-23a170fa191c.jsonl",
+    "sha256": "a8778c201e786820fac462b0f4499f400d000560d5e8f686aa02992e2b7e5366"
+  },
+  "schema": "paper3-civ-source-pins-v1",
+  "git_head": "436ee9960a32a8e94e571ded3fc800a2fa20f3e4"
+}

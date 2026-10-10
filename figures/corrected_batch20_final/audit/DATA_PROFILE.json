@@ -1,0 +1,2136 @@
+{
+  "final_metrics_by_center.csv": {
+    "source": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_center.csv",
+    "n_rows": 100,
+    "n_cols": 12,
+    "columns": {
+      "method": {
+        "type": "categorical",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "n_unique": 5,
+        "categories": [
+          [
+            "B0",
+            20
+          ],
+          [
+            "B1",
+            20
+          ],
+          [
+            "B2",
+            20
+          ],
+          [
+            "B8",
+            20
+          ],
+          [
+            "P7.7",
+            20
+          ]
+        ],
+        "min_group_n": 20,
+        "max_group_n": 20,
+        "small_groups_flag": false
+      },
+      "center_id": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 33009.5,
+        "median": 33009.5,
+        "sd": 5.795330757244024,
+        "min": 33000.0,
+        "max": 33019.0,
+        "skewness": 0.0,
+        "skew_label": "approximately symmetric",
+        "n_outliers_iqr": 0,
+        "outlier_lo": 32990.5,
+        "outlier_hi": 33028.5,
+        "needs_log_axis": "False"
+      },
+      "lifecycle_service_loss": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.0041367981847097845,
+        "median": 0.0030193054630621,
+        "sd": 0.0028382577141594445,
+        "min": 0.0006109724430037,
+        "max": 0.013906775265544,
+        "skewness": 1.3156122809391542,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 3,
+        "outlier_lo": -0.003019412713077564,
+        "outlier_hi": 0.010900766952772738,
+        "needs_log_axis": "False"
+      },
+      "maintenance_count": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 7.385000000000002,
+        "median": 3.75,
+        "sd": 8.869974984686047,
+        "min": 0.0,
+        "max": 24.0,
+        "skewness": 1.1256540419486083,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -13.145833333333334,
+        "outlier_hi": 24.354166666666664,
+        "needs_log_axis": false
+      },
+      "maintenance_rate": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.3077083333333333,
+        "median": 0.15625,
+        "sd": 0.3695822910285853,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": 1.1256540419486099,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.5477430555555556,
+        "outlier_hi": 1.0147569444444444,
+        "needs_log_axis": false
+      },
+      "ri_count": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.1741666666666667,
+        "median": 0.0,
+        "sd": 0.23092036368817936,
+        "min": 0.0,
+        "max": 0.75,
+        "skewness": 0.781876684621555,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.75,
+        "outlier_hi": 1.25,
+        "needs_log_axis": false
+      },
+      "ri_rate": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.007256944444444426,
+        "median": 0.0,
+        "sd": 0.009621681820340792,
+        "min": 0.0,
+        "max": 0.03125,
+        "skewness": 0.7818766846215592,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.03124999999999995,
+        "outlier_hi": 0.05208333333333325,
+        "needs_log_axis": false
+      },
+      "maintenance_cost": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.0017956198368955906,
+        "median": 0.0009117907093241,
+        "sd": 0.0021566828754597442,
+        "min": 0.0,
+        "max": 0.0058354605396743,
+        "skewness": 1.1256540419486125,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.003196332986575112,
+        "outlier_hi": 0.0059215741066659874,
+        "needs_log_axis": false
+      },
+      "ri_cost": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.00042347612944161796,
+        "median": 0.0,
+        "sd": 0.0005614694458789741,
+        "min": 0.0,
+        "max": 0.0018235814186482,
+        "skewness": 0.7818766846215867,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.0018235814186481,
+        "outlier_hi": 0.0030393023644135,
+        "needs_log_axis": false
+      },
+      "total_action_cost": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.002219095966337238,
+        "median": 0.0017830573871227,
+        "sd": 0.0020229846892059334,
+        "min": 0.0,
+        "max": 0.0058354605396743,
+        "skewness": 0.8129772911736527,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.0023807868521241622,
+        "outlier_hi": 0.0058455915475557375,
+        "needs_log_axis": false
+      },
+      "retain_rate": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.6850347222222223,
+        "median": 0.8246527777777777,
+        "sd": 0.3662196707492044,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": -1.112099052509096,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 20,
+        "outlier_lo": 0.00998263888888895,
+        "outlier_hi": 1.5065104166666665,
+        "needs_log_axis": false
+      },
+      "gate_open_rate": {
+        "type": "continuous",
+        "n_total": 100,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 100,
+        "mean": 0.26659722222222215,
+        "median": 0.0,
+        "sd": 0.3966310790415208,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": 1.0946018639138522,
+        "skew_label": "highly skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.6744791666666667,
+        "outlier_hi": 1.1241319444444446,
+        "needs_log_axis": false
+      }
+    },
+    "correlation": {
+      "columns": [
+        "center_id",
+        "lifecycle_service_loss",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate"
+      ],
+      "matrix": {
+        "center_id": {
+          "center_id": 1.0,
+          "lifecycle_service_loss": 0.168,
+          "maintenance_count": 0.013,
+          "maintenance_rate": 0.013,
+          "ri_count": -0.045,
+          "ri_rate": -0.045,
+          "maintenance_cost": 0.013,
+          "ri_cost": -0.045,
+          "total_action_cost": 0.002,
+          "retain_rate": -0.012,
+          "gate_open_rate": 0.011
+        },
+        "lifecycle_service_loss": {
+          "center_id": 0.168,
+          "lifecycle_service_loss": 1.0,
+          "maintenance_count": -0.068,
+          "maintenance_rate": -0.068,
+          "ri_count": -0.256,
+          "ri_rate": -0.256,
+          "maintenance_cost": -0.068,
+          "ri_cost": -0.256,
+          "total_action_cost": -0.144,
+          "retain_rate": 0.076,
+          "gate_open_rate": -0.315
+        },
+        "maintenance_count": {
+          "center_id": 0.013,
+          "lifecycle_service_loss": -0.068,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.361,
+          "ri_rate": -0.361,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.361,
+          "total_action_cost": 0.966,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.343
+        },
+        "maintenance_rate": {
+          "center_id": 0.013,
+          "lifecycle_service_loss": -0.068,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.361,
+          "ri_rate": -0.361,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.361,
+          "total_action_cost": 0.966,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.343
+        },
+        "ri_count": {
+          "center_id": -0.045,
+          "lifecycle_service_loss": -0.256,
+          "maintenance_count": -0.361,
+          "maintenance_rate": -0.361,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.361,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.107,
+          "retain_rate": 0.338,
+          "gate_open_rate": 0.747
+        },
+        "ri_rate": {
+          "center_id": -0.045,
+          "lifecycle_service_loss": -0.256,
+          "maintenance_count": -0.361,
+          "maintenance_rate": -0.361,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.361,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.107,
+          "retain_rate": 0.338,
+          "gate_open_rate": 0.747
+        },
+        "maintenance_cost": {
+          "center_id": 0.013,
+          "lifecycle_service_loss": -0.068,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.361,
+          "ri_rate": -0.361,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.361,
+          "total_action_cost": 0.966,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.343
+        },
+        "ri_cost": {
+          "center_id": -0.045,
+          "lifecycle_service_loss": -0.256,
+          "maintenance_count": -0.361,
+          "maintenance_rate": -0.361,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.361,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.107,
+          "retain_rate": 0.338,
+          "gate_open_rate": 0.747
+        },
+        "total_action_cost": {
+          "center_id": 0.002,
+          "lifecycle_service_loss": -0.144,
+          "maintenance_count": 0.966,
+          "maintenance_rate": 0.966,
+          "ri_count": -0.107,
+          "ri_rate": -0.107,
+          "maintenance_cost": 0.966,
+          "ri_cost": -0.107,
+          "total_action_cost": 1.0,
+          "retain_rate": -0.972,
+          "gate_open_rate": -0.158
+        },
+        "retain_rate": {
+          "center_id": -0.012,
+          "lifecycle_service_loss": 0.076,
+          "maintenance_count": -1.0,
+          "maintenance_rate": -1.0,
+          "ri_count": 0.338,
+          "ri_rate": 0.338,
+          "maintenance_cost": -1.0,
+          "ri_cost": 0.338,
+          "total_action_cost": -0.972,
+          "retain_rate": 1.0,
+          "gate_open_rate": 0.326
+        },
+        "gate_open_rate": {
+          "center_id": 0.011,
+          "lifecycle_service_loss": -0.315,
+          "maintenance_count": -0.343,
+          "maintenance_rate": -0.343,
+          "ri_count": 0.747,
+          "ri_rate": 0.747,
+          "maintenance_cost": -0.343,
+          "ri_cost": 0.747,
+          "total_action_cost": -0.158,
+          "retain_rate": 0.326,
+          "gate_open_rate": 1.0
+        }
+      },
+      "pairs_sorted": [
+        {
+          "a": "maintenance_count",
+          "b": "maintenance_rate",
+          "r": 1.0000000000000004,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "maintenance_cost",
+          "r": 1.0000000000000004,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "maintenance_cost",
+          "r": 1.0000000000000004,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_rate",
+          "b": "ri_cost",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "ri_cost",
+          "r": 0.9999999999999999,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "ri_rate",
+          "r": 0.9999999999999997,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "retain_rate",
+          "r": -0.999699776270019,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "retain_rate",
+          "r": -0.9996997762700183,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "retain_rate",
+          "r": -0.9996997762700183,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "total_action_cost",
+          "b": "retain_rate",
+          "r": -0.9719726960091386,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "total_action_cost",
+          "r": 0.9659205745976003,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "total_action_cost",
+          "r": 0.9659205745975997,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "total_action_cost",
+          "r": 0.965920574597599,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "gate_open_rate",
+          "r": 0.7467834783647352,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_rate",
+          "b": "gate_open_rate",
+          "r": 0.7467834783647346,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_cost",
+          "b": "gate_open_rate",
+          "r": 0.7467834783647318,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "maintenance_cost",
+          "r": -0.3609107201595977,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_rate",
+          "b": "maintenance_cost",
+          "r": -0.36091072015959724,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "ri_cost",
+          "r": -0.3609107201595958,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_count",
+          "r": -0.3609107201595925,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_count",
+          "r": -0.3609107201595923,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_rate",
+          "r": -0.3609107201595922,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_rate",
+          "r": -0.360910720159592,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_cost",
+          "r": -0.3609107201595904,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_cost",
+          "r": -0.3609107201595904,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "gate_open_rate",
+          "r": -0.34294221646383316,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "gate_open_rate",
+          "r": -0.34294221646382833,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "gate_open_rate",
+          "r": -0.34294221646382794,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_count",
+          "b": "retain_rate",
+          "r": 0.3379516145045485,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_rate",
+          "b": "retain_rate",
+          "r": 0.33795161450454814,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_cost",
+          "b": "retain_rate",
+          "r": 0.33795161450454625,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "retain_rate",
+          "b": "gate_open_rate",
+          "r": 0.3264708768620108,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "gate_open_rate",
+          "r": -0.3149967037083059,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "ri_count",
+          "r": -0.25550547578573024,
+          "magnitude": "weak"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "ri_rate",
+          "r": -0.2555054757857298,
+          "magnitude": "weak"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "ri_cost",
+          "r": -0.25550547578572946,
+          "magnitude": "weak"
+        },
+        {
+          "a": "center_id",
+          "b": "lifecycle_service_loss",
+          "r": 0.16761457397545892,
+          "magnitude": "weak"
+        },
+        {
+          "a": "total_action_cost",
+          "b": "gate_open_rate",
+          "r": -0.15834104006809976,
+          "magnitude": "weak"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "total_action_cost",
+          "r": -0.14363617530821524,
+          "magnitude": "weak"
+        },
+        {
+          "a": "ri_count",
+          "b": "total_action_cost",
+          "r": -0.10721807486549696,
+          "magnitude": "weak"
+        },
+        {
+          "a": "ri_rate",
+          "b": "total_action_cost",
+          "r": -0.1072180748654966,
+          "magnitude": "weak"
+        },
+        {
+          "a": "ri_cost",
+          "b": "total_action_cost",
+          "r": -0.10721807486549485,
+          "magnitude": "weak"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "retain_rate",
+          "r": 0.07555290178652035,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "maintenance_rate",
+          "r": -0.06821367537626782,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "maintenance_count",
+          "r": -0.06821367537626775,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "lifecycle_service_loss",
+          "b": "maintenance_cost",
+          "r": -0.06821367537626119,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "ri_cost",
+          "r": -0.044972718532097965,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "ri_rate",
+          "r": -0.04497271853209363,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "ri_count",
+          "r": -0.04497271853209332,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "maintenance_cost",
+          "r": 0.013165549355910118,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "maintenance_rate",
+          "r": 0.013165549355908935,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "maintenance_count",
+          "r": 0.013165549355908843,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "retain_rate",
+          "r": -0.012104867813971352,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "gate_open_rate",
+          "r": 0.010635064466627448,
+          "magnitude": "negligible"
+        },
+        {
+          "a": "center_id",
+          "b": "total_action_cost",
+          "r": 0.0015536981099255078,
+          "magnitude": "negligible"
+        }
+      ]
+    },
+    "group_summary": {
+      "by": [
+        "method"
+      ],
+      "n_groups": 5,
+      "min_n_per_group": 20,
+      "max_n_per_group": 20,
+      "median_n_per_group": 20,
+      "small_groups_flag": false,
+      "tiny_groups_flag": false,
+      "per_group_counts": [
+        [
+          "B0",
+          20
+        ],
+        [
+          "B1",
+          20
+        ],
+        [
+          "B2",
+          20
+        ],
+        [
+          "B8",
+          20
+        ],
+        [
+          "P7.7",
+          20
+        ]
+      ]
+    },
+    "warnings": [],
+    "suggestions": [
+      "\u5206\u7c7b vs \u8fde\u7eed\uff0c\u6837\u672c\u91cf\u5145\u8db3 \u2192 \u7bb1\u7ebf\u56fe / \u5c0f\u63d0\u7434\u56fe\uff0c\u6216\u5e26\u8bef\u5dee\u68d2\u7684\u67f1\u72b6\u56fe\uff08\u8bef\u5dee\u68d2\u8bf4\u660e SD/SEM/CI\uff09",
+      "\u22653 \u4e2a\u8fde\u7eed\u53d8\u91cf \u2192 \u76f8\u5173\u6027\u70ed\u529b\u56fe\uff08['center_id', 'lifecycle_service_loss', 'maintenance_count', 'maintenance_rate', 'ri_count']\uff09\u6216 pairplot \u6563\u70b9\u77e9\u9635",
+      "lifecycle_service_loss \u9ad8\u5ea6\u504f\u6001\uff08skew=1.32\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe",
+      "maintenance_count \u9ad8\u5ea6\u504f\u6001\uff08skew=1.13\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe",
+      "maintenance_rate \u9ad8\u5ea6\u504f\u6001\uff08skew=1.13\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe",
+      "maintenance_cost \u9ad8\u5ea6\u504f\u6001\uff08skew=1.13\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe",
+      "retain_rate \u9ad8\u5ea6\u504f\u6001\uff08skew=-1.11\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe",
+      "gate_open_rate \u9ad8\u5ea6\u504f\u6001\uff08skew=1.09\uff09\u2192 \u8003\u8651\u5bf9\u6570\u53d8\u6362\u6216\u5c0f\u63d0\u7434\u56fe\u4ee3\u66ff\u5747\u503c\u67f1\u56fe"
+    ]
+  },
+  "final_metrics_by_method.csv": {
+    "source": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_metrics_by_method.csv",
+    "n_rows": 5,
+    "n_cols": 14,
+    "columns": {
+      "method": {
+        "type": "text",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0
+      },
+      "mean_lifecycle_service_loss": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.00413679818470978,
+        "median": 0.0033419799126224,
+        "sd": 0.0015976831894186894,
+        "min": 0.0029126269437559,
+        "max": 0.0066047987355432,
+        "skewness": 0.5591460069866045,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": 2.5697438895300618e-05,
+        "outlier_hi": 0.007798887892732099,
+        "needs_log_axis": "False"
+      },
+      "ci_low": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.00315161595466956,
+        "median": 0.0025065074416425,
+        "sd": 0.0012603898509875044,
+        "min": 0.0021681763672513,
+        "max": 0.0050339023150675,
+        "skewness": 0.4908511549285118,
+        "skew_label": "approximately symmetric",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.00031689157032895,
+        "outlier_hi": 0.006366385219715449,
+        "needs_log_axis": "False"
+      },
+      "ci_high": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.00518896247494656,
+        "median": 0.0042579248755206,
+        "sd": 0.001948006559425351,
+        "min": 0.0037094457817642,
+        "max": 0.0082557001322377,
+        "skewness": 0.602324914847195,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": 0.00038609758931015077,
+        "outlier_hi": 0.009335643995900148,
+        "needs_log_axis": "False"
+      },
+      "n_centers": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "20",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "maintenance_count": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 7.385000000000001,
+        "median": 3.020833333333333,
+        "sd": 9.608567592547578,
+        "min": 0.0,
+        "max": 24.0,
+        "skewness": 0.9051811357282865,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -2.9562500000000003,
+        "outlier_hi": 12.860416666666667,
+        "needs_log_axis": false
+      },
+      "maintenance_rate": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.30770833333333336,
+        "median": 0.1258680555555555,
+        "sd": 0.40035698302281575,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": 0.9051811357282865,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -0.12317708333333345,
+        "outlier_hi": 0.5358506944444446,
+        "needs_log_axis": false
+      },
+      "ri_count": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.17416666666666666,
+        "median": 0.0,
+        "sd": 0.23849207999894298,
+        "min": 0.0,
+        "max": 0.4375,
+        "skewness": 0.2922022867176299,
+        "skew_label": "approximately symmetric",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.6499999999999999,
+        "outlier_hi": 1.0833333333333333,
+        "needs_log_axis": false
+      },
+      "ri_rate": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.007256944444444418,
+        "median": 0.0,
+        "sd": 0.009937169999955923,
+        "min": 0.0,
+        "max": 0.0182291666666666,
+        "skewness": 0.29220228671763027,
+        "skew_label": "approximately symmetric",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.027083333333333248,
+        "outlier_hi": 0.04513888888888874,
+        "needs_log_axis": false
+      },
+      "maintenance_cost": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.00179561983689558,
+        "median": 0.0007344980713999,
+        "sd": 0.002336267376212711,
+        "min": 0.0,
+        "max": 0.0058354605396743,
+        "skewness": 0.9051811357282944,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -0.0007187950091839501,
+        "outlier_hi": 0.00312693558258765,
+        "needs_log_axis": false
+      },
+      "ri_cost": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.00042347612944164,
+        "median": 0.0,
+        "sd": 0.00057987963410778,
+        "min": 0.0,
+        "max": 0.0010637558275448,
+        "skewness": 0.2922022867176303,
+        "skew_label": "approximately symmetric",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -0.0015804372294951,
+        "outlier_hi": 0.0026340620491585,
+        "needs_log_axis": false
+      },
+      "total_action_cost": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.0022190959663372397,
+        "median": 0.0017871097902752,
+        "sd": 0.002159879393077959,
+        "min": 0.0,
+        "max": 0.0058354605396743,
+        "skewness": 0.715645804264661,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 2,
+        "outlier_lo": 0.0015297821900881502,
+        "outlier_hi": 0.0019431273116485499,
+        "needs_log_axis": false
+      },
+      "retain_rate": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.6850347222222222,
+        "median": 0.8560763888888889,
+        "sd": 0.3963181082115881,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": -0.8997514068143806,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": 0.4914930555555557,
+        "outlier_hi": 1.0776041666666665,
+        "needs_log_axis": false
+      },
+      "gate_open_rate": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 0.2665972222222222,
+        "median": 0.0,
+        "sd": 0.434600205852999,
+        "min": 0.0,
+        "max": 1.0,
+        "skewness": 0.8233560735374752,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -0.49947916666666664,
+        "outlier_hi": 0.8324652777777777,
+        "needs_log_axis": false
+      }
+    },
+    "correlation": {
+      "columns": [
+        "mean_lifecycle_service_loss",
+        "ci_low",
+        "ci_high",
+        "maintenance_count",
+        "maintenance_rate",
+        "ri_count",
+        "ri_rate",
+        "maintenance_cost",
+        "ri_cost",
+        "total_action_cost",
+        "retain_rate",
+        "gate_open_rate"
+      ],
+      "matrix": {
+        "mean_lifecycle_service_loss": {
+          "mean_lifecycle_service_loss": 1.0,
+          "ci_low": 0.998,
+          "ci_high": 0.999,
+          "maintenance_count": -0.344,
+          "maintenance_rate": -0.344,
+          "ri_count": -0.691,
+          "ri_rate": -0.691,
+          "maintenance_cost": -0.344,
+          "ri_cost": -0.691,
+          "total_action_cost": -0.558,
+          "retain_rate": 0.365,
+          "gate_open_rate": -0.584
+        },
+        "ci_low": {
+          "mean_lifecycle_service_loss": 0.998,
+          "ci_low": 1.0,
+          "ci_high": 0.996,
+          "maintenance_count": -0.339,
+          "maintenance_rate": -0.339,
+          "ri_count": -0.705,
+          "ri_rate": -0.705,
+          "maintenance_cost": -0.339,
+          "ri_cost": -0.705,
+          "total_action_cost": -0.556,
+          "retain_rate": 0.36,
+          "gate_open_rate": -0.595
+        },
+        "ci_high": {
+          "mean_lifecycle_service_loss": 0.999,
+          "ci_low": 0.996,
+          "ci_high": 1.0,
+          "maintenance_count": -0.342,
+          "maintenance_rate": -0.342,
+          "ri_count": -0.686,
+          "ri_rate": -0.686,
+          "maintenance_cost": -0.342,
+          "ri_cost": -0.686,
+          "total_action_cost": -0.554,
+          "retain_rate": 0.363,
+          "gate_open_rate": -0.579
+        },
+        "maintenance_count": {
+          "mean_lifecycle_service_loss": -0.344,
+          "ci_low": -0.339,
+          "ci_high": -0.342,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.417,
+          "ri_rate": -0.417,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.417,
+          "total_action_cost": 0.97,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.351
+        },
+        "maintenance_rate": {
+          "mean_lifecycle_service_loss": -0.344,
+          "ci_low": -0.339,
+          "ci_high": -0.342,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.417,
+          "ri_rate": -0.417,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.417,
+          "total_action_cost": 0.97,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.351
+        },
+        "ri_count": {
+          "mean_lifecycle_service_loss": -0.691,
+          "ci_low": -0.705,
+          "ci_high": -0.686,
+          "maintenance_count": -0.417,
+          "maintenance_rate": -0.417,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.417,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.182,
+          "retain_rate": 0.396,
+          "gate_open_rate": 0.843
+        },
+        "ri_rate": {
+          "mean_lifecycle_service_loss": -0.691,
+          "ci_low": -0.705,
+          "ci_high": -0.686,
+          "maintenance_count": -0.417,
+          "maintenance_rate": -0.417,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.417,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.182,
+          "retain_rate": 0.396,
+          "gate_open_rate": 0.843
+        },
+        "maintenance_cost": {
+          "mean_lifecycle_service_loss": -0.344,
+          "ci_low": -0.339,
+          "ci_high": -0.342,
+          "maintenance_count": 1.0,
+          "maintenance_rate": 1.0,
+          "ri_count": -0.417,
+          "ri_rate": -0.417,
+          "maintenance_cost": 1.0,
+          "ri_cost": -0.417,
+          "total_action_cost": 0.97,
+          "retain_rate": -1.0,
+          "gate_open_rate": -0.351
+        },
+        "ri_cost": {
+          "mean_lifecycle_service_loss": -0.691,
+          "ci_low": -0.705,
+          "ci_high": -0.686,
+          "maintenance_count": -0.417,
+          "maintenance_rate": -0.417,
+          "ri_count": 1.0,
+          "ri_rate": 1.0,
+          "maintenance_cost": -0.417,
+          "ri_cost": 1.0,
+          "total_action_cost": -0.182,
+          "retain_rate": 0.396,
+          "gate_open_rate": 0.843
+        },
+        "total_action_cost": {
+          "mean_lifecycle_service_loss": -0.558,
+          "ci_low": -0.556,
+          "ci_high": -0.554,
+          "maintenance_count": 0.97,
+          "maintenance_rate": 0.97,
+          "ri_count": -0.182,
+          "ri_rate": -0.182,
+          "maintenance_cost": 0.97,
+          "ri_cost": -0.182,
+          "total_action_cost": 1.0,
+          "retain_rate": -0.975,
+          "gate_open_rate": -0.153
+        },
+        "retain_rate": {
+          "mean_lifecycle_service_loss": 0.365,
+          "ci_low": 0.36,
+          "ci_high": 0.363,
+          "maintenance_count": -1.0,
+          "maintenance_rate": -1.0,
+          "ri_count": 0.396,
+          "ri_rate": 0.396,
+          "maintenance_cost": -1.0,
+          "ri_cost": 0.396,
+          "total_action_cost": -0.975,
+          "retain_rate": 1.0,
+          "gate_open_rate": 0.333
+        },
+        "gate_open_rate": {
+          "mean_lifecycle_service_loss": -0.584,
+          "ci_low": -0.595,
+          "ci_high": -0.579,
+          "maintenance_count": -0.351,
+          "maintenance_rate": -0.351,
+          "ri_count": 0.843,
+          "ri_rate": 0.843,
+          "maintenance_cost": -0.351,
+          "ri_cost": 0.843,
+          "total_action_cost": -0.153,
+          "retain_rate": 0.333,
+          "gate_open_rate": 1.0
+        }
+      },
+      "pairs_sorted": [
+        {
+          "a": "maintenance_count",
+          "b": "maintenance_rate",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "maintenance_cost",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "maintenance_cost",
+          "r": 0.9999999999999999,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_rate",
+          "b": "ri_cost",
+          "r": 0.9999999999999999,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "ri_rate",
+          "r": 0.9999999999999998,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "ri_cost",
+          "r": 0.9999999999999998,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "retain_rate",
+          "r": -0.9997402297164641,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "retain_rate",
+          "r": -0.9997402297164641,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "retain_rate",
+          "r": -0.9997402297164639,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "ci_high",
+          "r": 0.9993557160210709,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "ci_low",
+          "r": 0.998476275209303,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "ci_high",
+          "r": 0.9958768821928871,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "total_action_cost",
+          "b": "retain_rate",
+          "r": -0.9750741049036249,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "total_action_cost",
+          "r": 0.9697637438214446,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "total_action_cost",
+          "r": 0.9697637438214445,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "total_action_cost",
+          "r": 0.9697637438214415,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_cost",
+          "b": "gate_open_rate",
+          "r": 0.8433106492772319,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "gate_open_rate",
+          "r": 0.843310649277225,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_rate",
+          "b": "gate_open_rate",
+          "r": 0.8433106492772248,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "ri_count",
+          "r": -0.7046423873682698,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "ri_rate",
+          "r": -0.7046423873682697,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "ri_cost",
+          "r": -0.7046423873682696,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "ri_count",
+          "r": -0.6914778485539771,
+          "magnitude": "strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "ri_cost",
+          "r": -0.6914778485539771,
+          "magnitude": "strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "ri_rate",
+          "r": -0.691477848553977,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_high",
+          "b": "ri_count",
+          "r": -0.6856824272115243,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_high",
+          "b": "ri_rate",
+          "r": -0.6856824272115242,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_high",
+          "b": "ri_cost",
+          "r": -0.6856824272115242,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "gate_open_rate",
+          "r": -0.59508338419839,
+          "magnitude": "strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "gate_open_rate",
+          "r": -0.5841671970045669,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_high",
+          "b": "gate_open_rate",
+          "r": -0.5791597602014876,
+          "magnitude": "strong"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "total_action_cost",
+          "r": -0.5582724514815071,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_low",
+          "b": "total_action_cost",
+          "r": -0.5555022395098772,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ci_high",
+          "b": "total_action_cost",
+          "r": -0.5544989128614163,
+          "magnitude": "strong"
+        },
+        {
+          "a": "ri_count",
+          "b": "maintenance_cost",
+          "r": -0.41680141112476427,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_rate",
+          "b": "maintenance_cost",
+          "r": -0.41680141112476427,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "ri_cost",
+          "r": -0.41680141112476427,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_count",
+          "r": -0.41680141112475333,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_cost",
+          "r": -0.4168014111247532,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_rate",
+          "r": -0.4168014111247532,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "ri_cost",
+          "r": -0.4168014111247532,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_count",
+          "r": -0.41680141112475316,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "ri_rate",
+          "r": -0.41680141112475316,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_cost",
+          "b": "retain_rate",
+          "r": 0.3959753092932582,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_rate",
+          "b": "retain_rate",
+          "r": 0.39597530929325814,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_count",
+          "b": "retain_rate",
+          "r": 0.3959753092932581,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "retain_rate",
+          "r": 0.36534142591017454,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_high",
+          "b": "retain_rate",
+          "r": 0.36312505149943397,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_low",
+          "b": "retain_rate",
+          "r": 0.3597835090877872,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_cost",
+          "b": "gate_open_rate",
+          "r": -0.3510157876466771,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_rate",
+          "b": "gate_open_rate",
+          "r": -0.3510157876466692,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "maintenance_count",
+          "b": "gate_open_rate",
+          "r": -0.35101578764666913,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "maintenance_count",
+          "r": -0.34449277940507395,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "maintenance_rate",
+          "r": -0.34449277940507395,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "mean_lifecycle_service_loss",
+          "b": "maintenance_cost",
+          "r": -0.34449277940506184,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_high",
+          "b": "maintenance_count",
+          "r": -0.342442611027206,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_high",
+          "b": "maintenance_rate",
+          "r": -0.34244261102720597,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_high",
+          "b": "maintenance_cost",
+          "r": -0.34244261102719387,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_low",
+          "b": "maintenance_count",
+          "r": -0.33866417783255787,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_low",
+          "b": "maintenance_rate",
+          "r": -0.3386641778325578,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ci_low",
+          "b": "maintenance_cost",
+          "r": -0.3386641778325458,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "retain_rate",
+          "b": "gate_open_rate",
+          "r": 0.3334480502223309,
+          "magnitude": "moderate"
+        },
+        {
+          "a": "ri_count",
+          "b": "total_action_cost",
+          "r": -0.18236199036146108,
+          "magnitude": "weak"
+        },
+        {
+          "a": "ri_rate",
+          "b": "total_action_cost",
+          "r": -0.18236199036146106,
+          "magnitude": "weak"
+        },
+        {
+          "a": "ri_cost",
+          "b": "total_action_cost",
+          "r": -0.18236199036146106,
+          "magnitude": "weak"
+        },
+        {
+          "a": "total_action_cost",
+          "b": "gate_open_rate",
+          "r": -0.1532715500381239,
+          "magnitude": "weak"
+        }
+      ]
+    },
+    "group_summary": {
+      "by": [
+        "method"
+      ],
+      "n_groups": 5,
+      "min_n_per_group": 1,
+      "max_n_per_group": 1,
+      "median_n_per_group": 1,
+      "small_groups_flag": true,
+      "tiny_groups_flag": true,
+      "per_group_counts": [
+        [
+          "B0",
+          1
+        ],
+        [
+          "B1",
+          1
+        ],
+        [
+          "B2",
+          1
+        ],
+        [
+          "B8",
+          1
+        ],
+        [
+          "P7.7",
+          1
+        ]
+      ]
+    },
+    "warnings": [
+      "\u5217 'n_centers' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002"
+    ],
+    "suggestions": [
+      "\u5206\u7c7b vs \u8fde\u7eed\uff0c\u5c0f\u6837\u672c\uff08\u6bcf\u7ec4 n<10\uff09\u2192 **\u7bb1\u7ebf\u56fe/\u5c0f\u63d0\u7434\u56fe + stripplot \u53e0\u52a0\u539f\u59cb\u70b9**\uff1b**\u907f\u514d**\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\uff0c\u4f1a\u63a9\u76d6\u5206\u5e03\u3002",
+      "\u22653 \u4e2a\u8fde\u7eed\u53d8\u91cf \u2192 \u76f8\u5173\u6027\u70ed\u529b\u56fe\uff08['mean_lifecycle_service_loss', 'ci_low', 'ci_high', 'maintenance_count', 'maintenance_rate']\uff09\u6216 pairplot \u6563\u70b9\u77e9\u9635"
+    ]
+  },
+  "final_execution_cost_by_method.csv": {
+    "source": "D:\\dt-talk\\DT_LIFECYCLE_ESCALATION\\results\\p7_7_integrity_replication_batch20_env_v3\\statistics_batch20_env_v3\\final_execution_cost_by_method.csv",
+    "n_rows": 5,
+    "n_cols": 16,
+    "columns": {
+      "method": {
+        "type": "text",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0
+      },
+      "n_centers": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "20",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "n_trajectories": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "240",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "n_stage_records": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "5760",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "feasible_candidate_count_total_recorded": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 3,
+        "categories": [
+          [
+            "0.0",
+            3
+          ],
+          [
+            "53280.0",
+            1
+          ],
+          [
+            "17428.0",
+            1
+          ]
+        ],
+        "min_group_n": 1,
+        "max_group_n": 3,
+        "small_groups_flag": true
+      },
+      "feasible_candidate_count_mean_trajectory_center_averaged": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 58.92333333333333,
+        "median": 0.0,
+        "sd": 96.43311700632493,
+        "min": 0.0,
+        "max": 222.0,
+        "skewness": 0.8309178931673793,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -108.92499999999998,
+        "outlier_hi": 181.54166666666663,
+        "needs_log_axis": false
+      },
+      "ri_search_updates_charged_total_recorded": {
+        "type": "ordinal",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 3,
+        "categories": [
+          [
+            "0.0",
+            3
+          ],
+          [
+            "2664000.0",
+            1
+          ],
+          [
+            "871400.0",
+            1
+          ]
+        ],
+        "min_group_n": 1,
+        "max_group_n": 3,
+        "small_groups_flag": true
+      },
+      "ri_search_updates_charged_mean_trajectory_center_averaged": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 2946.166666666667,
+        "median": 0.0,
+        "sd": 4821.655850316247,
+        "min": 0.0,
+        "max": 11100.0,
+        "skewness": 0.8309178931673793,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 1,
+        "outlier_lo": -5446.25,
+        "outlier_hi": 9077.083333333334,
+        "needs_log_axis": false
+      },
+      "source_cache_hits_total_recorded": {
+        "type": "boolean",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "0.0",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "source_cache_hits_mean_trajectory_center_averaged": {
+        "type": "boolean",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "0.0",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "shared_parent_cache_hit_total_recorded": {
+        "type": "boolean",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "0.0",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "shared_parent_cache_hit_mean_trajectory_center_averaged": {
+        "type": "boolean",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "n_unique": 1,
+        "categories": [
+          [
+            "0.0",
+            5
+          ]
+        ],
+        "min_group_n": 5,
+        "max_group_n": 5,
+        "small_groups_flag": true
+      },
+      "decision_runtime_actual_s_total_recorded": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 11850.598905719386,
+        "median": 5370.878328698687,
+        "sd": 13601.84998489195,
+        "min": 2202.5181463010667,
+        "max": 34280.914582599944,
+        "skewness": 0.7373201960267863,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -16911.46006050108,
+        "outlier_hi": 34310.14353149831,
+        "needs_log_axis": "False"
+      },
+      "decision_runtime_actual_s_mean_trajectory_center_averaged": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 49.37749544049744,
+        "median": 22.3786597029112,
+        "sd": 56.674374937049784,
+        "min": 9.177158942921112,
+        "max": 142.83714409416643,
+        "skewness": 0.7373201960267867,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -70.4644169187545,
+        "outlier_hi": 142.95893138124296,
+        "needs_log_axis": "False"
+      },
+      "decision_runtime_standalone_estimate_s_total_recorded": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 11850.598905719386,
+        "median": 5370.878328698687,
+        "sd": 13601.84998489195,
+        "min": 2202.5181463010667,
+        "max": 34280.914582599944,
+        "skewness": 0.7373201960267863,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -16911.46006050108,
+        "outlier_hi": 34310.14353149831,
+        "needs_log_axis": "False"
+      },
+      "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": {
+        "type": "continuous",
+        "n_total": 5,
+        "n_null": 0,
+        "missing_rate": 0.0,
+        "n": 5,
+        "mean": 49.37749544049744,
+        "median": 22.3786597029112,
+        "sd": 56.674374937049784,
+        "min": 9.177158942921112,
+        "max": 142.83714409416643,
+        "skewness": 0.7373201960267867,
+        "skew_label": "moderately skewed",
+        "n_outliers_iqr": 0,
+        "outlier_lo": -70.4644169187545,
+        "outlier_hi": 142.95893138124296,
+        "needs_log_axis": "False"
+      }
+    },
+    "correlation": {
+      "columns": [
+        "feasible_candidate_count_mean_trajectory_center_averaged",
+        "ri_search_updates_charged_mean_trajectory_center_averaged",
+        "decision_runtime_actual_s_total_recorded",
+        "decision_runtime_actual_s_mean_trajectory_center_averaged",
+        "decision_runtime_standalone_estimate_s_total_recorded",
+        "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged"
+      ],
+      "matrix": {
+        "feasible_candidate_count_mean_trajectory_center_averaged": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 1.0,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_actual_s_total_recorded": 0.994,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_standalone_estimate_s_total_recorded": 0.994,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 0.994
+        },
+        "ri_search_updates_charged_mean_trajectory_center_averaged": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 1.0,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_actual_s_total_recorded": 0.994,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_standalone_estimate_s_total_recorded": 0.994,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 0.994
+        },
+        "decision_runtime_actual_s_total_recorded": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 0.994,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_actual_s_total_recorded": 1.0,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_standalone_estimate_s_total_recorded": 1.0,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 1.0
+        },
+        "decision_runtime_actual_s_mean_trajectory_center_averaged": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 0.994,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_actual_s_total_recorded": 1.0,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_standalone_estimate_s_total_recorded": 1.0,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 1.0
+        },
+        "decision_runtime_standalone_estimate_s_total_recorded": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 0.994,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_actual_s_total_recorded": 1.0,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_standalone_estimate_s_total_recorded": 1.0,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 1.0
+        },
+        "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": {
+          "feasible_candidate_count_mean_trajectory_center_averaged": 0.994,
+          "ri_search_updates_charged_mean_trajectory_center_averaged": 0.994,
+          "decision_runtime_actual_s_total_recorded": 1.0,
+          "decision_runtime_actual_s_mean_trajectory_center_averaged": 1.0,
+          "decision_runtime_standalone_estimate_s_total_recorded": 1.0,
+          "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged": 1.0
+        }
+      },
+      "pairs_sorted": [
+        {
+          "a": "decision_runtime_actual_s_total_recorded",
+          "b": "decision_runtime_actual_s_mean_trajectory_center_averaged",
+          "r": 1.0000000000000002,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "decision_runtime_actual_s_total_recorded",
+          "b": "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged",
+          "r": 1.0000000000000002,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "decision_runtime_standalone_estimate_s_total_recorded",
+          "b": "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged",
+          "r": 1.0000000000000002,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "feasible_candidate_count_mean_trajectory_center_averaged",
+          "b": "ri_search_updates_charged_mean_trajectory_center_averaged",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "decision_runtime_actual_s_total_recorded",
+          "b": "decision_runtime_standalone_estimate_s_total_recorded",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "decision_runtime_actual_s_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_total_recorded",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "decision_runtime_actual_s_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged",
+          "r": 1.0,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "feasible_candidate_count_mean_trajectory_center_averaged",
+          "b": "decision_runtime_actual_s_total_recorded",
+          "r": 0.9940846135158535,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "feasible_candidate_count_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_total_recorded",
+          "r": 0.9940846135158535,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "feasible_candidate_count_mean_trajectory_center_averaged",
+          "b": "decision_runtime_actual_s_mean_trajectory_center_averaged",
+          "r": 0.9940846135158534,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "feasible_candidate_count_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged",
+          "r": 0.9940846135158534,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_search_updates_charged_mean_trajectory_center_averaged",
+          "b": "decision_runtime_actual_s_total_recorded",
+          "r": 0.9940846135158534,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_search_updates_charged_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_total_recorded",
+          "r": 0.9940846135158534,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_search_updates_charged_mean_trajectory_center_averaged",
+          "b": "decision_runtime_actual_s_mean_trajectory_center_averaged",
+          "r": 0.9940846135158533,
+          "magnitude": "very strong"
+        },
+        {
+          "a": "ri_search_updates_charged_mean_trajectory_center_averaged",
+          "b": "decision_runtime_standalone_estimate_s_mean_trajectory_center_averaged",
+          "r": 0.9940846135158533,
+          "magnitude": "very strong"
+        }
+      ]
+    },
+    "group_summary": {
+      "by": [
+        "method"
+      ],
+      "n_groups": 5,
+      "min_n_per_group": 1,
+      "max_n_per_group": 1,
+      "median_n_per_group": 1,
+      "small_groups_flag": true,
+      "tiny_groups_flag": true,
+      "per_group_counts": [
+        [
+          "B0",
+          1
+        ],
+        [
+          "B1",
+          1
+        ],
+        [
+          "B2",
+          1
+        ],
+        [
+          "B8",
+          1
+        ],
+        [
+          "P7.7",
+          1
+        ]
+      ]
+    },
+    "warnings": [
+      "\u5217 'n_centers' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'n_trajectories' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'n_stage_records' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'feasible_candidate_count_total_recorded' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'ri_search_updates_charged_total_recorded' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'source_cache_hits_total_recorded' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'source_cache_hits_mean_trajectory_center_averaged' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'shared_parent_cache_hit_total_recorded' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002",
+      "\u5217 'shared_parent_cache_hit_mean_trajectory_center_averaged' \u81f3\u5c11\u6709\u4e00\u4e2a\u7c7b\u522b n<10 \u2014 \u5c0f\u6837\u672c\u5fc5\u987b\u5c55\u793a\u539f\u59cb\u6570\u636e\u70b9\uff0c\u4e0d\u8981\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\u3002"
+    ],
+    "suggestions": [
+      "\u5206\u7c7b vs \u8fde\u7eed\uff0c\u5c0f\u6837\u672c\uff08\u6bcf\u7ec4 n<10\uff09\u2192 **\u7bb1\u7ebf\u56fe/\u5c0f\u63d0\u7434\u56fe + stripplot \u53e0\u52a0\u539f\u59cb\u70b9**\uff1b**\u907f\u514d**\u53ea\u753b\u5747\u503c\u67f1\u72b6\u56fe\uff0c\u4f1a\u63a9\u76d6\u5206\u5e03\u3002",
+      "\u22653 \u4e2a\u8fde\u7eed\u53d8\u91cf \u2192 \u76f8\u5173\u6027\u70ed\u529b\u56fe\uff08['feasible_candidate_count_mean_trajectory_center_averaged', 'ri_search_updates_charged_mean_trajectory_center_averaged', 'decision_runtime_actual_s_total_recorded', 'decision_runtime_actual_s_mean_trajectory_center_averaged', 'decision_runtime_standalone_estimate_s_total_recorded']\uff09\u6216 pairplot \u6563\u70b9\u77e9\u9635"
+    ]
+  }
+}

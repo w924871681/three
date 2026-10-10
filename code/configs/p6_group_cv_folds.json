@@ -1,0 +1,17 @@
+{
+  "schema": "dt-lifecycle-escalation-p6-group-cv-folds-v1",
+  "declared_at": "2026-09-16T13:33:57+08:00",
+  "declared_before_model_fitting": true,
+  "group_key": "center_id",
+  "fitting_centers": [31200, 31201, 31202, 31203, 31204, 31205, 31206, 31207, 31208, 31209, 31210, 31211, 31212, 31213, 31214, 31215, 31216, 31217, 31218, 31219, 31220, 31221, 31222, 31223, 31224, 31225, 31226, 31227, 31228, 31229],
+  "folds": [
+    {"fold": 0, "validation_centers": [31200, 31201, 31202, 31203, 31204, 31205]},
+    {"fold": 1, "validation_centers": [31206, 31207, 31208, 31209, 31210, 31211]},
+    {"fold": 2, "validation_centers": [31212, 31213, 31214, 31215, 31216, 31217]},
+    {"fold": 3, "validation_centers": [31218, 31219, 31220, 31221, 31222, 31223]},
+    {"fold": 4, "validation_centers": [31224, 31225, 31226, 31227, 31228, 31229]}
+  ],
+  "training_rule": "For each fold, the training centers are the fitting_centers not listed as that fold's validation_centers.",
+  "all_seeds_scenarios_stages_stay_with_center": true,
+  "random_stage_split_forbidden": true
+}

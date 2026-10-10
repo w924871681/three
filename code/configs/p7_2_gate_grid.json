@@ -1,0 +1,24 @@
+{
+  "schema": "p7.2-gate-grid-v1",
+  "identical_to_p7": true,
+  "p7_grid_path": "configs/p7_delta_grid.json",
+  "p7_grid_sha256": "3865cf558a9bcf3b6e8891d376b1fa7ef0d665454a3fb13df52daf9cab28eb45",
+  "source": "results/p6/cv_predictions.csv",
+  "source_sha256": "717b1b32ece3a5315eb289d447768d09ef1b9c5e69a485b7b8092980437e027c",
+  "scale_rule": "median(abs(selected P6 OOF prediction error))",
+  "s": 0.00054436243408415,
+  "multipliers": [-2, -1, -0.5, 0, 0.5, 1, 2],
+  "delta_R": [
+    -0.0010887248681683,
+    -0.00054436243408415,
+    -0.000272181217042075,
+    0.0,
+    0.000272181217042075,
+    0.00054436243408415,
+    0.0010887248681683
+  ],
+  "selection_metric": "macro_center_balanced_admission_accuracy",
+  "tie_break": ["lower_overall_gate_open_rate", "smaller_absolute_delta_R", "lower_numeric_delta_R"],
+  "lifecycle_objective_used_for_gate_selection": false,
+  "frozen_before_gatecal_v2_outcomes": true
+}

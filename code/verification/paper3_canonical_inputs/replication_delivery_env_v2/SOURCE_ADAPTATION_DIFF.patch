@@ -1,0 +1,22 @@
+--- D:\dt-talk\DT_LIFECYCLE_ESCALATION\verification\paper3_canonical_inputs\replication_delivery_env_v1\delivery.py
++++ D:\dt-talk\DT_LIFECYCLE_ESCALATION\verification\paper3_canonical_inputs\replication_delivery_env_v2\delivery.py
+@@ -16,8 +16,8 @@
+ from datetime import datetime, timezone
+ from pathlib import Path
+ 
+-RESULT_RELATIVE = 'results/p7_7_integrity_replication_batch20_env_v1'
+-STATS_RELATIVE = 'statistics_batch20_env_v1'
++RESULT_RELATIVE = 'results/p7_7_integrity_replication_batch20_env_v2'
++STATS_RELATIVE = 'statistics_batch20_env_v2'
+ F1_DIGEST = 'ac82f95f4db3b1f624e5348cc8535d75ee3edc8d589c08e74d4aa6fa93f5e228'
+ METHODS = ('B0','B1','B2','B8','P7.7')
+ SCENARIOS = ('C0','C1','C3','C4')
+@@ -391,7 +391,7 @@
+             copied[str(target)] = copy_bound(source,target,digest)
+     for name,digest in bundle['statistics'].get('implementation_files_sha256',{}).items():
+         source = bound_bytes(name,digest)
+-        stat_root = safe_path(repo,'verification/paper3_canonical_inputs/replication_statistics_batch20_env_v1')
++        stat_root = safe_path(repo,'verification/paper3_canonical_inputs/replication_statistics_batch20_env_v2')
+         require(source.resolve().is_relative_to(stat_root.resolve()),'unexpected statistics implementation path')
+         target = package/'source'/'statistics'/source.resolve().relative_to(stat_root.resolve())
+         copied[str(target)] = copy_bound(source,target,digest)

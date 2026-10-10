@@ -1,0 +1,218 @@
+[
+  {
+    "key": "Sharma2022",
+    "title": "Digital Twins: State of the Art Theory and Practice, Challenges, and Open Research Questions",
+    "year": 2022,
+    "venue": "Journal of Industrial Information Integration",
+    "doi": "10.1016/j.jii.2022.100383",
+    "url": null,
+    "first_citation_index": 1
+  },
+  {
+    "key": "Mihai2022",
+    "title": "Digital Twins: A Survey on Enabling Technologies, Challenges, Trends and Future Prospects",
+    "year": 2022,
+    "venue": "IEEE Communications Surveys and Tutorials",
+    "doi": "10.1109/COMST.2022.3208773",
+    "url": null,
+    "first_citation_index": 2
+  },
+  {
+    "key": "Xu2023",
+    "title": "A Survey on Digital Twin for Industrial Internet of Things: Applications, Technologies and Tools",
+    "year": 2023,
+    "venue": "IEEE Communications Surveys and Tutorials",
+    "doi": "10.1109/COMST.2023.3297395",
+    "url": null,
+    "first_citation_index": 3
+  },
+  {
+    "key": "Tang2022",
+    "title": "Survey on Digital Twin Edge Networks (DITEN) Toward 6G",
+    "year": 2022,
+    "venue": "IEEE Open Journal of the Communications Society",
+    "doi": "10.1109/OJCOMS.2022.3197811",
+    "url": null,
+    "first_citation_index": 4
+  },
+  {
+    "key": "Qin2024",
+    "title": "Machine and Deep Learning for Digital Twin Networks: A Survey",
+    "year": 2024,
+    "venue": "IEEE Internet of Things Journal",
+    "doi": "10.1109/JIOT.2024.3416733",
+    "url": null,
+    "first_citation_index": 5
+  },
+  {
+    "key": "Tao2026",
+    "title": "EDT-SaFL: Semi-Asynchronous Federated Learning for Edge Digital Twin in Industrial Internet-of-Things",
+    "year": 2026,
+    "venue": "IEEE Transactions on Mobile Computing",
+    "doi": "10.1109/TMC.2025.3595117",
+    "url": null,
+    "first_citation_index": 6
+  },
+  {
+    "key": "Luo2025",
+    "title": "Enabling Real-Time Digital Twin in Social IoT System Through Personalized Federated Learning",
+    "year": 2025,
+    "venue": "IEEE Internet of Things Journal",
+    "doi": "10.1109/JIOT.2025.3590746",
+    "url": null,
+    "first_citation_index": 7
+  },
+  {
+    "key": "Wang2024CL",
+    "title": "A Comprehensive Survey of Continual Learning: Theory, Method and Application",
+    "year": 2024,
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "doi": "10.1109/TPAMI.2024.3367329",
+    "url": null,
+    "first_citation_index": 8
+  },
+  {
+    "key": "Zhang2023OneNet",
+    "title": "OneNet: Enhancing Time Series Forecasting Models under Concept Drift by Online Ensembling",
+    "year": 2023,
+    "venue": "Advances in Neural Information Processing Systems",
+    "doi": "10.52202/075280-3066",
+    "url": null,
+    "first_citation_index": 9
+  },
+  {
+    "key": "Kim2022RevIN",
+    "title": "Reversible Instance Normalization for Accurate Time-Series Forecasting Against Distribution Shift",
+    "year": 2022,
+    "venue": "International Conference on Learning Representations",
+    "doi": null,
+    "url": "https://mlanthology.org/iclr/2022/kim2022iclr-reversible/",
+    "first_citation_index": 10
+  },
+  {
+    "key": "Liu2022NST",
+    "title": "Non-stationary Transformers: Exploring the Stationarity in Time Series Forecasting",
+    "year": 2022,
+    "venue": "Advances in Neural Information Processing Systems",
+    "doi": "10.52202/068431-0718",
+    "url": null,
+    "first_citation_index": 11
+  },
+  {
+    "key": "Wang2022CoTTA",
+    "title": "Continual Test-Time Domain Adaptation",
+    "year": 2022,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2022/html/Wang_Continual_Test-Time_Domain_Adaptation_CVPR_2022_paper.html",
+    "first_citation_index": 12
+  },
+  {
+    "key": "Niu2022EATA",
+    "title": "Efficient Test-Time Model Adaptation without Forgetting",
+    "year": 2022,
+    "venue": "Proceedings of the 39th International Conference on Machine Learning",
+    "doi": null,
+    "url": "https://proceedings.mlr.press/v162/niu22a.html",
+    "first_citation_index": 13
+  },
+  {
+    "key": "Yuan2023RoTTA",
+    "title": "Robust Test-Time Adaptation in Dynamic Scenarios",
+    "year": 2023,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Yuan_Robust_Test-Time_Adaptation_in_Dynamic_Scenarios_CVPR_2023_paper.html",
+    "first_citation_index": 14
+  },
+  {
+    "key": "Song2023EcoTTA",
+    "title": "EcoTTA: Memory-Efficient Continual Test-Time Adaptation via Self-Distilled Regularization",
+    "year": 2023,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Song_EcoTTA_Memory-Efficient_Continual_Test-Time_Adaptation_via_Self-Distilled_Regularization_CVPR_2023_paper.html",
+    "first_citation_index": 15
+  },
+  {
+    "key": "Niu2023SAR",
+    "title": "Towards Stable Test-Time Adaptation in Dynamic Wild World",
+    "year": 2023,
+    "venue": "International Conference on Learning Representations",
+    "doi": null,
+    "url": "https://mlanthology.org/iclr/2023/niu2023iclr-stable/",
+    "first_citation_index": 16
+  },
+  {
+    "key": "Liu2024MAE",
+    "title": "Continual-MAE: Adaptive Distribution Masked Autoencoders for Continual Test-Time Adaptation",
+    "year": 2024,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Continual-MAE_Adaptive_Distribution_Masked_Autoencoders_for_Continual_Test-Time_Adaptation_CVPR_2024_paper.html",
+    "first_citation_index": 17
+  },
+  {
+    "key": "Yang2024CTTA",
+    "title": "A Versatile Framework for Continual Test-Time Domain Adaptation: Balancing Discriminability and Generalizability",
+    "year": 2024,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_A_Versatile_Framework_for_Continual_Test-Time_Domain_Adaptation_Balancing_Discriminability_CVPR_2024_paper.html",
+    "first_citation_index": 18
+  },
+  {
+    "key": "Chen2024VPTTA",
+    "title": "Each Test Image Deserves A Specific Prompt: Continual Test-Time Adaptation for 2D Medical Image Segmentation",
+    "year": 2024,
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Chen_Each_Test_Image_Deserves_A_Specific_Prompt_Continual_Test-Time_Adaptation_CVPR_2024_paper.html",
+    "first_citation_index": 19
+  },
+  {
+    "key": "Nie2023PatchTST",
+    "title": "A Time Series Is Worth 64 Words: Long-Term Forecasting with Transformers",
+    "year": 2023,
+    "venue": "International Conference on Learning Representations",
+    "doi": null,
+    "url": "https://mlanthology.org/iclr/2023/nie2023iclr-time/",
+    "first_citation_index": 20
+  },
+  {
+    "key": "Wang2024EndEdge",
+    "title": "End-Edge-Cloud Collaborative Computing for Deep Learning: A Comprehensive Survey",
+    "year": 2024,
+    "venue": "IEEE Communications Surveys and Tutorials",
+    "doi": "10.1109/COMST.2024.3393230",
+    "url": null,
+    "first_citation_index": 21
+  },
+  {
+    "key": "Li2022EfficientFormer",
+    "title": "EfficientFormer: Vision Transformers at MobileNet Speed",
+    "year": 2022,
+    "venue": "Advances in Neural Information Processing Systems",
+    "doi": "10.52202/068431-0940",
+    "url": null,
+    "first_citation_index": 22
+  },
+  {
+    "key": "Li2023EfficientFormerV2",
+    "title": "Rethinking Vision Transformers for MobileNet Size and Speed",
+    "year": 2023,
+    "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+    "doi": null,
+    "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Li_Rethinking_Vision_Transformers_for_MobileNet_Size_and_Speed_ICCV_2023_paper.html",
+    "first_citation_index": 23
+  },
+  {
+    "key": "Lin2021MCUNetV2",
+    "title": "MCUNetV2: Memory-Efficient Patch-based Inference for Tiny Deep Learning",
+    "year": 2021,
+    "venue": "Advances in Neural Information Processing Systems",
+    "doi": null,
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2021/file/1371bccec2447b5aa6d96d2a540fb401-Paper.pdf",
+    "first_citation_index": 24
+  }
+]

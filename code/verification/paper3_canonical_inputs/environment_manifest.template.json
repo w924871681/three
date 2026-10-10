@@ -1,0 +1,42 @@
+{
+  "schema": "paper3-civ-approved-environment-v1",
+  "status": "UNAPPROVED_TEMPLATE",
+  "python_executable": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\python.exe",
+  "python_executable_sha256": "REQUIRES_BYTE_SHA256",
+  "python_version": "3.11.15",
+  "platform": "REQUIRES_ACTUAL_PLATFORM_EXACT_STRING",
+  "byteorder": "little",
+  "hardware": {
+    "machine": "REQUIRES_ACTUAL",
+    "processor": "REQUIRES_ACTUAL",
+    "processor_identifier": "REQUIRES_ACTUAL_OR_NULL"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "BLIS_NUM_THREADS": null,
+    "VECLIB_MAXIMUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null,
+    "OMP_DYNAMIC": null,
+    "MKL_DYNAMIC": null,
+    "NPY_DISABLE_CPU_FEATURES": null,
+    "OPENBLAS_CORETYPE": null,
+    "MKL_CBWR": null
+  },
+  "stdlib_root": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\Lib",
+  "stdlib_files_sha256": {},
+  "numpy_parent": "C:\\Users\\92487\\anaconda3\\envs\\rcf-dti-py311\\Lib\\site-packages",
+  "numpy_files_sha256": {},
+  "numpy_version": "2.4.6",
+  "numpy_build_configuration": null,
+  "runtime_binary_files_sha256": {},
+  "notes": [
+    "Template only; no interpreter or NumPy metadata probe was executed by this implementation task.",
+    "Freeze the actual approved current environment before any materialization.",
+    "Do not install or alter historical dependencies automatically.",
+    "stdlib traversal excludes site-packages and __pycache__; NumPy inventory includes numpy and numpy.libs .py/.pyi/.pyd/.dll.",
+    "Bind Python DLL and DLLs extension files explicitly; pin any other actual native runtime dependencies.",
+    "Null thread values assert actually unset; they are not wildcards."
+  ]
+}

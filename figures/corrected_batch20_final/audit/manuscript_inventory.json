@@ -1,0 +1,79 @@
+{
+  "schema": "paper3-corrected-figure-manuscript-inventory-v1",
+  "scope": "Read-only inventory; no manuscript, old figure, experiment, statistical protocol or archived evidence modified",
+  "repository": "D:/dt-talk/DT_LIFECYCLE_ESCALATION",
+  "manuscript": {
+    "path": "D:/dt-talk/DT_LIFECYCLE_ESCALATION/PAPER3_ORIGINAL_WORKING_MANUSCRIPT_UNMODIFIED.tex",
+    "status": "Only full Paper 3 LaTeX found in repository; preserved reconstructed original, still containing old experiment values",
+    "class": "IEEEtran journal",
+    "sections": {"5": {"title": "Experimental Setup", "line": 160}, "6": {"title": "Results and Analysis", "line": 194}, "7": {"title": "Discussion", "line": 262}},
+    "figure_1": {
+      "label": "fig:framework",
+      "lines": [129, 158],
+      "kind": "Inline TikZ scientific framework",
+      "style": "White background, black strokes, footnotesize labels, simple two-dimensional boxes/decision diamond",
+      "limitation": "No separately named or separately certified current Paper 3 Fig.1 image asset found. Do not claim visual verification of a newer user-confirmed Fig.1 asset."
+    }
+  },
+  "legacy_plotter": {
+    "path": "D:/dt-talk/DT_LIFECYCLE_ESCALATION/scripts/plot_paper3_figures.py",
+    "input_lines": [31, 45],
+    "lifecycle_input_lines": [35, 39],
+    "raw_input_line": 97,
+    "legacy_lifecycle_root": "results/p7_7",
+    "legacy_validation_root": "results/p7_6b",
+    "status": "Not a plotting source for the corrected batch20 final figures",
+    "outputs": ["fig2_recoverability_transport", "fig3_lifecycle_and_escalation", "fig4_scenario_lifecycle_behavior"],
+    "existing_older_stems": ["fig2_recoverability_inference", "fig3_lifecycle_service_performance", "fig4_selective_model_search", "fig5_scenario_and_diagnostics"],
+    "archives": ["figures/archive_v1", "figures/archive_pre_visual_polish"],
+    "source_evidence": "figures/figure_generation_manifest.json records old results/p7_7 inputs and frozen legacy numeric assertions",
+    "distinction": "Old Fig.2 validation estimator transport uses P7.6B and is a separate validation question, not the newly requested corrected lifecycle Fig.2. Old lifecycle Fig.3/Fig.4 and earlier lifecycle figures use obsolete p7_7 data."
+  },
+  "development_figures": {
+    "script": "D:/dt-talk/DT_LIFECYCLE_ESCALATION/scripts/run_p3.py",
+    "lines": [229, 250],
+    "stems": ["p3_stagewise_recoverability", "p3_local_vs_reinstantiation_gap"],
+    "status": "Earlier development/phenomenon figures, excluded from final corrected batch20 figures"
+  },
+  "style_reference": {
+    "paper1_fig2_image": "D:/dt-talk/figures/fig2.png",
+    "paper1_fig2_pdf": "D:/dt-talk/figures/fig2.pdf",
+    "paper1_fig2_script": "D:/dt-talk/figures/draw_fig2.py",
+    "viewed": true,
+    "script_lines": [30, 49],
+    "style": {"font": "DejaVu Sans", "text": "#222222", "blue": "#6F8FAF", "orange": "#C99A5A", "background": "white"},
+    "transfer": "Use restrained palette/white background/type family only; do not reuse flow icons, decorative filled panels or scientific content in empirical plots",
+    "paper3_existing_plot_style": "D:/dt-talk/DT_LIFECYCLE_ESCALATION/scripts/paper_figure_style.py"
+  },
+  "tables": [
+    {"label": "tab:methods", "line": 173, "content": "Five methods and lifecycle behavior", "recommendation": "Keep: method definition table is not redundant with numerical figures"},
+    {"label": "tab:main", "line": 200, "content": "Five means, Proposed-minus-baseline estimates and paired bootstrap CIs", "recommendation": "For later authorized manuscript revision, keep five absolute method means in a compact table and remove duplicate contrast/CI columns, or move full exact numeric table to supplementary material; Fig.2 carries paired contrast uncertainty and actual 20-center heterogeneity"},
+    {"label": "tab:actions", "line": 223, "content": "Maintenance rate, RI rate, action cost, retain rate, gate-open rate", "recommendation": "For later authorized revision, retain compact all-method action/cost table or supplementary table; remove duplicate B8/Proposed gate-open and RI columns if space constrained. Fig.3 newly distinguishes admission, candidate optimizer work and committed RI; action cost must not be replaced by optimizer-update counts"},
+    {"label": "tab:scenario", "line": 244, "content": "Four scenarios, B8/Proposed losses plus Proposed gate-open and RI rates", "recommendation": "Keep corrected scenario table; omit optional Fig.4 to avoid materially duplicating the two-method four-scenario comparison. Decision based on overlap, not direction or significance of results"}
+  ],
+  "manuscript_sync_items_no_changes_made": [
+    {"lines": [161, 166], "issue": "Final Held-Out Protocol and executed-once claims refer to old experiment; corrected evidence is integrity-correction replication on previously observed F1 inputs"},
+    {"lines": [207, 211], "issue": "All five main means and paired intervals are old; B8 interval in original manuscript is wholly positive, while corrected B8 interval crosses zero"},
+    {"line": 216, "issue": "Old leave-one-out values and consistently unfavorable B8 claim require later evidence-aligned review"},
+    {"lines": [219, 234], "issue": "Old Proposed gate-open 33.14%, RI rates 1.79%/1.70% and action table are stale; corrected figure values must come from verified CSV"},
+    {"lines": [240, 254], "issue": "Scenario numeric table contains legacy values; use corrected saved scenario statistics for later authorized revision"},
+    {"line": 260, "issue": "Old diagnostic counts 381/12/86/1813 are stale; archived corrected missed escalation is 2100/5760"},
+    {"line": 266, "issue": "Statement that B8 paired CI remains unfavorable to Proposed contradicts corrected CI crossing zero; no superiority/equivalence/noninferiority claim supported"}
+  ],
+  "metric_compatibility": {
+    "service_loss": "Mean lifecycle service loss (service MSE): stages averaged per trajectory, seeds/scenarios averaged within center, center is independent statistical unit",
+    "paired_difference": "Proposed minus baseline; negative difference means lower Proposed service loss",
+    "admission": "Search admission rate (gate-open rate); not committed RI",
+    "workload": "Candidate-search optimizer updates; not total search budget, action cost, decision runtime or end-to-end measured cost",
+    "committed_action": "Committed RI count; total over 5760 decisions per method",
+    "protocol": "20 centers, 4000 jointly paired center bootstrap resamples, seed 2904; use saved intervals unchanged"
+  },
+  "layout_recommendation": {
+    "fig2": "figure* at width=\\textwidth, nominal 7.16 inches; avoid reduction to one column. Main linear forest with zero line and explicitly labeled B8 local zoom; genuine paired-center panel",
+    "fig3": "figure* at width=\\textwidth, nominal 7.16 inches; three aligned panels with zero-based scales and readable exact count labels",
+    "fig4": "OMITTED_DUE_TO_SCENARIO_TABLE_OVERLAP",
+    "minimum_text_at_nominal_width_pt": 8,
+    "suggested_main_labels_pt": 9,
+    "required_checks": "No text clipping/overlap; grayscale marker redundancy; PDF vector paths/font text; PNG >=400 dpi; plots not cropped through data and B8 local zoom includes zero and both CI endpoints"
+  }
+}

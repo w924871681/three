@@ -1,0 +1,78 @@
+--- pre-fix/provenance.py
++++ post-fix/provenance.py
+@@ -343,9 +343,9 @@
+     executable = regular_path(sys.executable)
+     _assert(executable == paths["python_executable"], "model interpreter differs from reviewed independent venv")
+     _assert(regular_path(sys.base_prefix) == paths["base_prefix"], "current model base prefix differs from reviewed layout")
+-    metadata = bootstrap_platform_metadata()
+-    _assert(platform.python_version() == env["python_version"] and sys.byteorder == env["byteorder"] and metadata["platform"] == env["platform"], "model Python/platform differs from Stage B")
+-    hardware = {"machine":metadata["machine"],"processor":metadata["processor"],"processor_identifier":os.environ.get("PROCESSOR_IDENTIFIER")}
++    platform_values = bootstrap_platform_metadata()
++    _assert(platform.python_version() == env["python_version"] and sys.byteorder == env["byteorder"] and platform_values["platform"] == env["platform"], "model Python/platform differs from Stage B")
++    hardware = {"machine":platform_values["machine"],"processor":platform_values["processor"],"processor_identifier":os.environ.get("PROCESSOR_IDENTIFIER")}
+     thread_env = {name:os.environ.get(name) for name in THREAD_ENV}
+     _assert(hardware == env["hardware"] and thread_env == env["thread_environment"], "model hardware/thread environment differs from Stage B")
+     _assert(sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode,
+@@ -410,7 +410,7 @@
+             "stdlib_root":str(stdlib),"venv_configuration":venv_values,
+             "startup_files_present_but_not_executed":startup,"site_startup_processed":False,
+             "python_executable":str(executable),"python_executable_sha256":file_sha256(executable),
+-            "python_version":platform.python_version(),"platform":metadata["platform"],"byteorder":sys.byteorder,
++            "python_version":platform.python_version(),"platform":platform_values["platform"],"byteorder":sys.byteorder,
+             "hardware":hardware,"thread_environment":thread_env,"bound_files_sha256":bound,
+             "model_runtime_environment":runtime_variables,
+             "model_runtime_environment_digest":canonical_hash(runtime_variables),
+--- pre-fix/tests/test_platform_bootstrap.py
++++ post-fix/tests/test_platform_bootstrap.py
+@@ -72,5 +72,51 @@
+         with self.metadata(),patch.object(p.platform,"platform",return_value=None),self.assertRaises(p.ProvenanceError):p.bootstrap_platform_metadata()
+         self.assertIsNone(p._PLATFORM_BOOTSTRAP)
+ 
++    def test_capture_retains_platform_after_real_distribution_metadata_loop(self):
++        """Complete capture return reads synthetic METADATA files, no packages."""
++        with tempfile.TemporaryDirectory(dir=os.environ["PAPER3_SYNTHETIC_TEMP_ROOT"]) as folder:
++            root=Path(folder)
++            base=root/"base";prefix=root/"independent_venv"
++            stdlib=base/"Lib";site=prefix/"Lib"/"site-packages"
++            scripts=prefix/"Scripts"
++            for directory in (stdlib,site,scripts):directory.mkdir(parents=True,exist_ok=True)
++            executable=scripts/"python.exe";executable.write_bytes(b"synthetic-not-executable")
++            pyvenv=prefix/"pyvenv.cfg";pyvenv.write_text("include-system-site-packages = false\n",encoding="utf-8")
++            expected=dict(p.EXPECTED_MODEL_VERSIONS)
++            metadata_paths={}
++            for name,version in expected.items():
++                distribution=site/(name.replace("-","_")+"-"+version+".dist-info")
++                distribution.mkdir()
++                metadata=distribution/"METADATA"
++                metadata.write_text(f"Metadata-Version: 2.1\nName: {name}\nVersion: {version}\n",encoding="utf-8")
++                metadata_paths[name]=metadata
++            environment={"python_version":p.platform.python_version(),"byteorder":p.sys.byteorder,
++                "platform":"Windows-SYNTHETIC-EXACT",
++                "hardware":{"machine":"SYNTHETIC_MACHINE","processor":"SYNTHETIC_PROCESSOR",
++                            "processor_identifier":os.environ.get("PROCESSOR_IDENTIFIER")},
++                "thread_environment":{name:os.environ.get(name) for name in p.THREAD_ENV},
++                "numpy_files_sha256":{},"stdlib_root":str(stdlib)}
++            paths={"python_executable":executable,"base_prefix":base,"prefix":prefix,
++                   "site_packages_root":site,"stdlib_root":stdlib}
++            descriptor={"expected_versions":expected,"fixture":"metadata-only-independent-runtime"}
++            progress=[]
++            with self.metadata(),patch.object(p,"_runtime_layout",return_value=(paths,pyvenv,{"include-system-site-packages":"false"})),\
++                 patch.object(p.sys,"executable",str(executable)),patch.object(p.sys,"base_prefix",str(base)),\
++                 patch.object(p.sys,"pycache_prefix",str(root/"never_created_pycache")):
++                captured=p.capture_model_environment(environment,descriptor,progress=progress.append)
++            self.assertEqual(captured["platform"],"Windows-SYNTHETIC-EXACT")
++            self.assertEqual(captured["hardware"],environment["hardware"])
++            self.assertEqual(captured["exact_versions"],expected)
++            self.assertEqual(len(captured["distributions"]),len(expected))
++            self.assertEqual(captured["input_environment"],environment)
++            self.assertFalse(captured["packages_imported_during_capture"])
++            self.assertFalse(captured["historical_environment_reproduced"])
++            self.assertTrue(progress)
++            for name,metadata in metadata_paths.items():
++                distribution=captured["distributions"][metadata.parent.name]
++                self.assertEqual(distribution["name"],name)
++                self.assertEqual(distribution["metadata_sha256"],p.file_sha256(metadata))
++                self.assertEqual(captured["bound_files_sha256"][str(metadata)],p.file_sha256(metadata))
++
+ 
+ if __name__=="__main__":unittest.main()
