@@ -1,0 +1,55 @@
+--- a/code/verification/paper3_canonical_inputs/replication_executor_batch20_env_v3/executor_driver.py
++++ b/code/verification/paper3_canonical_inputs/replication_executor_batch20_env_v3/executor_driver.py
+@@ -26,7 +26,7 @@
+     __package__ = package.__name__
+ from . import provenance as p
+ 
+-REPO = Path(r"D:\dt-talk\DT_LIFECYCLE_ESCALATION")
++REPO = Path(__file__).resolve().parents[3]
+ RESULTS = REPO / "results/p7_7_integrity_replication_batch20_env_v3"
+ INPUT_RUN = REPO / "verification/paper3_canonical_inputs/P7_7_CANONICAL_INPUT_VERIFICATION_V1/CIV_INPUT_V1_AUTHORIZED_20261009_RUN003"
+ EXECUTOR = Path(__file__).resolve().parent
+--- a/code/verification/paper3_canonical_inputs/replication_dynamic_takeover_v1/controlled_quiesce.py
++++ b/code/verification/paper3_canonical_inputs/replication_dynamic_takeover_v1/controlled_quiesce.py
+@@ -18,7 +18,7 @@
+ import uuid
+ from datetime import datetime, timezone
+ 
+-REPO = Path(r"D:\dt-talk\DT_LIFECYCLE_ESCALATION")
++REPO = Path(__file__).resolve().parents[3]
+ RESULTS = REPO / "results/p7_7_integrity_replication_batch20_env_v3"
+ HERE = REPO / "verification/paper3_canonical_inputs/replication_dynamic_takeover_v1"
+ DYNAMIC = REPO / "verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1"
+--- a/code/verification/paper3_canonical_inputs/replication_dynamic_takeover_v1/readonly_snapshot.py
++++ b/code/verification/paper3_canonical_inputs/replication_dynamic_takeover_v1/readonly_snapshot.py
+@@ -7,7 +7,7 @@
+ import sys
+ from datetime import datetime, timezone
+ 
+-REPO = Path(r'D:\dt-talk\DT_LIFECYCLE_ESCALATION')
++REPO = Path(__file__).resolve().parents[3]
+ SCHEDULER = REPO / 'verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1'
+ if str(SCHEDULER) not in sys.path:
+     sys.path.insert(0, str(SCHEDULER))
+--- a/code/verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1/frozen_bridge.py
++++ b/code/verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1/frozen_bridge.py
+@@ -21,7 +21,7 @@
+ import uuid
+ 
+ 
+-REPO_ROOT = Path(r"D:\dt-talk\DT_LIFECYCLE_ESCALATION")
++REPO_ROOT = Path(__file__).resolve().parents[3]
+ SCHEDULER_ROOT = REPO_ROOT / "verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1"
+ EXECUTOR_ROOT = REPO_ROOT / "verification/paper3_canonical_inputs/replication_executor_batch20_env_v3"
+ RESULTS_ROOT = REPO_ROOT / "results/p7_7_integrity_replication_batch20_env_v3"
+--- a/code/verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1/guard_extension.py
++++ b/code/verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1/guard_extension.py
+@@ -16,7 +16,7 @@
+ from types import MappingProxyType
+ 
+ 
+-REPO_ROOT = Path(r"D:\dt-talk\DT_LIFECYCLE_ESCALATION")
++REPO_ROOT = Path(__file__).resolve().parents[3]
+ SCHEDULER_ROOT = REPO_ROOT / "verification/paper3_canonical_inputs/replication_dynamic_scheduler_v1"
+ EXECUTOR_ROOT = REPO_ROOT / "verification/paper3_canonical_inputs/replication_executor_batch20_env_v3"
+ EXTENSION_SCOPE = "ORIGINAL_IMPORT_BINDINGS_PLUS_EXACT_DYNAMIC_SIDECAR_SHA256"
